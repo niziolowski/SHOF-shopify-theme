@@ -3,3 +3,4 @@ package-lock.json
 tailwind.css
 tailwind.config.json
 node_modules/
+mix-manifest.json

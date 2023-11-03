@@ -32,10 +32,7 @@
             </div>
 
           {% when 'description' %}
-            <p class="">
-              {{ product.description }}
-            </p>
-
+            {% render 'accordion' %}
           {% when 'variant_selector' %}
             <div class="">
               {% unless product.has_only_default_variant %}

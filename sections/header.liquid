@@ -1,90 +1,127 @@
-<header>
-  <div class="container">
-    <div class="header grid grid-cols-[1fr_2fr_1fr] items-center md:py-[40px] py-[20px]">
-      <!-- Logo -->
-      <div class="header__logo">
-        {% if section.settings.logo != blank %}
-          <a href="/">
-            {{ section.settings.logo | image_url: width: 200 | image_tag: loading: 'lazy' }}
-          </a>
-        {% else %}
-          <a href="/">
-            {{ shop.name }}
-          </a>
-        {% endif %}
-      </div>
+<header x-data="mobileMenu" x-cloak>
+  <!-- LOGO WITH ACTIONS -->
+  <div class="container mx-auto relative">
+    <!-- MENU BUTTON -->
+    <div x-on:click="toggleMenu" class="absolute left-6 top-1/2 p-3 rounded-full hover:bg-gray-100 transform -translate-y-1/2 lg:hidden">
+      {% render 'icon-menu' %}
+    </div>
 
-      <!-- Navigation -->
-      <div class="-order-1 md:relative md:order-none" x-data="{ showSearch: false }">
-        <div
-          class="absolute -top-3 w-full bg-white z-10"
-          x-transition
-          x-cloak
-          x-show="showSearch"
-          @toggle-search.window="showSearch = !showSearch">
-          {% render 'search-input', class: 'hover:stroke-accent w-10' %}
-        </div>
-        {% render 'header-navigation' %}
-      </div>
+    <div>{{ section.settings.mobile_menu_title }}</div>
+    <!-- LOGO -->
+    <div class="w-1/2 max-w-[350px] mx-auto p-6">
+      <a href="{{ shop.url }}">
+        {% render 'logo-animated' %}
+      </a>
+    </div>
 
-      <!-- Icons -->
-      <div class="header__icons flex items-center justify-end md:gap-3 gap-0" x-data="{ cart_count: {{ cart.item_count }}, showSearch: false }">
+    <!-- SIDE ACTIONS -->
+    <div class="flex gap-2 absolute right-6 top-1/2 transform -translate-y-1/2">
+      <a
+        class="p-3 cursor-pointer rounded-full hover:bg-gray-100 "
+        x-data
+        @click="$store.global.isMinicartVisible = true">{% render 'icon-shopping-bag' %}</a>
 
-        <button
-          type="button"
-          title="Search button"
-          class="hidden md:block"
-          @click="$dispatch('toggle-search'); showSearch = !showSearch">
-          <div x-show="!showSearch">
-            {% render 'icon-search', class: 'w-10 stroke-textColor hover:stroke-accent' %}
-          </div>
-          <div x-show="showSearch">
-            {% render 'icon-close', class: 'w-5 scale-150 origin-right fill-textColor hover:fill-accent' %}
-          </div>
-        </button>
-
-        {%- if shop.customer_accounts_enabled -%}
-          <div class="account-menu-wrapper hidden md:block">
-            <a href="{{ routes.account_url }}" title="account link">
-              {% render 'icon-account', class: 'w-10 mx-auto stroke-textColor hover:stroke-accent' %}
-            </a>
-          </div>
-        {%- endif -%}
-
-        <div @cart-count-updated.window="cart_count = $event.detail">
-          <a
-            title="Cart button"
-            class="relative block text-center group cursor-pointer"
-            href="{{ routes.cart_url }}"
-            {% comment %}
-            @click.prevent="$dispatch('toggle-cart'), document.body.classList.add('overflow-hidden')"
-            {% endcomment %}>
-            {% render 'icon-cart', class: 'w-10 stroke-textColor group-hover:stroke-accent' %}
-            <span x-text="cart_count" class="cart__count min-w-[22px] text-sm min-h-[22px] absolute grid place-content-center rounded-full -top-3 -right-1 text-white bg-black group-hover:bg-accent">
-              {{ cart.item_count }}
-            </span>
-          </a>
-        </div>
-
-      </div>
-
+      {% if shop.customer_accounts_enabled %}
+        <a class="p-3 cursor-pointer rounded-full hover:bg-gray-100 hidden lg:block" href="{{ routes.account_login_url }}">{% render 'icon-login' %}</a>
+      {% endif %}
     </div>
   </div>
+
+  <!-- DIVIDER -->
+  <div class="w-full bg-black h-[2px]"></div>
+
+  <!-- NAVIGATION MENU -->
+  <div class="container mx-auto relative text-xl hidden lg:block z-10">
+    <nav class="flex w-max mx-auto">
+      {% for link in linklists[section.settings.menu].links %}
+        {% if link.links != blank %}
+          <div
+            x-data="{open: false}"
+            class="group"
+            x-on:mouseenter="open = ! open"
+            @mouseleave="open = false">
+            <a class="flex items-center gap-2 px-6 py-4 pr-2 group-hover:text-hover hover:scale-105 transition relative" href="#">{{ link.title }} {% render 'icon-dropdown' %}</a>
+            <div
+              x-show="open"
+              x-transition
+              class="flex flex-col absolute shadow-m">
+              {% for sublink in link.links %}
+                <div class="flex">
+                  <a class="w-full px-6 py-4 bg-background hover:bg-background-hover transition" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <div class="flex">
+            <a class="px-6 py-4 hover:text-hover hover:scale-105 transition" href="{{ link.url }}">{{ link.title }}</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+
+  {% render 'mobile-menu' %}
 </header>
+
+<!-- something for SEO. Investigate in the future -->
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": {{ shop.name | json }},
+      {% if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+      {% endif %}
+      "sameAs": [
+        {{ settings.social_twitter_link | json }},
+        {{ settings.social_facebook_link | json }},
+        {{ settings.social_pinterest_link | json }},
+        {{ settings.social_instagram_link | json }},
+        {{ settings.social_tiktok_link | json }},
+        {{ settings.social_tumblr_link | json }},
+        {{ settings.social_snapchat_link | json }},
+        {{ settings.social_youtube_link | json }},
+        {{ settings.social_vimeo_link | json }}
+      ],
+      "url": {{ request.origin | append: page.url | json }}
+    }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
 
 {% schema %}
   {
-    "name": "Header",
+    "name": "Nagłówek",
     "settings": [
       {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo"
-      }, {
         "type": "link_list",
         "id": "menu",
-        "default": "main-menu",
-        "label": "Menu"
+        "label": "Header Menu",
+        "default": "main-menu"
+      }
+    ],
+    "max_blocks": 12,
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Nagłówek"
       }
     ]
   }

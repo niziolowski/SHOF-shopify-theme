@@ -1,0 +1,15 @@
+/* $ Variants */
+.variant-color-input + label.złote {
+  @apply bg-yellow-500;
+}
+.variant-color-input + label.srebrne {
+  @apply bg-gray-400;
+}
+.variant-color-input + label.grafitowe {
+  @apply bg-gray-800;
+}
+
+.variant-select-input {
+  @apply border
+  py-2 px-3 rounded-lg w-max;
+}

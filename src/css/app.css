@@ -1,11 +1,17 @@
+@import "./variants.css";
+@import "./logo-animated.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  body {
+  :root {
     font-family: "Jost", sans-serif;
     font-weight: 300;
+    @apply tracking-widest underline-offset-2;
+  }
+
+  body {
     scroll-behavior: smooth;
   }
   input[type="number"]::-webkit-outer-spin-button,
@@ -111,20 +117,4 @@
 .g-recaptcha {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-/* $ Variants */
-.variant-color-input + label.złote {
-  @apply bg-yellow-500;
-}
-.variant-color-input + label.srebrne {
-  @apply bg-gray-400;
-}
-.variant-color-input + label.grafitowe {
-  @apply bg-gray-800;
-}
-
-.variant-select-input {
-  @apply border
-  py-2 px-3 rounded-lg w-max;
 }

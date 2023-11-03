@@ -1,0 +1,41 @@
+<!-- MOBILE MENU -->
+<aside
+  x-show="isOpen"
+  class="flex flex-col z-10 top-0 bottom-0 bg-background fixed text-xl shadow-m w-full md:w-[300px]"
+  x-transition:enter="transition ease-in-out duration-300 transform"
+  x-transition:enter-start="-translate-x-full"
+  x-transition:enter-end="translate-x-0"
+  x-transition:leave="transition ease-in-out duration-300 transform"
+  x-transition:leave-start="translate-x-0"
+  x-transition:leave-end="-translate-x-full"
+  @click.away="toggleMenu">
+  <button x-on:click="toggleMenu" class="self-end p-4">{% render 'icon-close' %}</button>
+  <nav class="flex flex-col overflow-y-auto items-stretch w-full relative">
+    {% for link in linklists[section.settings.menu].links %}
+      {% if link.links != blank %}
+        <div x-data="{open: false}" x-on:click="open = ! open">
+          <a class="flex justify-center md:justify-start items-center gap-2 px-6 py-4 hover:text-hover hover:bg-background-hover transition" href="#">{{ link.title }} {% render 'icon-dropdown' %}</a>
+          <div x-show="open" x-transition>
+            {% for sublink in link.links %}
+              <div class="flex flex-col items-stretch w-full relative">
+                <a
+                  x-bind:class="open ? 'bg-background-hover' : '' "
+                  class="px-6 py-4 pl-9 bg-background hover:bg-background-hover hover:text-hover transition text-center md:text-left"
+                  href="{{ sublink.url }}">{{ sublink.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <div class="flex flex-col w-full relative items-stretch">
+          <a class="px-6 py-4 hover:text-hover hover:bg-background-hover transition text-center md:text-left" href="{{ link.url }}">{{ link.title }}</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    {% if shop.customer_accounts_enabled %}
+      <div id="test" class="flex flex-col w-full relative items-stretch">
+        <a href="{{ routes.account_login_url }}" class="px-6 py-4 hover:text-hover hover:bg-background-hover transition text-center md:text-left">zaloguj</a>
+      </div>
+    {% endif %}
+  </nav>
+</aside>

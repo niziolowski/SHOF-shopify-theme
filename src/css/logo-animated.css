@@ -1,0 +1,85 @@
+/* $ Logo Animation */
+.logo-animated {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.st0 {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.st1 {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.st2 {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+}
+
+.logo-svg {
+  width: 100%;
+}
+
+.logo-slogan {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 70%;
+  animation: shof-slogan 4.2s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shof-sh {
+  30% {
+    stroke-dashoffset: 401.6997375488;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes shof-f {
+  30% {
+    stroke-dashoffset: 257.032623291;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes shof-slogan {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.st2 {
+  stroke-dasharray: 401.6997375488;
+  stroke-dashoffset: 401.6997375488;
+  animation: shof-sh 4s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.st0 {
+  stroke-dasharray: 257.032623291;
+  stroke-dashoffset: 257.032623291;
+  animation: shof-f 4s ease-in;
+  animation-fill-mode: forwards;
+}
