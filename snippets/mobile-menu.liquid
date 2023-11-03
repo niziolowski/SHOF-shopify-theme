@@ -1,7 +1,11 @@
 <!-- MOBILE MENU -->
+<div
+  x-cloak
+  x-show="isOpen"
+  class="overlay transition-all z-30 w-screen h-screen top-0 fixed backdrop-blur-sm bg-white/50"></div>
 <aside
   x-show="isOpen"
-  class="flex flex-col z-10 top-0 bottom-0 bg-background fixed text-xl shadow-m w-full md:w-[300px]"
+  class="flex flex-col z-30 top-0 bottom-0 bg-background fixed text-xl shadow-m w-full md:w-[300px]"
   x-transition:enter="transition ease-in-out duration-300 transform"
   x-transition:enter-start="-translate-x-full"
   x-transition:enter-end="translate-x-0"

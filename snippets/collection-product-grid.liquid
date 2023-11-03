@@ -1,10 +1,15 @@
 <div class="collection__product-grid">
-	{% paginate collection.products by pagination %}
-		<div class="grid {{ grid_class }} grid-cols-2 md:gap-10 gap-5">
-			{% for product in collection.products limit: limit %}
-				{% render 'collection-product-card', product: product, image_class: image_class %}
-			{% endfor %}
-		</div>
-		{% render 'pagination', paginate: paginate %}
-	{% endpaginate %}
+  {% paginate collection.products by pagination %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-start text-xl relative place-items-center">
+      {% for product in collection.products limit: limit %}
+
+        {% render 'collection-product-card'		
+          , product: product 	
+          , image_class: image_class %}
+
+      {% endfor %}
+    </div>
+    {% render 'pagination'
+      , paginate: paginate %}
+  {% endpaginate %}
 </div>

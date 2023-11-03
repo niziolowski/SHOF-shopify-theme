@@ -1,36 +1,40 @@
-<div class="flex flex-col">
-	<a href="{{ product.url }}">
-		{% if product.featured_image %}
-		{{ product.featured_image | image_url: width: 350 | image_tag: loading: 'lazy', class: image_class }}
-			{% else %}
-				{{ 'product-1' | placeholder_svg_tag: image_class }}
-		{% endif %}
-	</a>
-	<a href="{{ product.url }}">
-		<h3 class="text-xl my-3 font-bold hover:text-accent">{{ product.title }}</h3>
-	</a>
-	{% render 'collection-product-price', product: product, class: 'mb-3' %}
-	<div
-		class="mt-auto"
-		x-data
-	>
-		<form method="post" action="/cart/add" x-ref="product_form">
-			<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-			<input min="1" type="hidden" id="quantity" name="quantity" value="1" />
-			<button 
-				type="submit"
-				name="add"
-				class="button"
-				@click.prevent="Functions.addToCart($refs.product_form)"
-				{% unless product.selected_or_first_available_variant.available %}
-					disabled
-				{% endunless %} >
-				{% unless product.selected_or_first_available_variant.available %}
-					Coming Soon
-					{% else %}
-						Add to Cart
-				{% endunless %}
-			</button>
-		</form>
-	</div>
-</div>
+{% comment %} Check for multiple product images {% endcomment %}
+{% assign multiple_images = false %}
+{% assign class = '' %}
+{% if product.images[1] != blank %}
+  {% assign multiple_images = true %}
+  {% assign class = class | append: 'group-hover:hidden' %}
+{% endif %}
+
+<a class="relative hover:shadow-lg transition p-2 text-xl font-light group" href="{{ product.url |  within: collection }}">
+  <div>
+    {% comment %} Featured image {% endcomment %}
+    {{ product.featured_media | image_url: width: 500 | image_tag: loading: 'lazy', class: class }}
+
+    {% comment %} Second image {% endcomment %}
+    {% if multiple_images %}
+      {{ product.images[1] | image_url: width: 500 | image_tag: loading: 'lazy', class: 'hidden group-hover:block' }}
+    {% endif %}
+  </div>
+
+  <!-- Product Title -->
+  <div class="flex flex-col py-4 gap-2">
+    <div class="transition underline-offset-2 decoration-1 group-hover:underline">{{ product.title }}</div>
+    {% render 'price'
+      , product: product %}
+  </div>
+
+  <!-- TAG -->
+  {% if product.metafields.custom.tag %}
+    <div class="absolute top-6 select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag.value.kolor }};">
+      {{ product.metafields.custom.tag.value.content }}
+    </div>
+  {% endif %}
+
+  <!-- TAG2 -->
+  {% if product.metafields.custom.tag_2 %}
+    <div class="absolute top-[58px] select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag_2.value.kolor }};">
+      {{ product.metafields.custom.tag_2.value.content }}
+    </div>
+  {% endif %}
+</a>

@@ -19,7 +19,7 @@
       <a
         class="p-3 cursor-pointer rounded-full hover:bg-gray-100 "
         x-data
-        @click="$store.global.isMinicartVisible = true">{% render 'icon-shopping-bag' %}</a>
+        @click="window.Functions.showCartDrawer()">{% render 'icon-shopping-bag' %}</a>
 
       {% if shop.customer_accounts_enabled %}
         <a class="p-3 cursor-pointer rounded-full hover:bg-gray-100 hidden lg:block" href="{{ routes.account_login_url }}">{% render 'icon-login' %}</a>

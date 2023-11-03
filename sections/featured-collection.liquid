@@ -1,23 +1,27 @@
 <div class="container">
-	<h2 class="text-center font-bold text-2xl mb-6">{{ section.settings.title }}</h2>
-	{% render 'collection-product-grid', limit: 3, grid_class: 'grid-cols-3', image_class: 'md:h-[300px] w-auto h-[150px]', collection: section.settings.featured_collection %}
+  <h2 class="text-center text-5xl font-normal text-accent m-10">{{ section.settings.title }}</h2>
+  {% render 'collection-product-grid'
+    , limit: 12
+    , grid_class: 'grid-cols-3'
+    , image_class: 'md:h-[300px] w-auto h-[150px]'
+    , collection: section.settings.featured_collection %}
 </div>
 
 {% schema %}
-{
-  "name": "Featured Collection",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "default": "Featured Products",
-      "label": "Title"
-    },
-    {
-      "type": "collection",
-      "id": "featured_collection",
-      "label": "Collection"
-    }
-  ]
-}
+  {
+    "name": "Featured Collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Featured Products",
+        "label": "Title"
+      },
+      {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Collection"
+      }
+    ]
+  }
 {% endschema %}

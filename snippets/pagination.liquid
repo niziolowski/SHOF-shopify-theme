@@ -1,20 +1,45 @@
-{% if paginate.pages > 0 %}
-	<nav role="navigation" class="flex justify-center mt-10 gap-3">
-		{% for part in paginate.parts %}
-			{% if part.is_link %}
-				<a 
-					href="{{ part.url }}"
-					class="text-center w-[40px] h-[40px] flex justify-center items-center font-bold border rounded hover:bg-accent hover:border-accent hover:text-white"
-				>
-					{{ part.title }}
-				</a>
-				{% else %}
-					<span
-						class="text-center w-[40px] h-[40px] flex justify-center items-center font-bold border rounded bg-accent border-accent text-white"
-					>
-						{{ part.title }}
-					</span>
-			{% endif %}
-		{% endfor %}
-	</nav>
-{% endif %}
+{%- if paginate.parts.size > 0 -%}
+  <div class="mx-auto my-10">
+    <nav role="navigation">
+      <ul class="flex justify-center items-center text-xl" role="list">
+        {%- if paginate.previous -%}
+          <li class=" flex justify-center items-center p-4 hover:scale-125 transition">
+            <a href="{{ paginate.previous.url }}{{ anchor }}">
+              {% render 'icon-arrow-left' %}
+            </a>
+          </li>
+        {%- endif -%}
+
+        {%- for part in paginate.parts -%}
+          <li>
+            {%- if part.is_link -%}
+              <a class=" flex justify-center items-center p-4 hover:scale-125 transition" href="{{ part.url }}{{ anchor }}">
+                {{- part.title -}}
+              </a>
+            {%- else -%}
+              {%- if part.title == paginate.current_page -%}
+                <a
+                  class=" text-shof-orange font-medium flex justify-center items-center p-4"
+                  role="link"
+                  aria-disabled="true"
+                  aria-current="page">
+                  {{- part.title -}}
+                </a>
+              {%- else -%}
+                <span>{{ part.title }}</span>
+              {%- endif -%}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+
+        {%- if paginate.next -%}
+          <li>
+            <a class=" flex justify-center items-center p-4 hover:scale-125 transition" href="{{ paginate.next.url }}{{ anchor }}">
+              {%- render 'icon-arrow-right' -%}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+  </div>
+{%- endif -%}
