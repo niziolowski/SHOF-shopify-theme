@@ -3,16 +3,21 @@
   data-section="{{ section.id }}"
   data-url="{{ product.url }}"
   {{ block.shopify_attributes }}>
+
   {%- for option in product.options_with_values -%}
+
+
     <fieldset class="flex gap-4 items-center js product-form__input">
       <h5 class="">{{ option.name }}:</h5>
       <div class="flex items-center gap-4">
+
         {% if option.name == 'Pasek' %}
           <select
             id="{{ section.id }}-{{ option.position }}-select"
             class="product-form__variantSelect"
             name="{{ option.name }}"
             form="{{ product_form_id }}">
+
             {%- for value in option.values -%}
               <option
                 value="{{ value | escape }}"
@@ -35,9 +40,7 @@
                 class="sr-only peer"
                 {% if option.selected_value == value %}
                 checked{% endif %}>
-              <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="block cursor-pointer border rounded-2xl py-2 px-6 hover:bg-accent hover:border-accent hover:text-white peer-checked:bg-accent peer-checked:border-accent peer-checked:text-white">
-                {{ value }}
-              </label>
+              <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class=" bg-black block cursor-pointer border rounded-full w-7 h-7 hover:scale-110 hover:brightness-110 hover:shadow-md active:scale-100  transition"></label>
             </div>
           {%- endfor -%}
         {% endif %}
@@ -54,6 +57,7 @@
   		constructor() {
   			super();
   			this.addEventListener('change', this.onVariantChange);
+  				
   		}
   	
   		onVariantChange() {
@@ -177,20 +181,20 @@
   		setUnavailable() {
   			const button = document.querySelector('.product-section__cart-button');
   			if (!this.currentVariant.available) {
-  				button.innerText = "Sold Out";
+  				button.innerText = "Wyprzedane";
   				button.setAttribute('disabled', '');
   			} else{
-  					button.innerText = "Add to Cart";
+  					button.innerText = "Do koszyka";
   					button.removeAttribute('disabled', '');
   				}
   		}
   	
   		getVariantData() {
-  			this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
+  			this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);  				
   			return this.variantData;
   		}
   	}
-  	
+  		
   	customElements.define('variant-selects', VariantSelects);
   	
   	class VariantRadios extends VariantSelects {
