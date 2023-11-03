@@ -4,36 +4,49 @@
       "type": "product-description",
       "blocks": {
         "title": {
-          "type": "title"
-        },
-        "vendor": {
-          "type": "vendor"
-        },
-        "price": {
-          "type": "price"
+          "type": "title",
+          "settings": {
+          }
         },
         "variant_selector": {
-          "type": "variant_selector"
+          "type": "variant_selector",
+          "settings": {
+          }
         },
         "quantity": {
-          "type": "quantity"
+          "type": "quantity",
+          "settings": {
+          }
         },
-        "description": {
-          "type": "description"
+        "price": {
+          "type": "price",
+          "settings": {
+          }
         },
         "checkout_buttons": {
-          "type": "checkout_buttons"
+          "type": "checkout_buttons",
+          "settings": {
+            "add_to_cart": "Add to Cart",
+            "sold_out": "Sold Out",
+            "dynamic_buttons": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
-        "vendor",
         "title",
-        "description",
         "variant_selector",
         "quantity",
         "price",
-        "checkout_buttons"
-      ]
+        "checkout_buttons",
+        "description"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
