@@ -26,8 +26,8 @@
         "checkout_buttons": {
           "type": "checkout_buttons",
           "settings": {
-            "add_to_cart": "Add to Cart",
-            "sold_out": "Sold Out",
+            "add_to_cart": "Do koszyka",
+            "sold_out": "Sold OutW",
             "dynamic_buttons": false
           }
         },
