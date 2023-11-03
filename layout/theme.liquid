@@ -6,41 +6,53 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link
+      rel="preconnect"
+      href="https://cdn.shopify.com"
+      crossorigin>
     <title>
       {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- if current_tags %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %}
+        &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}{% endunless -%}
     </title>
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
-		
-		<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
 
     {% render 'meta-tags' %}
     {{ 'style.css' | asset_url | stylesheet_tag }}
-		<script defer src="{{ 'slider.js' | asset_url }}"></script>
-		<script defer src="{{ 'alpine.js' | asset_url }}"></script>
-		<script defer src="{{ 'global-functions.js' | asset_url }}"></script>
+    <script defer src="{{ 'slider.js' | asset_url }}"></script>
+    <script defer src="{{ 'alpine.js' | asset_url }}"></script>
+    <script defer src="{{ 'global-functions.js' | asset_url }}"></script>
 
     {{ content_for_header }}
   </head>
 
   <body class="text-textColor">
-		<div class="w-full min-h-screen flex flex-col">
-			{% section 'announcement-bar' %}
-			<div class="sticky-header bg-white sticky top-0 z-10">
-    		{% section 'header' %}
-				{% render 'sticky-header-scroll-hide' %}
-			</div>
-			<main role="main" class="flex-grow" tabindex="-1">
-				{{ content_for_layout }}
-			</main>
-			{% section 'subscribe-newsletter' %}
-			{% section 'footer' %}
-			{% section 'cart-drawer' %}
-		</div>
+    <div class="w-full min-h-screen flex flex-col">
+      {% section 'announcement-bar' %}
+      <div class="sticky-header bg-white sticky top-0 z-10">
+        {% section 'header' %}
+        {% render 'sticky-header-scroll-hide' %}
+      </div>
+      <main
+        role="main"
+        class="flex-grow"
+        tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+      {% section 'subscribe-newsletter' %}
+      {% section 'footer' %}
+      {% section 'cart-drawer' %}
+    </div>
   </body>
 </html>

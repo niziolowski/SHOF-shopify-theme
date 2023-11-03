@@ -67,7 +67,7 @@
 								<button 
 									type="submit"
 									name="add"
-									class="product-section__cart-button button my-3"
+									class="product-section__cart-button button my-3 btn"
 									@click.prevent="Functions.addToCart($refs.product_form)"
 									{% unless product.selected_or_first_available_variant.available %}
 										disabled
