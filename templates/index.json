@@ -3,11 +3,9 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "featured_collection": "frontpage"
+        "featured_collection": "all"
       }
     }
   },
-  "order": [
-    "featured-collection"
-  ]
+  "order": ["featured-collection"]
 }
