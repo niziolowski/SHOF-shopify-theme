@@ -4,7 +4,8 @@
 
 @layer base {
   body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
     scroll-behavior: smooth;
   }
   input[type="number"]::-webkit-outer-spin-button,
@@ -14,15 +15,59 @@
     margin: 0;
     -moz-appearance: textfield !important;
   }
+
+  .color-theme {
+    /* $ SHADOW */
+    --shadow-color: 0deg 0% 68%;
+    --shadow-low: 0.3px 0.4px 0.6px hsl(var(--shadow-color) / 0.29),
+      0.4px 0.7px 0.9px -1.2px hsl(var(--shadow-color) / 0.29),
+      1px 1.6px 2.1px -2.5px hsl(var(--shadow-color) / 0.29);
+    --shadow-medium: 0.3px 0.4px 0.6px hsl(var(--shadow-color) / 0.3),
+      0.8px 1.3px 1.7px -0.8px hsl(var(--shadow-color) / 0.3),
+      2px 3.3px 4.3px -1.7px hsl(var(--shadow-color) / 0.3),
+      4.8px 8px 10.5px -2.5px hsl(var(--shadow-color) / 0.3);
+    --shadow-high: 0.3px 0.4px 0.6px hsl(var(--shadow-color) / 0.28),
+      1.3px 2.2px 2.9px -0.4px hsl(var(--shadow-color) / 0.28),
+      2.4px 4px 5.2px -0.7px hsl(var(--shadow-color) / 0.28),
+      4px 6.6px 8.7px -1.1px hsl(var(--shadow-color) / 0.28),
+      6.3px 10.5px 13.8px -1.4px hsl(var(--shadow-color) / 0.28),
+      9.9px 16.4px 21.6px -1.8px hsl(var(--shadow-color) / 0.28),
+      15px 24.9px 32.7px -2.1px hsl(var(--shadow-color) / 0.28),
+      22.1px 36.6px 48.1px -2.5px hsl(var(--shadow-color) / 0.28);
+  }
+
+  .shadow-m {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-l {
+    box-shadow: var(--shadow-high);
+  }
 }
 
 @layer components {
   .container {
     @apply max-w-[1280px];
   }
-  .button,
-  .shopify-challenge__button {
-    @apply inline-block text-white transition bg-accent md:px-10 px-2 w-full md:w-fit py-3 rounded-xl hover:bg-[#004c3f] active:bg-[#002e25] focus:shadow-[0_0_0.1875em_0.1875em_rgba(0,128,96,0.5)] cursor-pointer text-center;
+  .button {
+    @apply bg-primary
+  hover:brightness-110
+  active:scale-95
+  active:shadow-none
+  hover:active:brightness-90
+  px-4 
+  py-2
+  text-lg 
+  rounded-lg 
+  text-white 
+  cursor-pointer 
+  disabled:cursor-default 
+  disabled:bg-gray-200 
+  disabled:text-black
+  disabled:pointer-events-none
+  transition
+  shadow-m
+  tracking-widest;
   }
   .input {
     @apply w-full border rounded-xl px-4 h-[50px] outline-accent;

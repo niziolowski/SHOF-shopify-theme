@@ -43,19 +43,10 @@
             </div>
 
           {% when 'quantity' %}
-            <div class="my-3">
-              <p class="font-bold mb-1">Quantity</p>
               {% render 'product-quantity' %}
-            </div>
-
           {% when 'price' %}
-            <div class="my-3 font-bold text-4xl text-accent" id="price-{{ section.id }}">
-              {{ product.selected_or_first_available_variant.price | money }}
-              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
-                <s class="text-red-700">
-                  {{ product.selected_or_first_available_variant.compare_at_price | money }}</s>
-              {% endif %}
-            </div>
+            {% render 'price'
+              , product: product %}
 
           {% when 'checkout_buttons' %}
             <div x-data="{ 
@@ -78,7 +69,7 @@
                 <button
                   type="submit"
                   name="add"
-                  class="product-section__cart-button button my-3 btn"
+                  class="product-section__cart-button button"
                   @click.prevent="Functions.addToCart($refs.product_form)"
                   {% unless product.selected_or_first_available_variant.available %}
                   disabled
@@ -149,13 +140,13 @@
             "type": "text",
             "id": "add_to_cart",
             "label": "Add to cart button text",
-            "default": "Add to Cart"
+            "default": "Do koszyka"
           },
           {
             "type": "text",
             "id": "sold_out",
             "label": "Sold Out button text",
-            "default": "Sold Out"
+            "default": "Wyprzedane"
           },
           {
             "type": "checkbox",

@@ -1,0 +1,21 @@
+{% comment %} 
+        Renders
+
+        Accepts:
+        - product: {Object} test
+        - class: {String}
+{% endcomment %}
+
+{% if product.available %}
+  <div class="font-medium {{ class }}">
+    {% if product.price_varies %}
+      {{ product.price_min | money_without_currency }} - {{ product.price_max | money }}
+    {% else %}
+      {{ product.price | money }}
+    {% endif %}
+
+    {% if product.compare_at_price_max > product.price %}
+      <s class=" font-normal">{{ product.compare_at_price_max | money }}</s>
+    {% endif %}
+  </div>
+{% endif %}
