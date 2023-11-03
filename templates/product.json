@@ -8,6 +8,11 @@
           "settings": {
           }
         },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
         "variant_selector": {
           "type": "variant_selector",
           "settings": {
@@ -15,11 +20,6 @@
         },
         "quantity": {
           "type": "quantity",
-          "settings": {
-          }
-        },
-        "price": {
-          "type": "price",
           "settings": {
           }
         },
@@ -39,9 +39,9 @@
       },
       "block_order": [
         "title",
+        "price",
         "variant_selector",
         "quantity",
-        "price",
         "checkout_buttons",
         "description"
       ],
