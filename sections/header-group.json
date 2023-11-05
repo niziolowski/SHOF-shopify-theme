@@ -2,6 +2,9 @@
   "name": "Nagłówek",
   "type": "header",
   "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar"
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -9,5 +12,5 @@
       }
     }
   },
-  "order": ["header"]
+  "order": ["announcement-bar", "header"]
 }
