@@ -5,9 +5,6 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "text": "<p>Welcome to Doroshev Tailwind\/Alpine Shopify custom theme Template<\/p>",
-          "bg_color": "",
-          "color": "#ffffff"
         }
       },
       "header": {
@@ -27,9 +24,6 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "text": "<p>All Rights Reserved.<\/p>",
-          "bg_color": "",
-          "color": "#ffffff"
         }
       },
       "cart-drawer": {

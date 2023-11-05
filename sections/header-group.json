@@ -3,7 +3,23 @@
   "type": "header",
   "sections": {
     "announcement-bar": {
-      "type": "announcement-bar"
+      "type": "announcement-bar",
+      "blocks": {
+        "f51744ea-a4af-414c-8d9d-343d9cae173d": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>DARMOWA DOSTAWA OD 300zł<\/p>",
+            "bg_color": "#4e7255",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "f51744ea-a4af-414c-8d9d-343d9cae173d"
+      ],
+      "settings": {
+        "text_align": "justify-center"
+      }
     },
     "header": {
       "type": "header",
@@ -12,5 +28,8 @@
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
