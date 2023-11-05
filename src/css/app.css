@@ -53,9 +53,6 @@
 }
 
 @layer components {
-  .container {
-    max-width: 1280px;
-  }
   .button {
     @apply bg-primary
   hover:brightness-110
@@ -119,4 +116,9 @@
 .g-recaptcha {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+/* Instagram feed styles */
+div[data-block-handle="ig_feed"] {
+  @apply container !important;
 }

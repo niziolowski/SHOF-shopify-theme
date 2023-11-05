@@ -1,17 +1,17 @@
 <div class="container text-center flex flex-col gap-3">
-  <h2 class="font-normal uppercase text-6xl text-primary tracking-widest">{{ section.settings.title }}</h2>
+  <h2 class="font-normal uppercase text-[8vmin] sm:text-6xl text-primary tracking-widest">{{ section.settings.title }}</h2>
   <p>{{ section.settings.subtitle }}</p>
 
   {% form 'customer'
     , class: 'flex flex-col gap-3' %}
     <div class="flex align-center justify-center">
       <input
-        class="input rounded-r-none border-r-0 max-w-[250px]"
+        class="input rounded-r-none border-r-0 max-w-[250px] "
         type="email"
         name="contact[email]"
         placeholder="Email"
         required />
-      <button type="submit" class="button rounded-l-none">Zapisz się</button>
+      <button type="submit" class="button rounded-l-none whitespace-nowrap">Zapisz się</button>
     </div>
     {% if form.errors %}
       <div class="flex flex-row items-center justify-center w-full">
