@@ -56,6 +56,66 @@
         "text_align": "left"
       }
     },
+    "53d2633c-5674-4688-acea-488250809690": {
+      "type": "image-grid",
+      "blocks": {
+        "f69f8340-fb75-4042-aff1-2706f7273428": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kat.-PORTFELE-1.png",
+            "url": "shopify://collections/portfele"
+          }
+        },
+        "cf0f6514-9cae-4106-ba55-1a2cb7099af7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/baner-PLECAKI-1.png",
+            "url": "shopify://collections/plecaki"
+          }
+        },
+        "564fb913-44ae-41dd-8f2b-942dbdd53c6c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/KAT.-UNIKAT-OWE-1.png",
+            "url": "shopify://collections/limitowane"
+          }
+        },
+        "608e54fc-2ca0-4149-b32e-2ceb8d82d2d0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/KAT.-AKCES-ORIA-1.png",
+            "url": "shopify://collections/akcesoria"
+          }
+        },
+        "14ac0b07-6620-4fb6-bd87-3a99fcb99f8b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kat.-NERKI-1.png",
+            "url": "shopify://collections/nerki"
+          }
+        },
+        "c080ec14-ed5e-4bd4-967c-396e59cd73b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kat.-TOREBKI-1.png",
+            "url": "shopify://collections/torebki"
+          }
+        }
+      },
+      "block_order": [
+        "f69f8340-fb75-4042-aff1-2706f7273428",
+        "cf0f6514-9cae-4106-ba55-1a2cb7099af7",
+        "564fb913-44ae-41dd-8f2b-942dbdd53c6c",
+        "608e54fc-2ca0-4149-b32e-2ceb8d82d2d0",
+        "14ac0b07-6620-4fb6-bd87-3a99fcb99f8b",
+        "c080ec14-ed5e-4bd4-967c-396e59cd73b0"
+      ],
+      "settings": {
+        "gap": 16,
+        "images_size": 320,
+        "margin_y": 4
+      }
+    },
     "16991779754c042730": {
       "type": "apps",
       "blocks": {
@@ -74,6 +134,7 @@
     "e615f246-9308-420f-bd3f-d5f254b016a7",
     "featured-collection",
     "61d8f78f-027a-4b6f-b684-5aba6a3259c3",
-    "16991779754c042730"
+    "16991779754c042730",
+    "53d2633c-5674-4688-acea-488250809690"
   ]
 }
