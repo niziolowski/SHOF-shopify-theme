@@ -1,9 +1,5 @@
-<div class="container ajax-collection">
-  {% comment %} <div class="flex items-center justify-between mb-3 gap-3 flex-col-reverse md:flex-row">
-            {% render 'collection-filters-applied' %}
-            {% render 'collection-sort' %}
-            {% render 'collection-filters' %}
-      </div> {% endcomment %}
+{% render 'collection-filters' %}
+<div class="container">
   <div>
     {% render 'collection-product-grid'
       , grid_class: 'md:grid-cols-4'
