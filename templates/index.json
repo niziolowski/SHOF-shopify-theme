@@ -22,38 +22,41 @@
         "featured_collection": "wszystko"
       }
     },
-    "61d8f78f-027a-4b6f-b684-5aba6a3259c3": {
+    "5c479d6b-a9c5-40af-be14-1c10df222738": {
       "type": "features",
       "blocks": {
-        "4c74e8ef-9632-4c25-9bb7-1306dd8cca1c": {
+        "5ffd149e-d4c2-4261-8405-143d92682be1": {
           "type": "feature",
           "settings": {
-            "text": ""
+            "image": "shopify://shop_images/Warstwa-20.png",
+            "text": "<p>DARMOWA DOSTAWA OD 300zł</p>"
           }
         },
-        "d9532c98-a015-4beb-98f4-6722abb29dec": {
+        "f0f8669f-014f-45ca-bc4d-08ff954ef4ce": {
           "type": "feature",
           "settings": {
-            "text": ""
+            "image": "shopify://shop_images/Warstwa-234.png",
+            "text": "<p>NOWOŚCI</p><p>PIĄTKI O 12:00</p>"
           }
         },
-        "d94de3ce-f263-4ae9-9bbf-1a45b97b0e54": {
+        "91c9c047-3dcc-4706-bfb2-21c5605834c6": {
           "type": "feature",
           "settings": {
-            "text": ""
+            "image": "shopify://shop_images/Warstwa-214.png",
+            "text": "<p>30 DNI NA ZWROT</p>"
           }
         }
       },
       "block_order": [
-        "4c74e8ef-9632-4c25-9bb7-1306dd8cca1c",
-        "d9532c98-a015-4beb-98f4-6722abb29dec",
-        "d94de3ce-f263-4ae9-9bbf-1a45b97b0e54"
+        "5ffd149e-d4c2-4261-8405-143d92682be1",
+        "f0f8669f-014f-45ca-bc4d-08ff954ef4ce",
+        "91c9c047-3dcc-4706-bfb2-21c5605834c6"
       ],
       "settings": {
-        "color": "#ccc",
+        "color": "#6d786b",
         "text_color": "#ffffff",
-        "text_weight": "font-thin",
-        "text_align": "left"
+        "text_weight": "font-medium",
+        "text_align": "center"
       }
     },
     "53d2633c-5674-4688-acea-488250809690": {
@@ -134,6 +137,7 @@
     "e615f246-9308-420f-bd3f-d5f254b016a7",
     "featured-collection",
     "61d8f78f-027a-4b6f-b684-5aba6a3259c3",
+    "5c479d6b-a9c5-40af-be14-1c10df222738",
     "16991779754c042730",
     "53d2633c-5674-4688-acea-488250809690"
   ]
