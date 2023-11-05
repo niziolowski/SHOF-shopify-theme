@@ -1,0 +1,70 @@
+<div class="container w-fit mx-auto grid grid-cols-2 sm:grid-cols-3 " style="
+gap: {{ section.settings.gap }}px; 
+margin-top: {{ section.settings.margin_y }}rem; 
+margin-bottom: {{ section.settings.margin_y }}rem;">
+
+  {% assign size = section.settings.images_size %}
+
+  {% for block in section.blocks %}
+    <a class="border" href="{{ block.settings.url }}">
+      {{ block.settings.image | image_url: width: size | image_tag: loading: lazy }}
+    </a>
+  {% endfor %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Siatka zdjęć",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "range",
+        "label": "Odstępy",
+        "id": "gap",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "default": 16
+      }, {
+        "type": "range",
+        "label": "Rozmiar zdjęć",
+        "id": "images_size",
+        "min": 40,
+        "max": 1000,
+        "step": 20,
+        "default": 100
+      }, {
+        "type": "range",
+        "label": "Margines pionowy",
+        "id": "margin_y",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "default": 10
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Zdjęcie",
+        "type": "image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Obraz"
+          }, {
+            "type": "url",
+            "id": "url",
+            "label": "Odnośnik"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Siatka zdjęć"
+      }
+    ]
+  }
+{% endschema %}
