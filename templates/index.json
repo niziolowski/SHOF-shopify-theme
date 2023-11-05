@@ -136,14 +136,60 @@
       },
       "block_order": ["84952beb-e016-4c6f-880c-6a2b74c8f6db"],
       "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "c66bdd1f-f854-41af-8fe2-9fc616838016": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Białe w czarne kropki są najlepsze</p>",
+            "author": "Frelka"
+          }
+        },
+        "39bfa9fb-3bb5-475a-b163-b42f1347888a": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Zapakowane w super kartony</p>",
+            "author": "Grubek"
+          }
+        },
+        "48570364-1291-4c82-bf2a-566290fb04e9": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Trzecia opinia</p>",
+            "author": "anonim"
+          }
+        }
+      },
+      "block_order": [
+        "c66bdd1f-f854-41af-8fe2-9fc616838016",
+        "39bfa9fb-3bb5-475a-b163-b42f1347888a",
+        "48570364-1291-4c82-bf2a-566290fb04e9"
+      ],
+      "settings": {}
+    },
+    "image-with-title": {
+      "type": "image-with-title",
+      "settings": {
+        "image": "shopify://shop_images/o-nas-1.png",
+        "url": "",
+        "container_size": 1340,
+        "title": "<p>O</p><p>NAS</p>",
+        "title_size": 35,
+        "color": "text-shof-violet",
+        "title_x": -15
+      }
     }
   },
+
   "order": [
     "kolarz",
     "featured-collection",
-    "61d8f78f-027a-4b6f-b684-5aba6a3259c3",
     "5c479d6b-a9c5-40af-be14-1c10df222738",
     "16991779754c042730",
-    "53d2633c-5674-4688-acea-488250809690"
+    "53d2633c-5674-4688-acea-488250809690",
+    "reviews",
+    "image-with-title"
   ]
 }
