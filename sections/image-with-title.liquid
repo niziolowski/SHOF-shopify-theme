@@ -1,0 +1,120 @@
+<a
+  x-data="imageWithTitle"
+  x-init="initialize({{ section.settings.title_size }})"
+  href="{{ section.settings.url }}"
+  class="container p-10 mx-auto relative flex items-center"
+  style="max-width: {{ section.settings.container_size }}px">
+  <div x-ref="image" class=" w-1/2 aspect-auto relative top-0">
+    {% if section.settings.image %}
+      {{ section.settings.image | image_url: width: 1000 | image_tag: loading: lazy, class: 'w-full' }}
+    {% else %}
+      <div>
+        Wybierz obraz
+      </div>
+    {% endif %}
+  </div>
+  <div class=" absolute left-1/2" style="transform:translateX({{ section.settings.title_x }}%)">
+    <h2 x-ref="title" class="relative leading-none font-medium {{ section.settings.color }}">{{ section.settings.title }}</h2>
+  </div>
+</a>
+
+{% schema %}
+  {
+    "name": "Obraz z tytułem",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Obraz"
+      },
+      {
+        "type": "url",
+        "id": "url",
+        "label": "Odnośnik"
+      },
+      {
+        "type": "range",
+        "id": "container_size",
+        "label": "Maksymalna szerokość",
+        "min": 300,
+        "max": 2000,
+        "step": 20,
+        "default": 300,
+        "unit": "px"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Tytuł",
+        "info": "Pamiętaj o poprawnym sformatowaniu tekstu, aby wyświetlał się poprawnie, niezaleznie od rozmiaru ekranu."
+      },
+      {
+        "type": "range",
+        "id": "title_size",
+        "label": "Rozmiar Tytułu",
+        "min": 5,
+        "max": 90,
+        "step": 5,
+        "default": 50
+      },
+      {
+        "type": "select",
+        "id": "color",
+        "label": "Kolor Tytułu",
+        "default": "text-black",
+        "options": [
+          {
+            "value": "text-black",
+            "label": "Shof Czarny"
+          },
+          {
+            "value": "text-white",
+            "label": "Shof Biały"
+          },
+          {
+            "value": "text-shof-yellow",
+            "label": "Shof Żółty"
+          },
+          {
+            "value": "text-shof-green",
+            "label": "Shof Zielony"
+          },
+          {
+            "value": "text-shof-brown",
+            "label": "Shof Brązowy"
+          },
+          {
+            "value": "text-shof-blue",
+            "label": "Shof Niebieski"
+          },
+          {
+            "value": "text-shof-violet",
+            "label": "Shof Fioletowy"
+          },
+          {
+            "value": "text-shof-pink",
+            "label": "Shof Różowy"
+          },
+          {
+            "value": "text-shof-orange",
+            "label": "Shof Pomarańczowy"
+          },
+          {
+            "value": "text-shof-gray",
+            "label": "Shof Szary"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "title_x",
+        "label": "Przesuń tekst w osi poziomej",
+        "min": -100,
+        "max": 50,
+        "step": 5,
+        "unit": "%",
+        "default": -25
+      }
+    ]
+  }
+{% endschema %}
