@@ -26,49 +26,7 @@
         "title": "NOWOŚCI",
         "featured_collection": "wszystko"
       }
-    },
-    "5c479d6b-a9c5-40af-be14-1c10df222738": {
-      "type": "features",
-      "blocks": {
-        "5ffd149e-d4c2-4261-8405-143d92682be1": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/Warstwa-20.png",
-            "text": "<p>DARMOWA DOSTAWA OD 300zł</p>"
-          }
-        },
-        "f0f8669f-014f-45ca-bc4d-08ff954ef4ce": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/Warstwa-234.png",
-            "text": "<p>NOWOŚCI</p><p>PIĄTKI O 12:00</p>"
-          }
-        },
-        "91c9c047-3dcc-4706-bfb2-21c5605834c6": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/Warstwa-214.png",
-            "text": "<p>30 DNI NA ZWROT</p>"
-          }
-        }
-      },
-      "block_order": [
-        "5ffd149e-d4c2-4261-8405-143d92682be1",
-        "f0f8669f-014f-45ca-bc4d-08ff954ef4ce",
-        "91c9c047-3dcc-4706-bfb2-21c5605834c6"
-      ],
-      "settings": {
-        "color": "#6d786b",
-        "text_color": "#ffffff",
-        "text_weight": "font-medium",
-        "text_align": "center"
-      }
     }
   },
-  "order": [
-    "kolarz",
-    "featured-collection",
-    "features",
-    "5c479d6b-a9c5-40af-be14-1c10df222738"
-  ]
+  "order": ["kolarz", "featured-collection", "features"]
 }
