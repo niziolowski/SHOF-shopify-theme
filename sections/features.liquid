@@ -1,0 +1,117 @@
+<div style="background-color: {{ section.settings.color }};">
+
+  <div class="container mx-auto grid grid-cols-1 text-2xl md:grid-cols-3 my-10 {{ section.settings.text_weight }}" style="text-align: {{ section.settings.text_align }}; color: {{ section.settings.text_color }};">
+    {% for block in section.blocks %}
+      {% render 'feature'
+        , image: block.settings.image
+        , height: 100
+        , text: block.settings.text
+      %}
+    {% endfor %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Cechy",
+    "class": "features",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "label": "Kolor tła",
+        "id": "color",
+        "default": "#ccc"
+      },
+      {
+        "type": "color",
+        "label": "Kolor tekstu",
+        "id": "text_color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "select",
+        "id": "text_weight",
+        "label": "Grubość tekstu",
+        "options": [
+          {
+            "label": "Thin",
+            "value": "font-thin"
+          },
+          {
+            "label": "Extra Light",
+            "value": "font-extralight"
+          },
+          {
+            "label": "Light",
+            "value": "font-light"
+          },
+          {
+            "label": "Normal",
+            "value": "font-normal"
+          },
+          {
+            "label": "Medium",
+            "value": "font-medium"
+          },
+          {
+            "label": "Semibold",
+            "value": "font-semibold"
+          },
+          {
+            "label": "Bold",
+            "value": "font-bold"
+          },
+          {
+            "label": "Extra Bold",
+            "value": "font-extrabold"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "label": "Wyrównanie tekstu",
+        "options": [
+          {
+            "label": "Do lewej",
+            "value": "left"
+          },
+          {
+            "label": "Do środka",
+            "value": "center"
+          },
+          {
+            "label": "Do prawej",
+            "value": "right"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Cecha",
+        "type": "feature",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Obraz"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Treść"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Cechy"
+      }
+    ]
+  }
+{% endschema %}

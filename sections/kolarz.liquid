@@ -1,0 +1,154 @@
+<div class=" container flex flex-col md:flex-row gap-4 my-10" x-data="{
+    showModal: false,
+    imageSrc: '',
+    openModal(imageSrc) {
+      this.imageSrc = imageSrc;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+    }
+  }">
+  <!-- Modal overlay (click to close) -->
+  <div
+    x-show="showModal"
+    @click="closeModal"
+    x-transition
+    class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-10">
+    <!-- Modal content -->
+    <div @click.away="closeModal" class="relative bg-white p-6 max-w-3xl rounded-xl shadow-l">
+      <!-- Close button -->
+      <button
+        @click="closeModal"
+        class="absolute top-4 right-4 hover:scale-110 cursor-pointer"
+        aria-label="Close">
+        {% render 'icon-close' %}
+      </button>
+      <!-- Image -->
+      <img
+        x-bind:src="imageSrc"
+        alt="Full size image"
+        class="w-full" />
+    </div>
+  </div>
+
+
+  <!-- First column with one picture -->
+  <div class="md:w-1/2">
+    <a
+      href="{{ section.settings.first_image_link }}"
+      {% if section.settings[fist_image_zoom] %}
+      @click.prevent="openModal('{{ section.settings[first_image] |  image_url: width: 1000}}')"
+      {% endif %}>
+
+      <img
+        class="w-full h-auto aspect-[1/1] object-cover"
+        src="{% if section.settings.first_image == blank %}https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg{% else %}{{ section.settings.first_image |  image_url: width: 1000 }}{% endif %}"
+        alt="Image 1" />
+    </a>
+  </div>
+
+  <!-- Second column with four pictures -->
+  <div class="md:w-1/2">
+    <div class="grid grid-cols-2 gap-4">
+      {% for i in (2..5) %}
+        {% capture image_var %}image_{{ i }}{% endcapture %}
+        {% capture link_var %}image_{{ i }}_link{% endcapture %}
+        {% capture zoom_var %}image_{{ i }}_zoom{% endcapture %}
+        <a
+          href="{{ section.settings[link_var] }}"
+          {% if section.settings[zoom_var] %}
+          @click.prevent="openModal('{{ section.settings[image_var] |  image_url: width: 1000}}')"
+          {% endif %}>
+
+          <img
+            class="w-full aspect-[1/1] object-cover"
+            src="{% if section.settings[image_var] == blank %}https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg{% else %}{{ section.settings[image_var] | image_url: width: 500 }}{% endif %}"
+            alt="Image {{ i }}" />
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Kolarz",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "First Image",
+        "id": "first_image"
+      },
+      {
+        "type": "url",
+        "label": "First Image Link",
+        "id": "first_image_link"
+      },
+      {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "first_image_zoom",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "label": "Image 2",
+        "id": "image_2"
+      }, {
+        "type": "url",
+        "label": "Image 2 Link",
+        "id": "image_2_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_2_zoom",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "label": "Image 3",
+        "id": "image_3"
+      }, {
+        "type": "url",
+        "label": "Image 3 Link",
+        "id": "image_3_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_3_zoom",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "label": "Image 4",
+        "id": "image_4"
+      }, {
+        "type": "url",
+        "label": "Image 4 Link",
+        "id": "image_4_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_4_zoom",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "label": "Image 5",
+        "id": "image_5"
+      }, {
+        "type": "url",
+        "label": "Image 5 Link",
+        "id": "image_5_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_5_zoom",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Kolarz"
+      }
+    ]
+  }
+{% endschema %}

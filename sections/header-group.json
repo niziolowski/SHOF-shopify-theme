@@ -1,0 +1,30 @@
+{
+  "name": "Nagłówek",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "fe461ec7-9872-4dba-98b2-58faa8c7a93b": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>DARMOWA DOSTAWA OD 300zł</p>",
+            "bg_color": "#6d786b",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": ["fe461ec7-9872-4dba-98b2-58faa8c7a93b"],
+      "settings": {
+        "text_align": "justify-center"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu"
+      }
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}
