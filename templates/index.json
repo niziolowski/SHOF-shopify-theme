@@ -56,21 +56,21 @@
         "text_align": "left"
       }
     },
+    "image-with-text": {
+      "type": "image-with-text"
+    },
     "16991779754c042730": {
       "type": "apps",
       "blocks": {
         "84952beb-e016-4c6f-880c-6a2b74c8f6db": {
-          "type": "shopify:\/\/apps\/easy-instagram-feed\/blocks\/ig_feed\/195a0b78-59e2-42af-8b17-5bd53518cf45",
+          "type": "shopify://apps/easy-instagram-feed/blocks/ig_feed/195a0b78-59e2-42af-8b17-5bd53518cf45",
           "settings": {
             "feed_id": "1"
           }
         }
       },
-      "block_order": [
-        "84952beb-e016-4c6f-880c-6a2b74c8f6db"
-      ],
-      "settings": {
-      }
+      "block_order": ["84952beb-e016-4c6f-880c-6a2b74c8f6db"],
+      "settings": {}
     }
   },
   "order": [
