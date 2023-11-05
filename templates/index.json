@@ -1,16 +1,21 @@
 {
   "sections": {
-    "e615f246-9308-420f-bd3f-d5f254b016a7": {
+    "kolarz": {
       "type": "kolarz",
       "settings": {
-        "first_image_link": "",
+        "first_image": "shopify://shop_images/SHOF-Banner-Profilaktyka-raka-piersi-1.png",
+        "first_image_link": "shopify://collections/shof-x-rakiety",
         "first_image_zoom": false,
+        "image_2": "shopify://shop_images/baner-nowosci-1-1.jpg",
         "image_2_link": "",
         "image_2_zoom": false,
+        "image_3": "shopify://shop_images/baner-biust-napis.jpg",
         "image_3_link": "",
         "image_3_zoom": false,
+        "image_4": "shopify://shop_images/kalendarz-15x15-1.png",
         "image_4_link": "",
-        "image_4_zoom": false,
+        "image_4_zoom": true,
+        "image_5": "shopify://shop_images/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
         "image_5_link": "",
         "image_5_zoom": false
       }
@@ -134,7 +139,7 @@
     }
   },
   "order": [
-    "e615f246-9308-420f-bd3f-d5f254b016a7",
+    "kolarz",
     "featured-collection",
     "61d8f78f-027a-4b6f-b684-5aba6a3259c3",
     "5c479d6b-a9c5-40af-be14-1c10df222738",
