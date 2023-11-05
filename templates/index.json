@@ -3,19 +3,19 @@
     "kolarz": {
       "type": "kolarz",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/SHOF-Banner-Profilaktyka-raka-piersi-1.png",
-        "first_image_link": "shopify:\/\/collections\/shof-x-rakiety",
+        "first_image": "shopify://shop_images/SHOF-Banner-Profilaktyka-raka-piersi-1.png",
+        "first_image_link": "shopify://collections/shof-x-rakiety",
         "first_image_zoom": false,
-        "image_2": "shopify:\/\/shop_images\/baner-nowosci-1-1.jpg",
+        "image_2": "shopify://shop_images/baner-nowosci-1-1.jpg",
         "image_2_link": "",
         "image_2_zoom": false,
-        "image_3": "shopify:\/\/shop_images\/baner-biust-napis.jpg",
+        "image_3": "shopify://shop_images/baner-biust-napis.jpg",
         "image_3_link": "",
         "image_3_zoom": false,
-        "image_4": "shopify:\/\/shop_images\/kalendarz-15x15-1.png",
+        "image_4": "shopify://shop_images/kalendarz-15x15-1.png",
         "image_4_link": "",
         "image_4_zoom": true,
-        "image_5": "shopify:\/\/shop_images\/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
+        "image_5": "shopify://shop_images/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
         "image_5_link": "",
         "image_5_zoom": false
       }
@@ -33,22 +33,22 @@
         "5ffd149e-d4c2-4261-8405-143d92682be1": {
           "type": "feature",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Warstwa-20.png",
-            "text": "<p>DARMOWA DOSTAWA OD 300zł<\/p>"
+            "image": "shopify://shop_images/Warstwa-20.png",
+            "text": "<p>DARMOWA DOSTAWA OD 300zł</p>"
           }
         },
         "f0f8669f-014f-45ca-bc4d-08ff954ef4ce": {
           "type": "feature",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Warstwa-234.png",
-            "text": "<p>NOWOŚCI<\/p><p>PIĄTKI O 12:00<\/p>"
+            "image": "shopify://shop_images/Warstwa-234.png",
+            "text": "<p>NOWOŚCI</p><p>PIĄTKI O 12:00</p>"
           }
         },
         "91c9c047-3dcc-4706-bfb2-21c5605834c6": {
           "type": "feature",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Warstwa-214.png",
-            "text": "<p>30 DNI NA ZWROT<\/p>"
+            "image": "shopify://shop_images/Warstwa-214.png",
+            "text": "<p>30 DNI NA ZWROT</p>"
           }
         }
       },
@@ -70,43 +70,43 @@
         "f69f8340-fb75-4042-aff1-2706f7273428": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kat.-PORTFELE-1.png",
-            "url": "shopify:\/\/collections\/portfele"
+            "image": "shopify://shop_images/kat.-PORTFELE-1.png",
+            "url": "shopify://collections/portfele"
           }
         },
         "cf0f6514-9cae-4106-ba55-1a2cb7099af7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/baner-PLECAKI-1.png",
-            "url": "shopify:\/\/collections\/plecaki"
+            "image": "shopify://shop_images/baner-PLECAKI-1.png",
+            "url": "shopify://collections/plecaki"
           }
         },
         "564fb913-44ae-41dd-8f2b-942dbdd53c6c": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/KAT.-UNIKAT-OWE-1.png",
-            "url": "shopify:\/\/collections\/limitowane"
+            "image": "shopify://shop_images/KAT.-UNIKAT-OWE-1.png",
+            "url": "shopify://collections/limitowane"
           }
         },
         "608e54fc-2ca0-4149-b32e-2ceb8d82d2d0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/KAT.-AKCES-ORIA-1.png",
-            "url": "shopify:\/\/collections\/akcesoria"
+            "image": "shopify://shop_images/KAT.-AKCES-ORIA-1.png",
+            "url": "shopify://collections/akcesoria"
           }
         },
         "14ac0b07-6620-4fb6-bd87-3a99fcb99f8b": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kat.-NERKI-1.png",
-            "url": "shopify:\/\/collections\/nerki"
+            "image": "shopify://shop_images/kat.-NERKI-1.png",
+            "url": "shopify://collections/nerki"
           }
         },
         "c080ec14-ed5e-4bd4-967c-396e59cd73b0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kat.-TOREBKI-1.png",
-            "url": "shopify:\/\/collections\/torebki"
+            "image": "shopify://shop_images/kat.-TOREBKI-1.png",
+            "url": "shopify://collections/torebki"
           }
         }
       },
@@ -130,21 +130,21 @@
         "c66bdd1f-f854-41af-8fe2-9fc616838016": {
           "type": "review",
           "settings": {
-            "content": "<p>Białe w czarne kropki są najlepsze<\/p>",
+            "content": "<p>Białe w czarne kropki są najlepsze</p>",
             "author": "Frelka"
           }
         },
         "39bfa9fb-3bb5-475a-b163-b42f1347888a": {
           "type": "review",
           "settings": {
-            "content": "<p>Zapakowane w super kartony<\/p>",
+            "content": "<p>Zapakowane w super kartony</p>",
             "author": "Grubek"
           }
         },
         "48570364-1291-4c82-bf2a-566290fb04e9": {
           "type": "review",
           "settings": {
-            "content": "<p>Trzecia opinia<\/p>",
+            "content": "<p>Trzecia opinia</p>",
             "author": "anonim"
           }
         }
@@ -154,16 +154,15 @@
         "39bfa9fb-3bb5-475a-b163-b42f1347888a",
         "48570364-1291-4c82-bf2a-566290fb04e9"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "image-with-title": {
       "type": "image-with-title",
       "settings": {
-        "image": "shopify:\/\/shop_images\/o-nas-1.png",
+        "image": "shopify://shop_images/o-nas-1.png",
         "url": "",
         "container_size": 1340,
-        "title": "<p>O<\/p><p>NAS<\/p>",
+        "title": "<p>O</p><p>NAS</p>",
         "title_size": 35,
         "color": "text-shof-violet",
         "title_x": -15
@@ -173,16 +172,23 @@
       "type": "apps",
       "blocks": {
         "84952beb-e016-4c6f-880c-6a2b74c8f6db": {
-          "type": "shopify:\/\/apps\/easy-instagram-feed\/blocks\/ig_feed\/195a0b78-59e2-42af-8b17-5bd53518cf45",
+          "type": "shopify://apps/easy-instagram-feed/blocks/ig_feed/195a0b78-59e2-42af-8b17-5bd53518cf45",
           "settings": {
             "feed_id": "1"
           }
         }
       },
-      "block_order": [
-        "84952beb-e016-4c6f-880c-6a2b74c8f6db"
-      ],
+      "block_order": ["84952beb-e016-4c6f-880c-6a2b74c8f6db"],
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
       "settings": {
+        "title": "Newsletter",
+        "text": "Zapraszam do domku na drzewie!",
+        "button_text": "Zapisz się",
+        "button_url": "https://shofstore.com/pages/newsletter",
+        "image": "shopify://shop_images/newsletter.png"
       }
     }
   },
@@ -193,6 +199,7 @@
     "53d2633c-5674-4688-acea-488250809690",
     "reviews",
     "image-with-title",
-    "16991779754c042730"
+    "16991779754c042730",
+    "newsletter"
   ]
 }

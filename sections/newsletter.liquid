@@ -1,0 +1,61 @@
+<div class="mt-10 text-center" style="background-color: {{ section.settings.bg_color }}">
+  <div class="container" style="color: {{ section.settings.color }}">
+    {{ section.settings.text }}
+    {% form 'customer' %}
+      {% if form.errors %}
+        <div class="flex flex-row items-center justify-center w-full my-3">
+          {% for error in form.errors %}
+            <div class="text-red-500">
+              {% render 'icon-failed' %}
+            </div>
+            <p class="text-red-500 text-sm font-bold ml-2">
+              {{ form.errors.translated_fields[error] | capitalize }} - {{ form.errors.messages[error] }}
+            </p>
+          {% endfor %}
+        </div>
+      {% elsif form.posted_successfully? %}
+        <div class="flex flex-row items-center justify-center w-full gap-2 my-5">
+          <div class="text-shof-green">
+            {% render 'icon-success' %}
+          </div>
+          <p class="text-shof-green font-bold text-center">
+            Dziękuję za zapisanie się do newslettera!
+          </p>
+        </div>
+      {% endif %}
+      <div class="flex align-center justify-center mt-3">
+        <input
+          class="input rounded-r-none border-r-0 max-w-[250px]"
+          type="email"
+          name="contact[email]"
+          placeholder="Email"
+          required />
+        <button type="submit" class="button rounded-l-none">Zapisz się</button>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Subscribe Newsletter Text",
+        "default": "<p>Subscribe to our emails</p>"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Subscribe Newsletter Background Color"
+      },
+      {
+        "type": "color",
+        "id": "color",
+        "label": "Subscribe Newsletter Text Color"
+      }
+    ]
+  }
+{% endschema %}
