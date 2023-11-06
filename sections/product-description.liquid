@@ -1,7 +1,13 @@
 <div class="container">
+  {% render 'product-gallery' %}
   <div class="grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5">
     {% comment %} Product Media {% endcomment %}
-    <div>
+    {% comment %} NEW {% endcomment %}
+    
+    
+    {% comment %} OLD {% endcomment %}
+    
+    {% comment %} <div>
       {% if product.media.size > 1 %}
         {% render 'product-media-slider' %}
       {% else %}
@@ -10,7 +16,7 @@
             , media: media %}
         {% endfor %}
       {% endif %}
-    </div>
+    </div> {% endcomment %}
     {% comment %} Product Description {% endcomment %}
     <div class="flex flex-col gap-4">
       {% for block in section.blocks %}

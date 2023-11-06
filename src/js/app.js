@@ -1,5 +1,8 @@
+import "swiper/css";
 import Alpine from "alpinejs";
 import collapse from "@alpinejs/collapse";
+
+import productGallery from "./productGallery";
 import mobileMenu from "./mobileMenu";
 import slider from "./slider";
 import imageWithTitle from "./imageWithTitle";
