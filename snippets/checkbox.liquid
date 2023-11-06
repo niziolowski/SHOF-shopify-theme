@@ -11,18 +11,20 @@
       required>
     <label {{ for }} class="
       peer-checked:[&_svg]:scale-100
-      text-sm
-      font-medium
+      hover:text-primary
+      text-base
+      font-normal
       text-neutral-600
-      peer-checked:text-primary
+      peer-checked:font-medium
       [&_svg]:scale-0
       peer-checked:[&_.custom-checkbox]:border-primary
       peer-checked:[&_.custom-checkbox]:bg-primary
       select-none
       flex
       items-center
-      space-x-2">
-      <span class="flex items-center justify-center w-5 h-5 border-2 rounded custom-checkbox text-neutral-900">
+      space-x-2
+      cursor-pointer">
+      <span class="flex items-center justify-center w-5 h-5 border-2 border-primary rounded custom-checkbox text-neutral-900">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

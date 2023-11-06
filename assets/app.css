@@ -838,6 +838,12 @@ input[type="number"]::-webkit-outer-spin-button,
 .z-40 {
   z-index: 40;
 }
+.-z-10 {
+  z-index: -10;
+}
+.z-50 {
+  z-index: 50;
+}
 .-order-1 {
   order: -1;
 }
@@ -908,6 +914,10 @@ input[type="number"]::-webkit-outer-spin-button,
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .\!mt-5 {
   margin-top: 1.25rem !important;
 }
@@ -967,6 +977,15 @@ input[type="number"]::-webkit-outer-spin-button,
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
+}
+.mr-6 {
+  margin-right: 1.5rem;
 }
 .block {
   display: block;
@@ -1107,6 +1126,12 @@ input[type="number"]::-webkit-outer-spin-button,
 }
 .w-screen {
   width: 100vw;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-2\/6 {
+  width: 33.333333%;
 }
 .min-w-\[250px\] {
   min-width: 250px;
@@ -1280,6 +1305,9 @@ input[type="number"]::-webkit-outer-spin-button,
 .justify-evenly {
   justify-content: space-evenly;
 }
+.justify-stretch {
+  justify-content: stretch;
+}
 .gap-1 {
   gap: 0.25rem;
 }
@@ -1422,6 +1450,10 @@ input[type="number"]::-webkit-outer-spin-button,
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
+.border-primary {
+  --tw-border-opacity: 1;
+  border-color: rgb(139 172 165 / var(--tw-border-opacity));
+}
 .bg-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(139 172 165 / var(--tw-bg-opacity));
@@ -1490,6 +1522,14 @@ input[type="number"]::-webkit-outer-spin-button,
 }
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
+}
+.bg-\[\#f2f2f2\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 242 242 / var(--tw-bg-opacity));
+}
+.bg-\[\#f6f6f6\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 246 246 / var(--tw-bg-opacity));
 }
 .bg-opacity-80 {
   --tw-bg-opacity: 0.8;
@@ -1589,6 +1629,14 @@ input[type="number"]::-webkit-outer-spin-button,
 .py-7 {
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
+}
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .pb-12 {
   padding-bottom: 3rem;
@@ -1840,6 +1888,11 @@ input[type="number"]::-webkit-outer-spin-button,
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-inner {
+  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -1963,6 +2016,74 @@ div[data-block-handle="ig_feed"] {
     max-width: 1536px !important;
   }
 }
+@media (min-width: 640px) {
+  .sm\:container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  @media (min-width: 640px) {
+    .sm\:container {
+      max-width: 640px;
+    }
+  }
+  @media (min-width: 768px) {
+    .sm\:container {
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .sm\:container {
+      max-width: 1024px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .sm\:container {
+      max-width: 1280px;
+    }
+  }
+  @media (min-width: 1536px) {
+    .sm\:container {
+      max-width: 1536px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .md\:container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  @media (min-width: 640px) {
+    .md\:container {
+      max-width: 640px;
+    }
+  }
+  @media (min-width: 768px) {
+    .md\:container {
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .md\:container {
+      max-width: 1024px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .md\:container {
+      max-width: 1280px;
+    }
+  }
+  @media (min-width: 1536px) {
+    .md\:container {
+      max-width: 1536px;
+    }
+  }
+}
 .placeholder\:text-white\/90::-moz-placeholder {
   color: rgb(255 255 255 / 0.9);
 }
@@ -2018,6 +2139,10 @@ div[data-block-handle="ig_feed"] {
   --tw-bg-opacity: 1;
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
+.hover\:bg-black:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 .hover\:fill-accent:hover {
   fill: #8baca5;
 }
@@ -2026,6 +2151,10 @@ div[data-block-handle="ig_feed"] {
   color: rgb(139 172 165 / var(--tw-text-opacity));
 }
 .hover\:text-hover:hover {
+  --tw-text-opacity: 1;
+  color: rgb(139 172 165 / var(--tw-text-opacity));
+}
+.hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(139 172 165 / var(--tw-text-opacity));
 }
@@ -2042,6 +2171,14 @@ div[data-block-handle="ig_feed"] {
 .hover\:brightness-110:hover {
   --tw-brightness: brightness(1.1);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.checked\:hover\:bg-black:hover:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.hover\:checked\:bg-black:checked:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .active\:scale-100:active {
   --tw-scale-x: 1;
@@ -2086,6 +2223,9 @@ div[data-block-handle="ig_feed"] {
 .group:hover .group-hover\:underline {
   text-decoration-line: underline;
 }
+.peer:checked ~ .peer-checked\:font-medium {
+  font-weight: 500;
+}
 .peer:checked ~ .peer-checked\:text-primary {
   --tw-text-opacity: 1;
   color: rgb(139 172 165 / var(--tw-text-opacity));
@@ -2097,11 +2237,17 @@ div[data-block-handle="ig_feed"] {
   .sm\:w-5\/6 {
     width: 83.333333%;
   }
+  .sm\:w-2\/6 {
+    width: 33.333333%;
+  }
   .sm\:max-w-\[1000px\] {
     max-width: 1000px;
   }
   .sm\:max-w-\[400px\] {
     max-width: 400px;
+  }
+  .sm\:max-w-\[350px\] {
+    max-width: 350px;
   }
   .sm\:flex-1 {
     flex: 1 1 0%;
@@ -2172,6 +2318,9 @@ div[data-block-handle="ig_feed"] {
   .md\:mt-5 {
     margin-top: 1.25rem;
   }
+  .md\:mr-6 {
+    margin-right: 1.5rem;
+  }
   .md\:block {
     display: block;
   }
@@ -2227,6 +2376,12 @@ div[data-block-handle="ig_feed"] {
   .md\:w-full {
     width: 100%;
   }
+  .md\:max-w-\[400px\] {
+    max-width: 400px;
+  }
+  .md\:max-w-\[450px\] {
+    max-width: 450px;
+  }
   .md\:translate-y-1\/2 {
     --tw-translate-y: 50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2271,6 +2426,10 @@ div[data-block-handle="ig_feed"] {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   .md\:text-left {
     text-align: left;
   }
@@ -2280,6 +2439,9 @@ div[data-block-handle="ig_feed"] {
   }
 }
 @media (min-width: 1024px) {
+  .lg\:mb-0 {
+    margin-bottom: 0px;
+  }
   .lg\:block {
     display: block;
   }
@@ -2292,8 +2454,15 @@ div[data-block-handle="ig_feed"] {
   .lg\:max-w-none {
     max-width: none;
   }
+  .lg\:max-w-\[400px\] {
+    max-width: 400px;
+  }
   .lg\:-translate-y-\[2\.4rem\] {
     --tw-translate-y: -2.4rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+  .lg\:-translate-y-\[2\.5rem\] {
+    --tw-translate-y: -2.5rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
   .lg\:grid-cols-4 {
@@ -2309,6 +2478,9 @@ div[data-block-handle="ig_feed"] {
 @media (min-width: 1280px) {
   .xl\:w-4\/6 {
     width: 66.666667%;
+  }
+  .xl\:max-w-none {
+    max-width: none;
   }
 }
 .peer:checked ~ .peer-checked\:\[\&_\.custom-checkbox\]\:border-primary .custom-checkbox {
