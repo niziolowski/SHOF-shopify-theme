@@ -38,8 +38,6 @@ export default () => ({
       label: "połysk",
     },
   ],
-  // Format for alpine.js
-
   isOpen: false,
   selectedSortOption: null,
   selectedColorOption: null,
@@ -47,14 +45,50 @@ export default () => ({
   isLastOne: false,
   isPreOrder: false,
   isAvailable: false,
+  currentCollection: null,
 
   init() {
-    this.getFilterData();
+    // Get current url but skip the question mark
+    const currentUrl =
+      `${window.location.pathname}${window.location.search}`?.replace("?", "");
+    // Set current url
+    this.currentUrl = currentUrl;
+
+    // Get filter data from local storage
+    const filterData = this.getFilterData();
+    console.log(filterData);
+
+    if (!filterData) return;
+
+    // Get last url but skip the question mark
+    const lastUrl = filterData.lastUrl?.replace("?", "");
+
+    // Get current collection
+    const currentCollection = window.location.pathname.split("/")[2];
+    // Set current collection and the isOpen property
+    this.currentCollection = currentCollection;
+    this.isOpen = filterData.isOpen;
+    // If current collection is different than collection in filter data, dont apply filters
+    if (currentCollection !== filterData.currentCollection) return;
+
+    // If it's the same collection, update filter data
+    this.isOpen = filterData.isOpen;
+    this.selectedSortOption = filterData.selectedSortOption;
+    this.selectedColorOption = filterData.selectedColorOption;
+    this.selectedMaterialOption = filterData.selectedMaterialOption;
+    this.isLastOne = filterData.isLastOne;
+    this.isPreOrder = filterData.isPreOrder;
+    this.isAvailable = filterData.isAvailable;
+
+    // If current filter query is different than last filter query, apply filters
+    if (currentUrl !== lastUrl && lastUrl !== null) {
+      this.submitFilters();
+    }
   },
 
   toggleIsOpen() {
     this.isOpen = !this.isOpen;
-    this.setFilterData();
+    this.setFilterData(this.currentUrl);
   },
 
   resetFilters() {
@@ -71,19 +105,13 @@ export default () => ({
 
   getFilterData() {
     const filterData = JSON.parse(localStorage.getItem("filterData"));
-
-    if (!filterData) return;
-
-    this.selectedSortOption = filterData.selectedSortOption;
-    this.selectedColorOption = filterData.selectedColorOption;
-    this.selectedMaterialOption = filterData.selectedMaterialOption;
-    this.isLastOne = filterData.isLastOne;
-    this.isPreOrder = filterData.isPreOrder;
-    this.isAvailable = filterData.isAvailable;
-    this.isOpen = filterData.isOpen;
+    if (!filterData) return null;
+    return filterData;
   },
 
-  setFilterData() {
+  setFilterData(lastUrl) {
+    console.log(lastUrl);
+
     const filterData = {
       selectedSortOption: this.selectedSortOption,
       selectedColorOption: this.selectedColorOption,
@@ -92,6 +120,8 @@ export default () => ({
       isPreOrder: this.isPreOrder,
       isAvailable: this.isAvailable,
       isOpen: this.isOpen,
+      currentCollection: this.currentCollection,
+      lastUrl: lastUrl || null,
     };
 
     localStorage.setItem("filterData", JSON.stringify(filterData));
@@ -118,7 +148,6 @@ export default () => ({
     } else {
       this.selectedMaterialOption = value;
     }
-    console.log(value);
   },
 
   submitFilters() {
@@ -142,10 +171,10 @@ export default () => ({
     // Filter by availability
     if (this.isLastOne) urlParams.append("filter.p.tag", "ostatnia-sztuka");
 
-    window.location.href = `${
-      window.location.pathname
-    }?${urlParams.toString()}`;
+    const newURL = `${window.location.pathname}?${urlParams.toString()}`;
 
-    this.setFilterData();
+    this.setFilterData(newURL);
+
+    window.location.href = newURL;
   },
 });
