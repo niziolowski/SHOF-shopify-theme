@@ -7,13 +7,13 @@
 {% endif %}
 
 <a class="relative hover:shadow-lg transition p-2 text-xl font-light group" href="{{ product.url |  within: collection }}">
-  <div>
+  <div class="aspect-square">
     {% comment %} Featured image {% endcomment %}
-    {{ product.featured_media | image_url: width: 500 | image_tag: loading: 'lazy', class: class }}
+    {{ product.featured_media | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: class }}
 
     {% comment %} Second image {% endcomment %}
     {% if multiple_images %}
-      {{ product.images[1] | image_url: width: 500 | image_tag: loading: 'lazy', class: 'hidden group-hover:block' }}
+      {{ product.images[1] | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: 'hidden group-hover:block' }}
     {% endif %}
   </div>
 
