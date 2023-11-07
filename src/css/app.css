@@ -1,13 +1,15 @@
-@import "./variants.css";
-@import "./logo-animated.css";
-@import "./slider.css";
+@import './variants.css';
+@import './logo-animated.css';
+@import './slider.css';
+@import './product-gallery.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    font-family: "Jost", sans-serif;
+    font-family: 'Jost', sans-serif;
     font-weight: 300;
     @apply tracking-widest underline-offset-2;
   }
@@ -16,9 +18,9 @@
     scroll-behavior: smooth;
   }
 
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"] {
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number'] {
     -webkit-appearance: none;
     margin: 0;
     -moz-appearance: textfield !important;
@@ -28,17 +30,13 @@
     /* $ SHADOW */
     --shadow-color: 0deg 0% 68%;
     --shadow-low: 0.3px 0.4px 0.6px hsl(var(--shadow-color) / 0.29),
-      0.4px 0.7px 0.9px -1.2px hsl(var(--shadow-color) / 0.29),
-      1px 1.6px 2.1px -2.5px hsl(var(--shadow-color) / 0.29);
+      0.4px 0.7px 0.9px -1.2px hsl(var(--shadow-color) / 0.29), 1px 1.6px 2.1px -2.5px hsl(var(--shadow-color) / 0.29);
     --shadow-medium: 0.3px 0.4px 0.6px hsl(var(--shadow-color) / 0.3),
-      0.8px 1.3px 1.7px -0.8px hsl(var(--shadow-color) / 0.3),
-      2px 3.3px 4.3px -1.7px hsl(var(--shadow-color) / 0.3),
+      0.8px 1.3px 1.7px -0.8px hsl(var(--shadow-color) / 0.3), 2px 3.3px 4.3px -1.7px hsl(var(--shadow-color) / 0.3),
       4.8px 8px 10.5px -2.5px hsl(var(--shadow-color) / 0.3);
     --shadow-high: 0.3px 0.4px 0.6px hsl(var(--shadow-color) / 0.28),
-      1.3px 2.2px 2.9px -0.4px hsl(var(--shadow-color) / 0.28),
-      2.4px 4px 5.2px -0.7px hsl(var(--shadow-color) / 0.28),
-      4px 6.6px 8.7px -1.1px hsl(var(--shadow-color) / 0.28),
-      6.3px 10.5px 13.8px -1.4px hsl(var(--shadow-color) / 0.28),
+      1.3px 2.2px 2.9px -0.4px hsl(var(--shadow-color) / 0.28), 2.4px 4px 5.2px -0.7px hsl(var(--shadow-color) / 0.28),
+      4px 6.6px 8.7px -1.1px hsl(var(--shadow-color) / 0.28), 6.3px 10.5px 13.8px -1.4px hsl(var(--shadow-color) / 0.28),
       9.9px 16.4px 21.6px -1.8px hsl(var(--shadow-color) / 0.28),
       15px 24.9px 32.7px -2.1px hsl(var(--shadow-color) / 0.28),
       22.1px 36.6px 48.1px -2.5px hsl(var(--shadow-color) / 0.28);
@@ -120,6 +118,6 @@
 }
 
 /* Instagram feed styles */
-div[data-block-handle="ig_feed"] {
+div[data-block-handle='ig_feed'] {
   @apply container !important;
 }

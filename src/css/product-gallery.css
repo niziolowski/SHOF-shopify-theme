@@ -1,0 +1,11 @@
+.swiper-thumbs .swiper-slide {
+  @apply transition border-2 border-white;
+}
+
+.swiper-thumbs .swiper-slide:hover {
+  @apply border-2 border-primary !important;
+}
+
+.swiper-slide-thumb-active {
+  @apply border-2 border-primary !important;
+}
