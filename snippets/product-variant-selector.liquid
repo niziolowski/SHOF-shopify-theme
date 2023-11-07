@@ -136,7 +136,26 @@
   				this.renderProductInfo();
   				this.updateShareUrl();
   			}
+
+  					// Swiper update 
+  				if (this.currentVariant && this.currentVariant.featured_media) {
+  						// Since the featured media ID is a property of the variant, we'll use this to update the slider.
+  						const newImageId = this.currentVariant.featured_media.id;
+  						this.updateSwiperSlide(newImageId);
+  					}
   		}
+
+  		updateSwiperSlide(newImageId) {
+  			const swiperSlides = document.querySelectorAll(".swiper .swiper-slide");
+  			const newIndex = Array.from(swiperSlides).findIndex(
+  				(slide) => slide.dataset.imageId === newImageId.toString()
+  			);
+
+  			if (newIndex !== -1) {
+  				// Assuming window.swiper2 is the main Swiper instance
+  				window.swiper.slideToLoop(newIndex);
+  			}
+  }
   	
   		updateOptions() {  
     		let selects = Array.from(this.querySelectorAll('select'), (select) => select.value);

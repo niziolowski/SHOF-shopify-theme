@@ -2,7 +2,7 @@
   <div style="--swiper-navigation-color: #939090; --swiper-pagination-color: #fff" class="swiper mySwiper2">
     <div class="swiper-wrapper">
       {% for media in product.media %}
-        <div class="swiper-slide">
+        <div class="swiper-slide" data-image-id="{{ media.id }}">
           {% render 'product-media'
             , media: media
             , class: 'w-full'
