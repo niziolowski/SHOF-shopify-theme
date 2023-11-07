@@ -1,24 +1,23 @@
 <ul class="flex flex-col w-full font-bold divide-y">
-	<li> 
-			<a href="{{ routes.account_url }}" 
-					class="{% if request.path == '/account' %} text-accent {% endif %}
+  <li>
+    <a href="{{ routes.account_url }}" class="{% if request.path == '/account' %} text-accent {% endif %}
 					inline-block py-2 hover:text-accent">
-					<span>Account Details</span>
-			</a>
-	</li>
+      <span>Szczegóły konta</span>
+    </a>
+  </li>
 
-	<li>
-			<a href="{{ routes.account_addresses_url }}" 
-					class="{% if request.path == '/account/addresses' %} text-accent {% endif %}
+  <li>
+    <a href="{{ routes.account_addresses_url }}" class="{% if request.path == '/account/addresses' %} text-accent {% endif %}
 					inline-block py-2 hover:text-accent">
-					<span>View Addresses ({{ customer.addresses_count }}) </span>
-			</a>
-	</li>
-	
-	<li>
-			<a href="{{ routes.account_logout_url }}" 
-					class="inline-block py-2 underline hover:text-accent">
-					<span>Logout </span>
-			</a>
-	</li>
+      <span>Wyświetl adresy ({{ customer.addresses_count }})
+      </span>
+    </a>
+  </li>
+
+  <li>
+    <a href="{{ routes.account_logout_url }}" class="inline-block py-2 underline hover:text-accent">
+      <span>Wyloguj się
+      </span>
+    </a>
+  </li>
 </ul>
