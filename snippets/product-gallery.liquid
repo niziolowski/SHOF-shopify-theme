@@ -2,7 +2,7 @@
   <div style="--swiper-navigation-color: #939090; --swiper-pagination-color: #fff" class="swiper mySwiper2">
     <div class="swiper-wrapper">
       {% for media in product.media %}
-        <div class="swiper-slide" data-image-id="{{ media.id }}">
+        <div class="swiper-slide cursor-pointer" data-image-id="{{ media.id }}">
           {% render 'product-media'
             , media: media
             , class: 'w-full'
@@ -13,9 +13,9 @@
     </div>
   </div>
   <div class="swiper-thumbs-wrapper relative mt-[20px]">
-    <div class="swiper-button-prev text-primary absolute top-1/2 -translate-y-1/2 -left-10 hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-left'
+    <div class="swiper-button-prev cursor-pointer text-primary absolute top-1/2 -translate-y-1/2 -left-10 hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-left'
 , size: 30 %}</div>
-    <div class="swiper-button-next text-primary absolute top-1/2 -translate-y-1/2 -right-10 hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-right'
+    <div class="swiper-button-next cursor-pointer text-primary absolute top-1/2 -translate-y-1/2 -right-10 hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-right'
 , size: 30 %}</div>
 
     <div thumbsSlider="" class="swiper mySwiper">

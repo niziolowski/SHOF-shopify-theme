@@ -9,7 +9,11 @@
 
       {% endfor %}
     </div>
-    {% render 'pagination'
-      , paginate: paginate %}
+    {% comment %} check if the collection is featured collection {% endcomment %}
+
+    {% if isPagination == true %}
+      {% render 'pagination'
+        , paginate: paginate %}
+    {% endif %}
   {% endpaginate %}
 </div>

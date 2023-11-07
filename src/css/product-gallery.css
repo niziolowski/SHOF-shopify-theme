@@ -1,5 +1,5 @@
 .swiper-thumbs .swiper-slide {
-  @apply transition border-2 border-white;
+  @apply transition cursor-pointer border-2 border-white;
 }
 
 .swiper-thumbs .swiper-slide:hover {
