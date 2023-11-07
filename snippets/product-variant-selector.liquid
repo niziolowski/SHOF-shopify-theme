@@ -137,12 +137,12 @@
   				this.updateShareUrl();
   			}
 
-  					// Swiper update 
-  				if (this.currentVariant && this.currentVariant.featured_media) {
-  						// Since the featured media ID is a property of the variant, we'll use this to update the slider.
-  						const newImageId = this.currentVariant.featured_media.id;
-  						this.updateSwiperSlide(newImageId);
-  					}
+  			// Swiper update 
+  			if (this.currentVariant && this.currentVariant.featured_media) {
+  					// Since the featured media ID is a property of the variant, we'll use this to update the slider.
+  					const newImageId = this.currentVariant.featured_media.id;
+  					this.updateSwiperSlide(newImageId);
+  				}
   		}
 
   		updateSwiperSlide(newImageId) {
