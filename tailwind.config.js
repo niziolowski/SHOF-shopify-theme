@@ -29,6 +29,7 @@ module.exports = {
         border: "#cccccc",
         black: "black",
         white: "white",
+        "off-white": "#f8f9f4",
         accent: "#8baca5",
         textColor: "#1d1d1d",
       },

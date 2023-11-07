@@ -1,72 +1,38 @@
-<div class="w-1/2">
-  <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+<div class="relative sm:px-4 py-2 select-none w-full">
+  <div style="--swiper-navigation-color: #939090; --swiper-pagination-color: #fff" class="swiper mySwiper2">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-      </div>
+      {% for media in product.media %}
+        <div class="swiper-slide">
+          {% render 'product-media'
+            , media: media
+            , class: 'w-full'
+            , controls: true %}
+        </div>
+      {% endfor %}
+
     </div>
-    <div class="swiper-button-next">{% render 'icon-chevron-right' %}</div>
-    <div class="swiper-button-prev">{% render 'icon-chevron-left' %}</div>
   </div>
-  <div thumbsSlider="" class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+  <div class="swiper-thumbs-wrapper relative mt-[20px]">
+    <div class="swiper-button-prev text-primary absolute top-1/2 -translate-y-1/2 -left-10 hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-left'
+, size: 30 %}</div>
+    <div class="swiper-button-next text-primary absolute top-1/2 -translate-y-1/2 -right-10 hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-right'
+, size: 30 %}</div>
+
+    <div thumbsSlider="" class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        {% for media in product.media %}
+          <div class="swiper-slide">
+            {% render 'product-media'
+              , media: media
+              , width: 200
+              , height: 200
+              , class: 'w-full' %}
+          </div>
+        {% endfor %}
+
       </div>
     </div>
   </div>
+
 </div>
