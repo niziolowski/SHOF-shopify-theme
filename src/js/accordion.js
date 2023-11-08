@@ -5,8 +5,6 @@ export default () => ({
     if (typeof data === 'array') this.data = data;
 
     if (typeof data === 'string') this.data = this.parseHTMLToStructuredData(data);
-
-    console.log(this.data);
   },
 
   // Manage active accordion
