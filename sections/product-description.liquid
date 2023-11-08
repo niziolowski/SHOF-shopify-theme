@@ -31,8 +31,9 @@
               <h1 class="text-3xl">{{ product.title }}</h1>
             </div>
 
-          {% when 'description' %}
-            {% render 'accordion' %}
+          {% when 'description'%}
+
+            {% render 'accordion', data: product.description %}
           {% when 'variant_selector' %}
             <div class="">
               {% unless product.has_only_default_variant %}
