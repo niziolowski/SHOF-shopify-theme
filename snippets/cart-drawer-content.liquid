@@ -1,21 +1,21 @@
 {% if cart.item_count > 0 %}
-	<form action="{{ routes.cart_url }}" method="POST">
-		<div class="max-h-[70vh] overflow-y-auto divide-y">
+	<form action="{{ routes.cart_url }}" class="flex h-full flex-col" method="POST">
+		<div class="p-5 overflow-y-auto flex-col divide-y">
 			{% for item in cart.items %}
 				<div class="grid grid-cols-[1fr_2fr] items-center gap-5 py-5">
-					<a href="{{ item.url }}">
+					<a href="{{ item.url }}" class="place-self-center">
 						{% if item.image %}
-							{{ item.image | image_url: width: 150 | image_tag: loading: 'lazy' }}
+							{{ item.image | image_url: width: 150, height: 150 | image_tag: loading: 'lazy' }}
 								{% else %}
 									{{ 'product-1' | placeholder_svg_tag }}
 							{% endif %}
 						<div>
 					</a>
-						<h3 class="font-bold hover:text-accent"><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+						<h3 class="font-normal hover:text-accent"><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
 						{% if item.variant.title != 'Default Title' and item.variant.title != 'No Color / OS' and item.variant.title != 'NC / OS' %}
-							<div class="text-xs mt-1">{{ item.variant.title }}</div>
+							<div class="text-sm mt-1">{{ item.variant.title }}</div>
 						{% endif %}
-						<p class="font-bold my-2">{{ item.final_line_price | money }}</p>
+						<p class="font-normal my-2">{{ item.final_line_price | money }}</p>
 						<div class="flex items-center gap-3">
 							{% render 'product-quantity', product: item, product_index: forloop.index, cart_page: true %}
 							<button 
@@ -24,25 +24,27 @@
 								class="text-sm underline hover:text-accent"
 								@click.debounce="loading = true; Functions.changeQuantity({{ forloop.index }}, 0)"
 							>
-								Remove
+								Usuń
 							</button>
 						</div>
 					</div>
 				</div>
 			{% endfor %}
 		</div>
-		<div class="flex justify-between my-3">
-			<h3 class="font-bold text-xl">Subtotal:</h3>
-			<p class="font-bold text-xl text-accent">{{ cart.total_price | money }}</p>
+		<div class="mt-auto p-5">
+			<div class="flex justify-between px-2">
+				<h3 class="font-normal text-xl">Suma:</h3>
+				<p class="font-medium text-xl text-accent">{{ cart.total_price | money }}</p>
+			</div>
+			<button type="submit" name="checkout" class="button w-full">Do kasy</button>
 		</div>
-		<button type="submit" name="checkout" class="button w-full">Checkout</button>
 	</form>
 	{% else %}
 		<div class="flex flex-col justify-center items-center gap-5 h-[70vh]">
 			{% render 'icon-cart', class: 'mx-auto w-20 h-20' %}
-			<h3 class="text-3xl font-bold">Your cart is empty</h3>
+			<h3 class="text-3xl font-normal">Twój koszyk jest pusty</h3>
 			<a href="{{ routes.all_products_collection_url }}" class="button">
-				Continue shopping
+				Kontynuuj zakupy
 			</a>
 		</div>
 {% endif %}

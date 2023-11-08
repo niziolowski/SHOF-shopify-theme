@@ -1,6 +1,6 @@
 <div
   x-data="{ 
-		showCartDrawer: false,
+		showCartDrawer: true,
 		loading: false,
 		updateCart(){
 			fetch('/?view=ajax-cart-drawer')
@@ -17,7 +17,8 @@
 		}
 	}"
   @update-cart.window="updateCart"
-  @toggle-cart.window="showCartDrawer = !showCartDrawer">
+  @toggle-cart.window="showCartDrawer = !showCartDrawer"
+  class="">
 
   <div
     x-cloak
@@ -34,16 +35,18 @@
     x-transition:leave="transition ease-in-out duration-300 transform"
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="translate-x-full"
-    class="p-5 transition z-50 bg-white fixed top-0 right-0 md:w-[500px] w-full h-screen shadow-l">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-3xl">Koszyk</h2>
-      <span class="cursor-pointer" @click="showCartDrawer = false; document.body.classList.remove('overflow-hidden')">
+    class="fixed transition z-50 bg-white top-0 right-0 md:w-[400px] w-full flex flex-col shadow-l h-screen">
+    <div class="p-5 flex items-center justify-between">
+      <h2 class="text-4xl font-normal hover:text-primary">
+        <a href="{{ routes.cart_url }}">Koszyk</a>
+      </h2>
+      <span class="cursor-pointer transition hover:-rotate-90 hover:scale-125 active:scale-100" @click="showCartDrawer = false; document.body.classList.remove('overflow-hidden')">
         {% render 'icon-close'
-          , class: 'max-w-[30px] fill-textColor hover:fill-accent' %}
+          , class: 'max-w-[30px] fill-textColor hover:fill-primary' %}
       </span>
     </div>
     {% render 'loader' %}
-    <div x-ref="cart_drawer_content">
+    <div x-ref="cart_drawer_content" class="relative h-[calc(100%-80px)]">
       {% render 'cart-drawer-content' %}
     </div>
   </div>
