@@ -14,8 +14,17 @@
     @apply tracking-widest underline-offset-2;
   }
 
+  html {
+    min-height: 100vh;
+    /* Fix for IOS */
+    min-height: -webkit-fill-available;
+  }
+
   body {
     scroll-behavior: smooth;
+    /* Fix for IOS */
+    min-height: -webkit-fill-available;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   input[type='number']::-webkit-outer-spin-button,

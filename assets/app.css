@@ -540,8 +540,16 @@ video {
     letter-spacing: 0.1em;
     text-underline-offset: 2px;
   }
+html {
+    min-height: 100vh;
+    /* Fix for IOS */
+    min-height: -webkit-fill-available;
+  }
 body {
     scroll-behavior: smooth;
+    /* Fix for IOS */
+    min-height: -webkit-fill-available;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button,
@@ -1080,9 +1088,6 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .h-\[70vh\] {
   height: 70vh;
-}
-.h-\[calc\(100\%-80px\)\] {
-  height: calc(100% - 80px);
 }
 .h-auto {
   height: auto;
