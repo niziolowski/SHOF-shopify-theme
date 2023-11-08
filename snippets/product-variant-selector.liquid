@@ -115,26 +115,38 @@
   	class VariantSelects extends HTMLElement {
   		constructor() {
   			super();
-  			this.addEventListener('change', this.onVariantChange);
+  			this.addEventListener('change', this.onVariantChange);		
   				
   		}
   	
   		onVariantChange() {
+  				
+  				if (!this.getVariantData().length) {
+  					this.toggleAddButton(true, window.variantStrings.unavailable, false);
+  					return;
+  				}
+  				
   			this.updateOptions();
   			this.updateMasterId();
   			this.toggleAddButton(true, '', false);
   			this.updatePickupAvailability();
   			this.removeErrorMessage();
-  	
-  			if (!this.currentVariant) {
-  				this.toggleAddButton(true, '', true);
-  			} else {
-  				// this.updateMedia();
+  				if (!this.currentVariant) {
+  					this.toggleAddButton(true, '', true);
+  				} else {
   				this.setUnavailable();
   				this.updateURL();
   				this.updateVariantInput();
   				this.renderProductInfo();
   				this.updateShareUrl();
+
+  					// Dispatch a custom event so that other scripts can listen for changes to the variant
+  				window.dispatchEvent(new CustomEvent('variant-change', {
+  					bubbles: true,
+  					detail: {
+  						 ...this.currentVariant
+  					}
+  				}));
   			}
 
   			// Swiper update 
@@ -171,19 +183,6 @@
   				}).includes(false);
   			});
   		}
-  	
-  		// updateMedia() {
-  		//   if (!this.currentVariant) return;
-  		//   if (!this.currentVariant.featured_media) return;
-  	
-  		//   const mediaGallery = document.getElementById(`MediaGallery-${this.dataset.section}`);
-  		//   mediaGallery.setActiveMedia(`${this.dataset.section}-${this.currentVariant.featured_media.id}`, true);
-  	
-  		//   const modalContent = document.querySelector(`#ProductModal-${this.dataset.section} .product-media-modal__content`);
-  		//   if (!modalContent) return;
-  		//   const newMediaModal = modalContent.querySelector( `[data-media-id="${this.currentVariant.featured_media.id}"]`);
-  		//   modalContent.prepend(newMediaModal);
-  		// }
   	
   		updateURL() {
   			if (!this.currentVariant || this.dataset.updateUrl === 'false') return;

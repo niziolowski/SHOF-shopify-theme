@@ -1,5 +1,5 @@
 <div class="container my-10">
-    <div class="grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 justify-center">
+  <div class="grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 justify-center">
     {% comment %} Product Media {% endcomment %}
     <div class="w-5/6 place-self-center self-start">
       {% if product.media.size > 1 %}
@@ -32,8 +32,10 @@
             </div>
 
           {% when 'description'%}
-            {% render 'accordion', data: product.description %}
-            
+            <div>
+              {% render 'accordion', data: product.description} %}
+            </div>
+
           {% when 'variant_selector' %}
             <div class="">
               {% unless product.has_only_default_variant %}
@@ -44,49 +46,54 @@
 
           {% when 'quantity' %}
             {% render 'product-quantity' %}
+
           {% when 'price' %}
             {% render 'price'
               , product: product %}
 
           {% when 'checkout_buttons' %}
-            <div x-data="{ 
-								quantity: 1
-              }" @quantity-changed.window="quantity = $event.detail.quantity">
-              {% assign product_form_installment_id = 'product-form-installment-' | append: section.id %}
-              {% form 'product'
-                , product
-                , id: product_form_installment_id
-                , novalidate: 'novalidate'
-                , x-ref: 'product_form' %}
-                <input
-                  type="hidden"
-                  name="id"
-                  value="{{ product.selected_or_first_available_variant.id }}">
-                <input
-                  type="hidden"
-                  name="quantity"
-                  x-model="quantity" />
-                <button
-                  type="submit"
-                  name="add"
-                  class="product-section__cart-button button"
-                  @click.prevent="Functions.addToCart($refs.product_form)"
-                  {% unless product.selected_or_first_available_variant.available %}
-                  disabled
-                  {% endunless %}>
-                  {% unless product.selected_or_first_available_variant.available %}
-                    {{ block.settings.sold_out }}
-                  {% else %}
-                    {{ block.settings.add_to_cart }}
-                  {% endunless %}
-                </button>
-
-                {% if block.settings.dynamic_buttons %}
-                  {{ form | payment_button }}
-                {% endif %}
-
-              {% endform %}
+            <div class="flex gap-4 items-center">
+              {% render 'current-price' %}
+                <div x-data="{ 
+                  quantity: 1
+                }" @quantity-changed.window="quantity = $event.detail.quantity">
+                {% assign product_form_installment_id = 'product-form-installment-' | append: section.id %}
+                {% form 'product'
+                  , product
+                  , id: product_form_installment_id
+                  , novalidate: 'novalidate'
+                  , x-ref: 'product_form' %}
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ product.selected_or_first_available_variant.id }}">
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    x-model="quantity" />
+                  <button
+                    type="submit"
+                    name="add"
+                    class="product-section__cart-button button"
+                    @click.prevent="Functions.addToCart($refs.product_form)"
+                    {% unless product.selected_or_first_available_variant.available %}
+                    disabled
+                    {% endunless %}>
+                    {% unless product.selected_or_first_available_variant.available %}
+                      {{ block.settings.sold_out }}
+                    {% else %}
+                      {{ block.settings.add_to_cart }}
+                    {% endunless %}
+                  </button>
+  
+                  {% if block.settings.dynamic_buttons %}
+                    {{ form | payment_button }}
+                  {% endif %}
+  
+                  {% endform %}
+                </div>
             </div>
+            
 
         {% endcase %}
       {% endfor %}
