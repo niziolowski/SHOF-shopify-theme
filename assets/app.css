@@ -565,6 +565,9 @@ input[type='number']::-webkit-outer-spin-button,
       15px 24.9px 32.7px -2.1px hsl(var(--shadow-color) / 0.28),
       22.1px 36.6px 48.1px -2.5px hsl(var(--shadow-color) / 0.28);
   }
+.shadow-s {
+    box-shadow: var(--shadow-low);
+  }
 .shadow-m {
     box-shadow: var(--shadow-medium);
   }
@@ -779,9 +782,6 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .pointer-events-none {
   pointer-events: none;
-}
-.collapse {
-  visibility: collapse;
 }
 .fixed {
   position: fixed;
@@ -1003,26 +1003,14 @@ input[type='number']::-webkit-outer-spin-button,
 .mt-\[20px\] {
   margin-top: 20px;
 }
-.mb-0 {
-  margin-bottom: 0px;
-}
 .mt-auto {
   margin-top: auto;
-}
-.mt-12 {
-  margin-top: 3rem;
-}
-.mt-14 {
-  margin-top: 3.5rem;
 }
 .block {
   display: block;
 }
 .inline-block {
   display: inline-block;
-}
-.inline {
-  display: inline;
 }
 .flex {
   display: flex;
@@ -1096,6 +1084,9 @@ input[type='number']::-webkit-outer-spin-button,
 .h-\[70vh\] {
   height: 70vh;
 }
+.h-\[calc\(100\%-80px\)\] {
+  height: calc(100% - 80px);
+}
 .h-auto {
   height: auto;
 }
@@ -1105,55 +1096,7 @@ input[type='number']::-webkit-outer-spin-button,
 .h-screen {
   height: 100vh;
 }
-.h-\[100vh\] {
-  height: 100vh;
-}
-.h-\[90\%\] {
-  height: 90%;
-}
-.h-\[100\%\] {
-  height: 100%;
-}
-.h-1\/5 {
-  height: 20%;
-}
-.h-12 {
-  height: 3rem;
-}
-.h-\[calc\(100\%-48px\)\] {
-  height: calc(100% - 48px);
-}
-.h-\[calc\(100\%-64px\)\] {
-  height: calc(100% - 64px);
-}
-.h-40 {
-  height: 10rem;
-}
-.h-\[calc\(100\%-80px\)\] {
-  height: calc(100% - 80px);
-}
-.max-h-\[70vh\] {
-  max-height: 70vh;
-}
-.max-h-\[200px\] {
-  max-height: 200px;
-}
-.max-h-\[100px\] {
-  max-height: 100px;
-}
-.max-h-full {
-  max-height: 100%;
-}
-.max-h-screen {
-  max-height: 100vh;
-}
 .min-h-screen {
-  min-height: 100vh;
-}
-.min-h-full {
-  min-height: 100%;
-}
-.min-h-\[100vh\] {
   min-height: 100vh;
 }
 .w-1\/2 {
@@ -1249,17 +1192,11 @@ input[type='number']::-webkit-outer-spin-button,
 .flex-1 {
   flex: 1 1 0%;
 }
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
 .flex-grow {
   flex-grow: 1;
 }
 .table-auto {
   table-layout: auto;
-}
-.border-collapse {
-  border-collapse: collapse;
 }
 .origin-right {
   transform-origin: right;
@@ -1286,10 +1223,6 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .rotate-180 {
   --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.rotate-90 {
-  --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-150 {
@@ -1346,9 +1279,6 @@ input[type='number']::-webkit-outer-spin-button,
 .grid-cols-\[1fr_2fr\] {
   grid-template-columns: 1fr 2fr;
 }
-.grid-cols-\[1fr_1fr\] {
-  grid-template-columns: 1fr 1fr;
-}
 .flex-row {
   flex-direction: row;
 }
@@ -1387,9 +1317,6 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .justify-evenly {
   justify-content: space-evenly;
-}
-.justify-stretch {
-  justify-content: stretch;
 }
 .gap-1 {
   gap: 0.25rem;
@@ -1467,12 +1394,6 @@ input[type='number']::-webkit-outer-spin-button,
 .self-center {
   align-self: center;
 }
-.self-stretch {
-  align-self: stretch;
-}
-.justify-self-end {
-  justify-self: end;
-}
 .overflow-auto {
   overflow: auto;
 }
@@ -1536,6 +1457,10 @@ input[type='number']::-webkit-outer-spin-button,
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+.border-off-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(248 249 244 / var(--tw-border-opacity));
 }
 .border-primary {
   --tw-border-opacity: 1;
@@ -1751,9 +1676,6 @@ input[type='number']::-webkit-outer-spin-button,
 .pt-8 {
   padding-top: 2rem;
 }
-.pt-2 {
-  padding-top: 0.5rem;
-}
 .text-left {
   text-align: left;
 }
@@ -1773,6 +1695,10 @@ input[type='number']::-webkit-outer-spin-button,
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 .text-5xl {
   font-size: 3rem;
@@ -1800,10 +1726,6 @@ input[type='number']::-webkit-outer-spin-button,
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1983,6 +1905,11 @@ input[type='number']::-webkit-outer-spin-button,
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -2111,10 +2038,6 @@ div[data-block-handle='ig_feed'] {
 }
 .placeholder\:text-white\/90::placeholder {
   color: rgb(255 255 255 / 0.9);
-}
-.hover\:rotate-90:hover {
-  --tw-rotate: 90deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .hover\:-rotate-90:hover {
   --tw-rotate: -90deg;
@@ -2375,8 +2298,8 @@ div[data-block-handle='ig_feed'] {
   .md\:w-\[300px\] {
     width: 300px;
   }
-  .md\:w-\[500px\] {
-    width: 500px;
+  .md\:w-\[400px\] {
+    width: 400px;
   }
   .md\:w-fit {
     width: -moz-fit-content;
@@ -2385,8 +2308,8 @@ div[data-block-handle='ig_feed'] {
   .md\:w-full {
     width: 100%;
   }
-  .md\:w-\[400px\] {
-    width: 400px;
+  .md\:w-\[450px\] {
+    width: 450px;
   }
   .md\:max-w-\[450px\] {
     max-width: 450px;

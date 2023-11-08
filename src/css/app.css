@@ -41,6 +41,9 @@
       15px 24.9px 32.7px -2.1px hsl(var(--shadow-color) / 0.28),
       22.1px 36.6px 48.1px -2.5px hsl(var(--shadow-color) / 0.28);
   }
+  .shadow-s {
+    box-shadow: var(--shadow-low);
+  }
 
   .shadow-m {
     box-shadow: var(--shadow-medium);

@@ -31,7 +31,7 @@
 				</div>
 			{% endfor %}
 		</div>
-		<div class="mt-auto p-5">
+		<div class="border border-t-1 border-off-white shadow-l mt-auto p-5 flex flex-col gap-2">
 			<div class="flex justify-between px-2">
 				<h3 class="font-normal text-xl">Suma:</h3>
 				<p class="font-medium text-xl text-accent">{{ cart.total_price | money }}</p>
@@ -41,8 +41,8 @@
 	</form>
 	{% else %}
 		<div class="flex flex-col justify-center items-center gap-5 h-[70vh]">
-			{% render 'icon-cart', class: 'mx-auto w-20 h-20' %}
-			<h3 class="text-3xl font-normal">Twój koszyk jest pusty</h3>
+			{% render 'icon-shopping-bag', size: 80, stroke: 1 %}
+			<h3 class="text-3xl font-light">Twój koszyk jest pusty</h3>
 			<a href="{{ routes.all_products_collection_url }}" class="button">
 				Kontynuuj zakupy
 			</a>

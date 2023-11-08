@@ -1,7 +1,8 @@
 <div
   x-data="{ 
-		showCartDrawer: true,
+		showCartDrawer: false,
 		loading: false,
+    
 		updateCart(){
 			fetch('/?view=ajax-cart-drawer')
 			.then(response => response.text())
@@ -17,8 +18,7 @@
 		}
 	}"
   @update-cart.window="updateCart"
-  @toggle-cart.window="showCartDrawer = !showCartDrawer"
-  class="">
+  @toggle-cart.window="showCartDrawer = !showCartDrawer">
 
   <div
     x-cloak
@@ -35,8 +35,8 @@
     x-transition:leave="transition ease-in-out duration-300 transform"
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="translate-x-full"
-    class="fixed transition z-50 bg-white top-0 right-0 md:w-[400px] w-full flex flex-col shadow-l h-screen">
-    <div class="p-5 flex items-center justify-between">
+    class="fixed transition z-50 bg-white top-0 right-0 md:w-[450px] w-full flex flex-col shadow-l h-screen">
+    <div class="p-5 flex items-center justify-between border border-b-1 border-off-white shadow-sm">
       <h2 class="text-4xl font-normal hover:text-primary">
         <a href="{{ routes.cart_url }}">Koszyk</a>
       </h2>
