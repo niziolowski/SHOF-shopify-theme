@@ -1279,6 +1279,12 @@ input[type='number']::-webkit-outer-spin-button,
 .grid-cols-\[1fr_2fr\] {
   grid-template-columns: 1fr 2fr;
 }
+.grid-cols-\[1fr_\.2fr\] {
+  grid-template-columns: 1fr .2fr;
+}
+.grid-cols-\[1fr_1fr\] {
+  grid-template-columns: 1fr 1fr;
+}
 .flex-row {
   flex-direction: row;
 }
