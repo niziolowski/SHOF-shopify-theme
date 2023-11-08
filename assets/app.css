@@ -565,9 +565,6 @@ input[type='number']::-webkit-outer-spin-button,
       15px 24.9px 32.7px -2.1px hsl(var(--shadow-color) / 0.28),
       22.1px 36.6px 48.1px -2.5px hsl(var(--shadow-color) / 0.28);
   }
-.shadow-s {
-    box-shadow: var(--shadow-low);
-  }
 .shadow-m {
     box-shadow: var(--shadow-medium);
   }
@@ -1108,9 +1105,6 @@ input[type='number']::-webkit-outer-spin-button,
 .w-2 {
   width: 0.5rem;
 }
-.w-20 {
-  width: 5rem;
-}
 .w-3 {
   width: 0.75rem;
 }
@@ -1278,12 +1272,6 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .grid-cols-\[1fr_2fr\] {
   grid-template-columns: 1fr 2fr;
-}
-.grid-cols-\[1fr_\.2fr\] {
-  grid-template-columns: 1fr .2fr;
-}
-.grid-cols-\[1fr_1fr\] {
-  grid-template-columns: 1fr 1fr;
 }
 .flex-row {
   flex-direction: row;
@@ -1906,14 +1894,14 @@ input[type='number']::-webkit-outer-spin-button,
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .backdrop-blur-sm {
@@ -2304,8 +2292,8 @@ div[data-block-handle='ig_feed'] {
   .md\:w-\[300px\] {
     width: 300px;
   }
-  .md\:w-\[400px\] {
-    width: 400px;
+  .md\:w-\[450px\] {
+    width: 450px;
   }
   .md\:w-fit {
     width: -moz-fit-content;
@@ -2313,9 +2301,6 @@ div[data-block-handle='ig_feed'] {
   }
   .md\:w-full {
     width: 100%;
-  }
-  .md\:w-\[450px\] {
-    width: 450px;
   }
   .md\:max-w-\[450px\] {
     max-width: 450px;
