@@ -14,7 +14,7 @@ export default () => ({
     this.activeAccordion = this.activeAccordion == id ? '' : id;
   },
 
-  //
+  // Parse HTML string to structured data
   parseHTMLToStructuredData(htmlString) {
     // Create an element to conveniently manipulate and traverse the provided HTML
     const parser = new DOMParser();
