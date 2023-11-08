@@ -215,6 +215,18 @@
   --tw-border-opacity: 1 !important;
   border-color: rgb(236 118 74 / var(--tw-border-opacity)) !important;
 }
+/* Remove outline for non-keyboard :focus */
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+/* Optional: Customize .focus-visible */
+.focus-visible {
+  outline-color: lightgreen;
+}
+body {
+  min-height: -webkit-fill-available;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
 /* ! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -542,20 +554,12 @@ video {
   }
 html {
     min-height: 100vh;
-    /* Fix for IOS */
+    /* IOS FIX */
     min-height: -webkit-fill-available;
   }
 body {
     scroll-behavior: smooth;
-    /* Fix for IOS */
-    min-height: -webkit-fill-available;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
-/* Remove outline for non-keyboard :focus */
-*:focus:not(.focus-visible) {
-    outline: none;
-  }
-/* Optional: Customize .focus-visible */
 input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button,
   input[type='number'] {

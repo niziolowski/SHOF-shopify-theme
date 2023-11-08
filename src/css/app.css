@@ -2,7 +2,7 @@
 @import './logo-animated.css';
 @import './slider.css';
 @import './product-gallery.css';
-
+@import './ios-fixes.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,25 +16,12 @@
 
   html {
     min-height: 100vh;
-    /* Fix for IOS */
+    /* IOS FIX */
     min-height: -webkit-fill-available;
   }
 
   body {
     scroll-behavior: smooth;
-    /* Fix for IOS */
-    min-height: -webkit-fill-available;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-
-  /* Remove outline for non-keyboard :focus */
-  *:focus:not(.focus-visible) {
-    outline: none;
-  }
-
-  /* Optional: Customize .focus-visible */
-  .focus-visible {
-    outline-color: lightgreen;
   }
 
   input[type='number']::-webkit-outer-spin-button,
