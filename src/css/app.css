@@ -27,6 +27,16 @@
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
+  /* Remove outline for non-keyboard :focus */
+  *:focus:not(.focus-visible) {
+    outline: none;
+  }
+
+  /* Optional: Customize .focus-visible */
+  .focus-visible {
+    outline-color: lightgreen;
+  }
+
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button,
   input[type='number'] {
