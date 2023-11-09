@@ -2041,6 +2041,19 @@ div[data-block-handle='ig_feed'] {
     max-width: 1536px !important;
   }
 }
+@supports not (aspect-ratio: 1 / 1) {
+  .tz-i::before {
+    float: left !important;
+    padding-top: 100% !important;
+    content: '' !important;
+  }
+
+  .tz-i::after {
+    display: block !important;
+    content: '' !important;
+    clear: both !important;
+  }
+}
 .placeholder\:text-white\/90::-moz-placeholder {
   color: rgb(255 255 255 / 0.9);
 }

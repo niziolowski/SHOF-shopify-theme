@@ -130,3 +130,16 @@
 div[data-block-handle='ig_feed'] {
   @apply container !important;
 }
+@supports not (aspect-ratio: 1 / 1) {
+  .tz-i::before {
+    float: left !important;
+    padding-top: 100% !important;
+    content: '' !important;
+  }
+
+  .tz-i::after {
+    display: block !important;
+    content: '' !important;
+    clear: both !important;
+  }
+}
