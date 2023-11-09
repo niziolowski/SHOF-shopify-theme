@@ -97,8 +97,6 @@ export default (giftWrapProductID) => {
           return response.json();
         })
         .then((cart) => {
-          // The cart has been updated, you can now refresh the cart display or show a message
-          console.log('Gift wrap removed from cart', cart);
           // Refresh cart logic here (if needed)
           window.dispatchEvent(new CustomEvent('update-cart'));
         })

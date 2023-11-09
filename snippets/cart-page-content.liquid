@@ -14,9 +14,9 @@
               title="{{ item.product.title }}"
               class="">
               {% if item.image %}
-                {{ item.image | image_url: width: 150, height: 150 | image_tag: loading: 'lazy', class: 'w-full max-w-[150px] pr-3' }}
+                {{ item.image | image_url: width: 150, height: 150 | image_tag: loading: 'lazy', class: 'w-full max-w-[150px]' }}
               {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'w-full max-w-[200px]' }}
+                {{ 'product-1' | placeholder_svg_tag: 'w-full max-w-[150px]' }}
               {% endif %}
             </a>
             <div>
@@ -70,55 +70,58 @@
       {% endfor %}
     </div>
 
-    <label for="Cart-note" class="sr-only">Uwagi do zamówienia</label>
-    <textarea
-      class="input resize-none h-24 py-3 mb-5"
-      name="note"
-      id="Cart-note"
-      placeholder="Uwagi do zamówienia">{{ cart.note }}</textarea>
+    <div class="flex flex-col gap-4">
+      <label for="Cart-note" class="sr-only">Uwagi do zamówienia</label>
+      <textarea
+        class="input resize-none h-24 py-3"
+        name="note"
+        id="Cart-note"
+        placeholder="Uwagi do zamówienia">{{ cart.note }}</textarea>
 
-    {%- if cart.cart_level_discount_applications.size > 0 -%}
-      <div class="total-discounts flex justify-between font-bold pb-2  text-green-700" aria-label="{{ 'customer.order.discount' | t }}">
-        {%- for discount in cart.cart_level_discount_applications -%}
-          <i class="flex space-x-1">
-            <span>{{ discount.title }}</span>
-          </i>
-          <span>(-{{ discount.total_allocated_amount | money }})</span>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-    {% if total_savings > 0 %}
-      <div class="text-right pb-2 text-green-700 text-lg">
-        <span class="font-bold">Oszczędzasz:
-        </span>
-        <span>-{{ total_savings | money_with_currency }}</span>
-      </div>
-    {% endif %}
-
-    <div class="flex flex-col sm:flex-row justify-between items-center w-full gap-2">
-      <div>
-        <div class="flex flex-col text-center sm:text-left sm:flex-row sm:gap-2 text-lg px-2">
-          <span class="font-medium">Kwota do zapłaty:
-          </span>
-          <span class="">{{ cart.total_price | money }}</span>
+      {%- if cart.cart_level_discount_applications.size > 0 -%}
+        <div class="total-discounts flex justify-between font-bold pb-2  text-green-700" aria-label="{{ 'customer.order.discount' | t }}">
+          {%- for discount in cart.cart_level_discount_applications -%}
+            <i class="flex space-x-1">
+              <span>{{ discount.title }}</span>
+            </i>
+            <span>(-{{ discount.total_allocated_amount | money }})</span>
+          {%- endfor -%}
         </div>
-        <div class="flex flex-col text-center sm:text-left sm:flex-row sm:gap-2 text-lg px-2">
-          <span class="font-medium">+ dostawa od:
+      {%- endif -%}
+
+      {% if total_savings > 0 %}
+        <div class="text-right pb-2 text-green-700 text-lg">
+          <span class="font-bold">Oszczędzasz:
           </span>
-          <span>16 zł</span>
+          <span>-{{ total_savings | money_with_currency }}</span>
         </div>
+      {% endif %}
+
+      <div class="flex justify-center sm:justify-start">
+        {% render 'cart-gift-wrap' %}
       </div>
 
+      <div class="flex flex-col sm:flex-row justify-between items-center w-full gap-2">
+        <div>
+          <div class="flex flex-col text-center sm:text-left sm:flex-row sm:gap-2 text-lg px-2">
+            <span class="font-medium">Kwota do zapłaty:
+            </span>
+            <span class="">{{ cart.total_price | money }}</span>
+          </div>
+          <div class="flex flex-col text-center sm:text-left sm:flex-row sm:gap-2 text-lg px-2">
+            <span class="font-medium">+ dostawa od:
+            </span>
+            <span>16 zł</span>
+          </div>
+        </div>
 
-      <button
-        name="checkout"
-        type="submit"
-        class="button">DO KASY
-      </button>
-
+        <button
+          name="checkout"
+          type="submit"
+          class="button">DO KASY
+        </button>
+      </div>
     </div>
-    {% render 'cart-gift-wrap' %}
 
   {% else %}
     <div class="flex flex-col justify-center items-center gap-5 mt-10">

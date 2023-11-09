@@ -2244,6 +2244,9 @@ div[data-block-handle='ig_feed'] {
   .sm\:flex-row {
     flex-direction: row;
   }
+  .sm\:justify-start {
+    justify-content: flex-start;
+  }
   .sm\:gap-2 {
     gap: 0.5rem;
   }
