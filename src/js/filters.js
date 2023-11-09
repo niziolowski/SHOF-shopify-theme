@@ -1,41 +1,41 @@
 export default () => ({
   sortOptions: [
     {
-      value: "date-ascending",
-      label: "Od najnowszych",
+      value: 'created-descending',
+      label: 'Od najnowszych',
     },
-    { value: "price-ascending", label: "Od najtańszych" },
+    { value: 'price-ascending', label: 'Od najtańszych' },
     {
-      value: "price-descending",
-      label: "Od najdroszych",
+      value: 'price-descending',
+      label: 'Od najdroszych',
     },
   ],
   colorOptions: [
     {
-      value: "beze-i-brazy",
-      label: "beże i brązy",
+      value: 'beze-i-brazy',
+      label: 'beże i brązy',
     },
     {
-      value: "kolorowe",
-      label: "kolorowe",
+      value: 'kolorowe',
+      label: 'kolorowe',
     },
     {
-      value: "szarosci-i-czernie",
-      label: "szarości i czernie",
+      value: 'szarosci-i-czernie',
+      label: 'szarości i czernie',
     },
   ],
   materialOptions: [
     {
-      value: "gladki",
-      label: "gładki",
+      value: 'gladki',
+      label: 'gładki',
     },
     {
-      value: "zamsz",
-      label: "zamsz",
+      value: 'zamsz',
+      label: 'zamsz',
     },
     {
-      value: "polysk",
-      label: "połysk",
+      value: 'polysk',
+      label: 'połysk',
     },
   ],
   isOpen: false,
@@ -43,33 +43,31 @@ export default () => ({
   selectedColorOption: null,
   selectedMaterialOption: null,
   isLastOne: false,
-  isPreOrder: false,
   isAvailable: false,
   currentCollection: null,
 
   init() {
     // Get current url but skip the question mark
-    const currentUrl =
-      `${window.location.pathname}${window.location.search}`?.replace("?", "");
+    const currentUrl = `${window.location.pathname}${window.location.search}`?.replace('?', '');
     // Set current url
     this.currentUrl = currentUrl;
 
     // Get filter data from local storage
     const filterData = this.getFilterData();
-    console.log(filterData);
 
     if (!filterData) return;
 
     // Get last url but skip the question mark
-    const lastUrl = filterData.lastUrl?.replace("?", "");
+    const lastUrl = filterData.lastUrl?.replace('?', '');
 
     // Get current collection
-    const currentCollection = window.location.pathname.split("/")[2];
+    const currentCollection = window.location.pathname.split('/')[2];
     // Set current collection and the isOpen property
     this.currentCollection = currentCollection;
+
     this.isOpen = filterData.isOpen;
     // If current collection is different than collection in filter data, dont apply filters
-    if (currentCollection !== filterData.currentCollection) return;
+    if (currentCollection !== filterData.currentCollection && filterData.currentCollection != null) return;
 
     // If it's the same collection, update filter data
     this.isOpen = filterData.isOpen;
@@ -77,7 +75,6 @@ export default () => ({
     this.selectedColorOption = filterData.selectedColorOption;
     this.selectedMaterialOption = filterData.selectedMaterialOption;
     this.isLastOne = filterData.isLastOne;
-    this.isPreOrder = filterData.isPreOrder;
     this.isAvailable = filterData.isAvailable;
 
     // If current filter query is different than last filter query, apply filters
@@ -96,15 +93,14 @@ export default () => ({
     this.selectedColorOption = null;
     this.selectedMaterialOption = null;
     this.isLastOne = false;
-    this.isPreOrder = false;
     this.isAvailable = false;
 
     window.location.href = window.location.pathname;
-    localStorage.removeItem("filterData");
+    localStorage.removeItem('filterData');
   },
 
   getFilterData() {
-    const filterData = JSON.parse(localStorage.getItem("filterData"));
+    const filterData = JSON.parse(localStorage.getItem('filterData'));
     if (!filterData) return null;
     return filterData;
   },
@@ -117,14 +113,13 @@ export default () => ({
       selectedColorOption: this.selectedColorOption,
       selectedMaterialOption: this.selectedMaterialOption,
       isLastOne: this.isLastOne,
-      isPreOrder: this.isPreOrder,
       isAvailable: this.isAvailable,
       isOpen: this.isOpen,
       currentCollection: this.currentCollection,
       lastUrl: lastUrl || null,
     };
 
-    localStorage.setItem("filterData", JSON.stringify(filterData));
+    localStorage.setItem('filterData', JSON.stringify(filterData));
   },
 
   updateSortOption(value) {
@@ -151,26 +146,40 @@ export default () => ({
   },
 
   submitFilters() {
-    let urlParams = new URLSearchParams();
+    let urlParams = new URLSearchParams(window.location.search);
 
     // Sort
-    if (this.selectedSortOption)
-      urlParams.append("sort_by", this.selectedSortOption);
+    if (this.selectedSortOption) {
+      urlParams.set('sort_by', this.selectedSortOption); // Use `set` to overwrite if exists
+    } else {
+      urlParams.delete('sort_by'); // Delete the parameter if the sort option is reset
+    }
 
-    // filter by color
-    if (this.selectedColorOption)
-      urlParams.append("filter.p.tag", this.selectedColorOption);
-
-    // Filter by material
-    if (this.selectedMaterialOption)
-      urlParams.append("filter.p.tag", this.selectedMaterialOption);
+    // Color and Material filters
+    // Assuming you want to replace all existing `filter.p.tag` with new ones
+    urlParams.delete('filter.p.tag'); // Remove all existing tag filters
+    if (this.selectedColorOption) {
+      urlParams.append('filter.p.tag', this.selectedColorOption);
+    }
+    if (this.selectedMaterialOption) {
+      urlParams.append('filter.p.tag', this.selectedMaterialOption);
+    }
 
     // Filter available products
-    if (this.isAvailable) urlParams.append("filter.v.availability", 1);
+    if (this.isAvailable) {
+      urlParams.set('filter.v.availability', 1);
+    } else {
+      urlParams.delete('filter.v.availability');
+    }
 
     // Filter by availability
-    if (this.isLastOne) urlParams.append("filter.p.tag", "ostatnia-sztuka");
+    if (this.isLastOne) {
+      urlParams.set('filter.p.tag', 'ostatnia-sztuka');
+    } else {
+      urlParams.delete('filter.p.tag', 'ostatnia-sztuka');
+    }
 
+    // Construct the new URL with existing page number and new filters
     const newURL = `${window.location.pathname}?${urlParams.toString()}`;
 
     this.setFilterData(newURL);
