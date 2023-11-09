@@ -1,22 +1,6 @@
 <div
   class="container"
-  x-data="{
-      loading: false,
-      updateCart(){
-          // send fetch reqeust to update cart
-          fetch('/?view=ajax-cart-page')
-          .then(response => response.text())
-          .then(cartData => {
-              $refs.cart_content.innerHTML = cartData;
-              // This code is use to parse json object. for cart count
-              var el = document.createElement('div');
-              el.innerHTML = cartData;
-              var cartCount = JSON.parse(el.querySelector('[data-options]').innerHTML).item_count;
-              $dispatch('cart-count-updated', cartCount);
-              this.loading = false;
-          })
-      }
-    }"
+  x-data="cart({{ section.settings.gift_wrap_product.variants[0].id }})"
   @update-cart.window="updateCart;">
 
   <h1 class="text-4xl font-medium mb-5">Koszyk</h1>
@@ -30,3 +14,17 @@
   </div>
 
 </div>
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "product",
+        "id": "gift_wrap_product",
+        "label": "Produkt (zapakuj na prezent)",
+        "info": "Wybierz produkt który ma być dodany do zamówienia jako opakowanie na prezent."
+      }
+    ]
+  }
+{% endschema %}

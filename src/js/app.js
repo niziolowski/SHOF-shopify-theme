@@ -8,6 +8,7 @@ import slider from './slider';
 import imageWithTitle from './imageWithTitle';
 import filters from './filters';
 import accordion from './accordion';
+import cart from './cart';
 
 Alpine.plugin(collapse);
 
@@ -16,6 +17,7 @@ Alpine.data('slider', slider);
 Alpine.data('imageWithTitle', imageWithTitle);
 Alpine.data('filters', filters);
 Alpine.data('accordion', accordion);
+Alpine.data('cart', cart);
 
 // Product gallery global object
 window.swiper = swiper2;

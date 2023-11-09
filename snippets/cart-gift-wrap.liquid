@@ -1,0 +1,12 @@
+<!-- Gift Wrap Option -->
+<div>
+  <label for="gift-wrap" class="flex items-center">
+    <input
+      type="checkbox"
+      id="gift-wrap"
+      name="gift_wrap"
+      x-model="giftWrap"
+      @change.debounce="[updateGiftWrap(),loading = true]"
+      class="mr-2">
+    Zapakuj na prezent</label>
+</div>
