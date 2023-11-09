@@ -1320,6 +1320,9 @@ input[type='number']::-webkit-outer-spin-button,
 .items-start {
   align-items: flex-start;
 }
+.items-end {
+  align-items: flex-end;
+}
 .items-center {
   align-items: center;
 }
@@ -1340,6 +1343,9 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .justify-evenly {
   justify-content: space-evenly;
+}
+.justify-stretch {
+  justify-content: stretch;
 }
 .gap-1 {
   gap: 0.25rem;
@@ -2216,6 +2222,10 @@ div[data-block-handle='ig_feed'] {
   .sm\:w-5\/6 {
     width: 83.333333%;
   }
+  .sm\:w-fit {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
   .sm\:max-w-\[1000px\] {
     max-width: 1000px;
   }
@@ -2230,6 +2240,12 @@ div[data-block-handle='ig_feed'] {
   }
   .sm\:flex-row {
     flex-direction: row;
+  }
+  .sm\:gap-2 {
+    gap: 0.5rem;
+  }
+  .sm\:self-end {
+    align-self: flex-end;
   }
   .sm\:overflow-hidden {
     overflow: hidden;
