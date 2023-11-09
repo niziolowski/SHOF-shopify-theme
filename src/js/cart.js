@@ -5,6 +5,7 @@ export default (giftWrapProductID) => {
     giftWrapProductID: giftWrapProductID,
 
     init() {
+      // update the checkbox state based on the presence of the gift wrap in the cart
       this.checkGiftWrapInCart();
     },
 
@@ -64,6 +65,7 @@ export default (giftWrapProductID) => {
         })
         .catch((error) => {
           console.error('Error:', error);
+          window.dispatchEvent(new CustomEvent('update-cart'));
         });
     },
 
@@ -102,6 +104,7 @@ export default (giftWrapProductID) => {
         })
         .catch((error) => {
           console.error('Error:', error);
+          window.dispatchEvent(new CustomEvent('update-cart'));
         });
     },
   };
