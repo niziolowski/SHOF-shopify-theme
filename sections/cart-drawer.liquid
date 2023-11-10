@@ -35,18 +35,9 @@
     x-transition:leave="transition ease-in-out duration-300 transform"
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="translate-x-full"
-    class="fixed transition z-50 bg-white top-0 right-0 md:w-[450px] w-full flex flex-col shadow-l h-full">
-    <div class="p-5 flex items-center justify-between border border-b-1 border-off-white shadow-sm">
-      <h2 class="text-4xl font-normal hover:text-primary">
-        <a href="{{ routes.cart_url }}">Koszyk</a>
-      </h2>
-      <span class="cursor-pointer transition hover:-rotate-90 hover:scale-125 active:scale-100" @click="showCartDrawer = false; document.body.classList.remove('overflow-hidden')">
-        {% render 'icon-close'
-          , class: 'max-w-[30px] fill-textColor hover:fill-primary' %}
-      </span>
-    </div>
+    class="absolute transition z-50 bg-white top-0 right-0  w-full flex flex-col shadow-l h-full md:w-[450px]">
     {% render 'loader' %}
-    <div x-ref="cart_drawer_content" class="relative h-full">
+    <div class="relative h-full flex flex-col">
       {% render 'cart-drawer-content' %}
     </div>
   </div>

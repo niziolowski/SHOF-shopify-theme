@@ -797,6 +797,9 @@ input[type='number']::-webkit-outer-spin-button,
 .pointer-events-none {
   pointer-events: none;
 }
+.collapse {
+  visibility: collapse;
+}
 .fixed {
   position: fixed;
 }
@@ -1023,6 +1026,12 @@ input[type='number']::-webkit-outer-spin-button,
 .mt-auto {
   margin-top: auto;
 }
+.box-border {
+  box-sizing: border-box;
+}
+.box-content {
+  box-sizing: content-box;
+}
 .block {
   display: block;
 }
@@ -1110,8 +1119,15 @@ input[type='number']::-webkit-outer-spin-button,
 .h-screen {
   height: 100vh;
 }
+.max-h-max {
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
 .min-h-screen {
   min-height: 100vh;
+}
+.min-h-0 {
+  min-height: 0px;
 }
 .w-1\/2 {
   width: 50%;
@@ -1209,11 +1225,29 @@ input[type='number']::-webkit-outer-spin-button,
 .flex-1 {
   flex: 1 1 0%;
 }
+.flex-auto {
+  flex: 1 1 auto;
+}
+.flex-none {
+  flex: none;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-shrink {
+  flex-shrink: 1;
+}
 .flex-grow {
   flex-grow: 1;
 }
+.flex-grow-0 {
+  flex-grow: 0;
+}
 .table-auto {
   table-layout: auto;
+}
+.border-collapse {
+  border-collapse: collapse;
 }
 .origin-right {
   transform-origin: right;
@@ -1422,6 +1456,12 @@ input[type='number']::-webkit-outer-spin-button,
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 .scroll-smooth {
   scroll-behavior: smooth;
@@ -1662,6 +1702,10 @@ input[type='number']::-webkit-outer-spin-button,
 .py-7 {
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .pb-12 {
   padding-bottom: 3rem;

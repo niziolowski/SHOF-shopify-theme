@@ -1,6 +1,15 @@
+<div class="px-5 py-3 relative flex flex-none items-center justify-between border border-b-1 border-off-white shadow-sm">
+	<h2 class="text-4xl font-normal hover:text-primary">
+		<a href="{{ routes.cart_url }}">Koszyk</a>
+	</h2>
+	<span class="cursor-pointer transition hover:-rotate-90 hover:scale-125 active:scale-100" @click="showCartDrawer = false; document.body.classList.remove('overflow-hidden')">
+		{% render 'icon-close'
+			, class: 'max-w-[30px] fill-textColor hover:fill-primary' %}
+	</span>
+</div>
 {% if cart.item_count > 0 %}
-	<form action="{{ routes.cart_url }}" class="flex h-full flex-col" method="POST">
-		<div class="p-5 overflow-y-auto flex-col divide-y">
+	<form action="{{ routes.cart_url }}" class="relative flex flex-col flex-1 min-h-0" method="POST">
+		<div class="px-5 overflow-y-auto flex-col divide-y flex-1">
 			{% for item in cart.items %}
 				<div class="grid grid-cols-[1fr_2fr] items-center gap-5 py-5">
 					<a href="{{ item.url }}" class="place-self-center">
@@ -21,7 +30,7 @@
 							<button 
 								type="button"
 								title="remove {{ item.title }}"
-								class="text-sm underline hover:text-accent"
+								class="text-sm underline hover:text-accent mt-auto"
 								@click.debounce="loading = true; Functions.changeQuantity({{ forloop.index }}, 0)"
 							>
 								Usuń
@@ -31,7 +40,7 @@
 				</div>
 			{% endfor %}
 		</div>
-		<div class="border border-t-1 border-off-white shadow-l mt-auto p-5 flex flex-col gap-2">
+		<div class="p-5 border border-t-1 border-off-white shadow-l flex flex-col gap-2">
 			<div class="flex justify-between px-2">
 				<h3 class="font-normal text-xl">Suma:</h3>
 				<p class="font-medium text-xl text-accent">{{ cart.total_price | money }}</p>
