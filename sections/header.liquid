@@ -19,7 +19,10 @@
 
     <!-- SIDE ACTIONS -->
     <div class="flex gap-2 absolute right-6 top-1/2 transform -translate-y-1/2">
-      <button @click="toggleSearch" type="button">
+      <button
+        class="p-3 cursor-pointer rounded-full hover:bg-gray-100"
+        @click="toggleSearch"
+        type="button">
         {% render 'icon-search' %}
       </button>
       <a
