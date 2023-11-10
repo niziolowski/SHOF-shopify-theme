@@ -2073,6 +2073,10 @@ div[data-block-handle='ig_feed'] {
   .sm\:shadow-m {
     box-shadow: var(--shadow-medium);
   }
+
+  .sm\:shadow-l {
+    box-shadow: var(--shadow-high);
+  }
 }
 .hover\:-rotate-90:hover {
   --tw-rotate: -90deg;
@@ -2286,6 +2290,9 @@ div[data-block-handle='ig_feed'] {
   }
   .sm\:bg-white\/50 {
     background-color: rgb(255 255 255 / 0.5);
+  }
+  .sm\:bg-white\/70 {
+    background-color: rgb(255 255 255 / 0.7);
   }
   .sm\:p-10 {
     padding: 2.5rem;
