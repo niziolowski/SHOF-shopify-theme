@@ -1,5 +1,5 @@
 <header
-  x-data="mobileMenu"
+  x-data="header"
   class="z-50"
   x-cloak>
   <!-- LOGO WITH ACTIONS -->
@@ -19,6 +19,9 @@
 
     <!-- SIDE ACTIONS -->
     <div class="flex gap-2 absolute right-6 top-1/2 transform -translate-y-1/2">
+      <button @click="toggleSearch" type="button">
+        {% render 'icon-search' %}
+      </button>
       <a
         class="p-3 cursor-pointer rounded-full hover:bg-gray-100 "
         x-data
@@ -64,8 +67,12 @@
     </nav>
   </div>
 
-  {% render 'mobile-menu' %}
+{% render 'mobile-menu' %}
+
+  <!-- SEARCH MENU -->
+  {% render 'search-input' %}
 </header>
+
 
 <!-- something for SEO. Investigate in the future -->
 <script type="application/ld+json">

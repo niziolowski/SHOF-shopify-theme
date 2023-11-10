@@ -1,19 +1,19 @@
-<form action="{{ routes.search_url }}" method="get" role="search" class="search">
-	<div class="field relative flex items-center">
-		<input class="input w-full min-w-[250px] bg-transparent placeholder:text-white/90"
-			type="search"
-			id="nav-search-input"
-			name="q"
-			value="{{ search.terms | escape }}"
-			placeholder="Search"
-			required
-		>
-
-		<label class="field__label sr-only" for="nav-search-input">Search</label>
-		<input name="options[prefix]" type="hidden" value="last">
-		<button class="absolute right-1" aria-label="Search">
-			{% render 'icon-search' class: class %}
-		</button>
-
-	</div>
-</form>
+<div
+  x-cloak
+  x-show="isSearchOpen"
+  class="fixed w-full inset-0 flex justify-center z-50 items-start">
+  <div class="overlay fixed inset-0 transition-all z-50 backdrop-blur-sm bg-white/50" @click="toggleSearch"></div>
+  <form
+    class="relative z-50 w-full flex bg-white border-b sm:m-10 sm:border sm:shadow-m sm:w-full sm:rounded-md text-gray-500 md:w-1/2 md:top-[10vmin]"
+    action="{{ routes.search_url }}"
+    method="get">
+    <button type="submit" class="px-3">
+      {% render 'icon-search' %}
+    </button>
+    <input
+      class="w-full py-3"
+      type="search"
+      name="q"
+      placeholder="Szukaj">
+  </form>
+</div>

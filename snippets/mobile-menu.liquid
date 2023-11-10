@@ -1,10 +1,10 @@
 <!-- MOBILE MENU -->
 <div
   x-cloak
-  x-show="isOpen"
-  class="overlay transition-all z-30 w-screen h-screen top-0 fixed backdrop-blur-sm bg-white/50"></div>
+  x-show="isMobileOpen"
+  class="overlay transition-all z-50 w-screen h-screen top-0 fixed backdrop-blur-sm bg-white/50"></div>
 <aside
-  x-show="isOpen"
+  x-show="isMobileOpen"
   class="flex flex-col z-50 top-0 bottom-0 bg-background fixed text-xl shadow-m w-full md:w-[300px]"
   x-transition:enter="transition ease-in-out duration-300 transform"
   x-transition:enter-start="-translate-x-full"
