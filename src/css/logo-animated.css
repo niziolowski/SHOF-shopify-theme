@@ -38,6 +38,9 @@
   flex: 0 0 auto;
   align-self: center;
   width: 70%;
+}
+
+.animate.logo-slogan {
   animation: shof-slogan 4.2s linear;
   animation-fill-mode: forwards;
 }
@@ -70,14 +73,14 @@
     opacity: 1;
   }
 }
-.st2 {
+.animate.st2 {
   stroke-dasharray: 401.6997375488;
   stroke-dashoffset: 401.6997375488;
   animation: shof-sh 4s ease-in;
   animation-fill-mode: forwards;
 }
 
-.st0 {
+.animate.st0 {
   stroke-dasharray: 257.032623291;
   stroke-dashoffset: 257.032623291;
   animation: shof-f 4s ease-in;

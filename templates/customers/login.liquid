@@ -1,58 +1,81 @@
 <div
   x-cloak
   x-data="{ resetPassword: false }"
-  class="container max-w-[400px]">
+  class="register fixed flex justify-stretch items-start inset-0 h-full bg-white sm:backdrop-blur-sm sm:bg-white/50 z-50 sm:justify-center sm:items-start sm:pt-[10vmin]">
+  <div class="flex-1 overflow-y-auto h-full sm:h-auto sm:max-h-[90vmin] items-stretch sm:flex-none bg-white sm:border p-4 sm:p-10 sm:rounded-xl sm:shadow-m flex flex-col sm:min-w-[400px] justify-start gap-4">
+    <div class="flex justify-center mb-4">
+      {% render 'logo'
+        , width: '200px' %}
+    </div>
 
-  <div class="md:my-8 my-6">
-
-    <header class="flex justify-between items-center text-center mb-3">
+    <header class="flex justify-between items-center text-center">
       <h2
-        class="text-2xl font-medium uppercase w-full"
+        class="text-2xl font-normal uppercase w-full"
         x-show="!resetPassword"
         tabindex="-1">
         Zaloguj
       </h2>
       <h2
-        class="text-2xl font-medium uppercase w-full"
+        class="text-2xl font-normal uppercase w-full"
         x-show="resetPassword"
         tabindex="-1">
         Zresetuj hasło
       </h2>
     </header>
 
-    <div
-      x-show="!resetPassword"
-      x-transition.opacity
-      class="h-full flex items-center justify-center">
-      <div class="w-full">
+    {% comment %} LOGIN AND REGISTER {% endcomment %}
+    <div x-show="!resetPassword" x-transition.opacity>
+      {%- form 'customer_login'
+        , novalidate: 'novalidate'
+        , class: 'flex flex-col gap-4 ' -%}
 
-        {%- form 'customer_login'
-          , novalidate: 'novalidate' -%}
-          {% if form.errors %}
-            <div class="flex flex-row items-center justify-center w-full my-3">
-              {% for error in form.errors %}
-                <div class="text-red-500">
-                  {% render 'icon-failed' %}
-                </div>
-                <p class="text-red-500 text-sm font-bold ml-2">
-                  {{ form.errors.messages[error] }}
-                </p>
-              {% endfor %}
-            </div>
-          {% endif %}
+        {% comment %} Errors {% endcomment %}
+        {% if form.errors %}
+          <div class="flex flex-row items-center justify-center w-full gap-2">
+            {% for error in form.errors %}
+              <div class="text-red-500">
+                {% render 'icon-failed' %}
+              </div>
+              <p class="text-red-500 text-sm font-normal">
+                {{ form.errors.messages[error] }}
+              </p>
+            {% endfor %}
+          </div>
+        {% endif %}
 
-          <div class="flex flex-col mb-2">
-            <label for="CustomerEmail" class="tracking-widest sr-only">
-              Email
+        <div>
+          <label for="CustomerEmail" class="tracking-widest sr-only">
+            Email
+          </label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            placeholder="Email"
+            autocorrect="off"
+            autocapitalize="off"
+            class="input"
+            required
+            {% if form.errors contains 'form' %}
+            aria-invalid="true"
+            {% endif %}>
+
+        </div>
+
+        {%- if form.password_needed -%}
+          <div class="flex flex-col gap-4">
+            <label for="CustomerPassword" class="tracking-widest sr-only">
+              Hasło
             </label>
+
             <input
-              type="email"
-              name="customer[email]"
-              id="CustomerEmail"
-              autocomplete="email"
-              placeholder="Email"
-              autocorrect="off"
-              autocapitalize="off"
+              type="password"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+              placeholder="Hasło"
+              autocomplete="current-password"
               class="input"
               required
               {% if form.errors contains 'form' %}
@@ -61,130 +84,114 @@
 
           </div>
 
-          {%- if form.password_needed -%}
-            <div class="flex flex-col mb-2">
-              <label for="CustomerPassword" class="tracking-widest sr-only">
-                Hasło
-              </label>
-
-              <input
-                type="password"
-                value=""
-                name="customer[password]"
-                id="CustomerPassword"
-                placeholder="Hasło"
-                autocomplete="current-password"
-                class="input"
-                required
-                {% if form.errors contains 'form' %}
-                aria-invalid="true"
-                {% endif %}>
-
-            </div>
-
-            <button
-              type="button"
-              @click="resetPassword = true"
-              class="link my-3">
-              Zapomniałeś hasła?
-            </button>
-
-          {%- endif -%}
-
-          <button class="button justify-center w-full">
-            Zaloguj się
+          <button
+            type="button"
+            @click="resetPassword = true"
+            class="link">
+            Zapomniałeś hasła?
           </button>
 
-          <p class="mb-4 text-center text-sm tracking-wider mt-4">
-            Nie masz konta?
-            <a
-              href="{{ routes.account_register_url }}"
-              title="Create Account"
-              class="link">
-              Zarejestruj się
-            </a>
-          </p>
-        {%- endform -%}
-      </div>
+        {%- endif -%}
+
+        <button class="button justify-center w-full">
+          Zaloguj się
+        </button>
+
+        <p class="text-center text-sm tracking-wider">
+          Nie masz konta?
+          <a
+            href="{{ routes.account_register_url }}"
+            title="Create Account"
+            class="link">
+            Zarejestruj się
+          </a>
+        </p>
+      {%- endform -%}
+
     </div>
 
+    {% comment %} RESET PASSWORD {% endcomment %}
     <div
       x-show="resetPassword"
       x-transition.opacity
-      class="h-full flex items-center justify-center">
-      <div class="w-full">
+      class=" flex items-center justify-center">
 
-        {% if form.errors %}
-          <div class="flex flex-row items-center justify-center w-full my-3">
-            {% for error in form.errors %}
-              <div class="text-red-500">
-                {% render 'icon-failed' %}
-              </div>
-              <p class="text-red-500 text-sm font-bold ml-2">
-                {{ form.errors.translated_fields[error] | capitalize }} - {{ form.errors.messages[error] }}
-              </p>
-            {% endfor %}
-          </div>
-        {% elsif form.posted_successfully? %}
-          <div class="flex flex-row items-center justify-center w-full gap-2 my-5">
-            <div class="text-green-500">
-              {% render 'icon-success' %}
+      {% if form.errors %}
+        <div class="flex flex-row items-center justify-center w-full gap-2">
+          {% for error in form.errors %}
+            <div class="text-red-500">
+              {% render 'icon-failed' %}
             </div>
-            <p class="text-green-500 font-bold text-center">
-              Password is recovered successfully
+            <p class="text-red-500 text-sm font-normal ml-2">
+              {{ form.errors.translated_fields[error] | capitalize }} - {{ form.errors.messages[error] }}
             </p>
+          {% endfor %}
+        </div>
+      {% elsif form.posted_successfully? %}
+        <div class="flex flex-row items-center justify-center w-full gap-2">
+          <div class="text-green-500">
+            {% render 'icon-success' %}
           </div>
-        {% endif %}
+          <p class="text-green-500 font-normal text-center">
+            Hasło odzyskano pomyślnie. Sprawdź swoją skrzynkę pocztową.
+          </p>
+        </div>
+      {% endif %}
 
-        {%- form 'recover_customer_password' -%}
-          <div class="flex flex-col mb-4">
-            <label for="RecoverEmail" class="tracking-widest sr-only">
-              Recover Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="RecoverEmail"
-              autocorrect="off"
-              autocapitalize="off"
-              autocomplete="email"
-              placeholder="Email"
-              class="input"
-              required
-              {% if form.errors %}
-              aria-invalid="true"
-              aria-describedby="RecoverEmail-email-error"
-              autofocus
-              {% endif %}>
+      {%- form 'recover_customer_password'
+        , class: 'flex flex-col gap-4 items-stretch w-full' -%}
+        <div class="w-full flex justify-stretch">
+          <label for="RecoverEmail" class="tracking-widest sr-only">
+            Recover Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="RecoverEmail"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            placeholder="Email"
+            class="input"
+            required
+            {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="RecoverEmail-email-error"
+            autofocus
+            {% endif %}>
 
-          </div>
+        </div>
 
-          <button class="button justify-center w-full">
-            Zresetuj hasło
-          </button>
+        <button class="button justify-center w-full">
+          Zresetuj hasło
+        </button>
 
-          <button
-            type="button"
-            @click="resetPassword = false"
-            class="link mt-4 mb-4 text-center w-full">
-            Powrót do strony logowania
-          </button>
+        <button
+          type="button"
+          @click="resetPassword = false"
+          class="link text-center w-full">
+          Powrót do strony logowania
+        </button>
 
-        {%- endform -%}
-      </div>
+      {%- endform -%}
     </div>
 
     {%- if shop.checkout.guest_login -%}
-      <div>
-        <h2 class="text-2xl">Guest</h2>
-        {%- form 'guest_login' -%}
-          <button class="button">
-            Kontynuuj jako gość
-          </button>
-        {%- endform -%}
-      </div>
+
+      {%- form 'guest_login' -%}
+        <button class="button w-full">
+          Kontynuuj jako gość
+        </button>
+      {%- endform -%}
+
     {%- endif -%}
 
   </div>
 
 </div>
+
+<style>
+  body {
+    overflow: hidden;
+  }
+</style>
