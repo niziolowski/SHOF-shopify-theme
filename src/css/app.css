@@ -32,6 +32,10 @@
     -moz-appearance: textfield !important;
   }
 
+  th {
+    @apply font-medium;
+  }
+
   .color-theme {
     /* $ SHADOW */
     --shadow-color: 0deg 0% 68%;

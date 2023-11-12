@@ -1,0 +1,67 @@
+<div class="flex items-center" >
+
+{% comment %} Heading {% endcomment %}
+  <button class="p-3 flex items-center justify-center rounded-full hover:bg-gray-100 cursor-pointer lg:hidden ml-2" @click="toggleMenu()">
+    {% render 'icon-menu' %}
+  </button>
+  <h3 class="text-xl font-normal px-5 py-5">Zamówienia</h3>
+</div>
+{% paginate customer.orders by 10 %}
+
+  {% if customer.orders.size != 0 %}
+<div class="flex flex-col border sm:rounded-md sm:shadow-m">
+  <div class="overflow-x-auto">
+    <div class="inline-block min-w-full">
+      <div class="overflow-hidden">
+            <table class="orders-table min-w-full divide-y divide-neutral-200/70">
+              <thead>
+                <tr class="text-neutral-800">
+                  <th class="px-5 py-3 text-xs font-medium text-left uppercase">Numer</th>
+                  <th class="px-5 py-3 text-xs font-medium text-left uppercase hidden md:table-cell">Data</th>
+                  <th class="px-5 py-3 text-xs font-medium text-left uppercase hidden sm:table-cell">Status płatności</th>
+                  <th class="px-5 py-3 text-xs font-medium text-left uppercase">Status zamówienia</th>
+                  <th class="px-5 py-3 text-xs font-medium text-left uppercase hidden sm:table-cell">Kwota</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-200/70" x-data="{
+            goToUrl(url) {
+              window.location = url;
+            }
+          }">
+                {% for order in customer.orders %}
+
+                  <tr @click="goToUrl('{{ order.customer_url }}')" class="text-neutral-800 hover:bg-gray-100">
+                    <td class="px-5 py-4 text-sm font-medium whitespace-nowrap" data-label="order name">{{ order.name }}</td>
+                    <td class="px-5 py-4 text-sm whitespace-nowrap hidden md:table-cell" data-label="Date">{{ order.created_at | time_tag: format: 'date' }}</td>
+                    <td class="px-5 py-4 text-sm whitespace-nowrap hidden sm:table-cell" data-label="Payment Status">{{ order.financial_status_label }}</td>
+                    <td class="px-5 py-4 text-sm font-medium whitespace-nowrap" data-label="Fulfillment Status">{{ order.fulfillment_status_label }}</td>
+                    <td class="px-5 py-4 text-sm font-medium whitespace-nowrap hidden sm:table-cell" data-label="Total">{{ order.total_price | money }}</td>
+                  </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <div class="flex flex-col justify-center items-center">
+              <p>Nie masz jeszcze zamówień</p>
+              <a href="{{ routes.all_products_collection_url }}" class="inline-block button mt-3">
+                Kontynuuj zakupy
+              </a>
+            </div>
+          {% endif %}
+
+          {% if paginate.pages > 1 %}
+            <div class="pagination no-print">
+              {% render 'pagination' paginate: paginate %}
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          {% endif %}
+        {% endpaginate %}
+<style>
+  .orders-table tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+</style>

@@ -1,23 +1,35 @@
-<ul class="flex flex-col w-full font-bold divide-y">
-  <li>
-    <a href="{{ routes.account_url }}" class="{% if request.path == '/account' %} text-accent {% endif %}
-					inline-block py-2 hover:text-accent">
-      <span>Szczegóły konta</span>
-    </a>
-  </li>
+<div class="border-x flex flex-col gap-2 divide-y w-screen sm:w-max h-max " x-data="{
+  links:[
+    {url: '{{ routes.account_url }}', name: 'Szczegóły konta', path: '/account'},
+    {url: '{{ routes.account_addresses_url }}', name: 'Wyświetl adresy ({{ customer.addresses_count }})', path: '/account/addresses'},
+    {url: '{{ routes.account_logout_url }}', name: 'Wyloguj się', path: '/account/logout'}
+  ]
+}">
+  <div class="flex justify-between items-center mt-2 px-2">
+    <h2 class="px-4 font-normal text-xl">Konto</h2>
 
-  <li>
-    <a href="{{ routes.account_addresses_url }}" class="{% if request.path == '/account/addresses' %} text-accent {% endif %}
-					inline-block py-2 hover:text-accent">
-      <span>Wyświetl adresy ({{ customer.addresses_count }})
-      </span>
-    </a>
-  </li>
+    <button @click="open = false" class="lg:hidden p-2 flex justify-center items-center rounded-full hover:bg-gray-100 hover:scale-110 hover:-rotate-90 transition">
+      {% render 'icon-close' %}
+    </button>
+  </div>
+  <div class="flex flex-col gap-2 p-2">
+    <template x-for="link in links">
+      <a
+        :href="link.url"
+        class="px-4 py-3 rounded-lg hover:text-primary hover:bg-gray-100 bg-opacity-10"
+        :class="link.path == window.location.pathname ? 'bg-primary text-primary' : ''">
+        <span x-text="link.name"></span>
+      </a>
+    </template>
+  </div>
 
-  <li>
-    <a href="{{ routes.account_logout_url }}" class="inline-block py-2 underline hover:text-accent">
-      <span>Wyloguj się
-      </span>
-    </a>
-  </li>
-</ul>
+  <div class="px-6 py-3">
+    <h2 class="pb-2 font-normal">{{ customer.name }}</h2>
+    {{ customer.email }}
+  </div>
+
+  <div class="px-6 py-3">
+    <h2 class="pb-2 font-normal">Domyślny adres:</h2>
+    {{ customer.default_address | format_address }}
+  </div>
+</div>
