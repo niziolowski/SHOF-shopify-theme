@@ -29,14 +29,14 @@ export default (el, { modifiers, expression }, { cleanup }) => {
   const arrowStyles = {
     base: `position: absolute; width: 0.625rem; height: 0.625rem; background-color: white; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;`,
     top: `top: 100%; left: 50%; transform: translateX(-50%) rotate(45deg);`,
-    bottom: `bottom: 100%; left: 50%; transform: translateX(-50%) rotate(45deg);`,
-    left: `top: 50%; left: 100%; transform: translateY(-50%) rotate(45deg);`,
-    right: `top: 50%; right: 100%; transform: translateY(-50%) rotate(45deg);`,
+    bottom: `bottom: 100%; left: 50%; transform: translateX(-50%) rotate(225deg);`,
+    left: `top: 50%; left: 100%; transform: translateY(-50%) rotate(90deg);`,
+    right: `top: 50%; right: 100%; transform: translateY(-50%) rotate(270deg);`,
   };
 
   // Construct the tooltip HTML with inline styles
   let tooltipHTML = `
-    <div id="${tooltipId}" class="shadow-m" x-data="{ tooltipVisible: false, tooltipText: '${tooltipText}', tooltipArrow: ${tooltipArrow}, tooltipPosition: '${tooltipPosition}' }" x-ref="tooltip" x-init="setTimeout(function(){ tooltipVisible = true; }, 1);" x-show="tooltipVisible" style="${tooltipStyles.base} ${tooltipStyles[tooltipPosition]}" x-cloak>
+    <div id="${tooltipId}" class="shadow-m" x-data="{ tooltipVisible: false, tooltipText: '${tooltipText}', tooltipArrow: ${tooltipArrow}, tooltipPosition: '${tooltipPosition}' }" x-ref="tooltip" x-init="setTimeout(function(){ tooltipVisible = true; }, 500);" x-show="tooltipVisible" style="${tooltipStyles.base} ${tooltipStyles[tooltipPosition]}" x-cloak>
       <div x-show="tooltipVisible" x-transition style="position: relative;">
         <p x-text="tooltipText" style="flex-shrink: 0; display: block; font-size: 1rem; white-space: nowrap;"></p>
         <div x-ref="tooltipArrow" x-show="tooltipArrow" style="${arrowStyles.base} ${arrowStyles[tooltipPosition]}" class="tooltip-arrow">
