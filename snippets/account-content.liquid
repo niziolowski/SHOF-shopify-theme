@@ -1,7 +1,7 @@
 <div class="flex sm:justify-start items-center">
 
   {% comment %} Mobile Nav {% endcomment %}
-  <div x-data="{ dropdownOpen: true }" class="relative w-full m-2 sm:w-max sm:mx-0 lg:hidden">
+  <div x-data="{ dropdownOpen: false }" class="relative w-full m-2 sm:w-max sm:mx-0 lg:hidden">
 
     <button @click="dropdownOpen=true" class="w-full inline-flex items-center justify-center h-12 py-2 pl-3 pr-10 text-sm font-medium transition-colors bg-white border rounded-md text-neutral-700 hover:bg-gray-100 active:bg-white focus:outline-none disabled:opacity-50 disabled:pointer-events-none">
       <span class="flex items-center flex-shrink-0 h-full leading-none px-5">
