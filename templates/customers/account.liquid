@@ -1,6 +1,8 @@
 {% comment %} Mobile account nav {% endcomment %}
 <div x-ref="container" x-data="{
-open: true,
+open: false,
+
+
 
 toggleMenu() {
   this.open = !this.open
@@ -13,6 +15,7 @@ toggleMenu() {
 },
 
 updateHeight() {
+  // wait a bit because the dom needs to update (nextTick is not enough)
   setTimeout(() => {
     const navHeight = this.$refs.nav.children[0].getBoundingClientRect().height;
     this.$refs.container.style.height = `${navHeight}px`
