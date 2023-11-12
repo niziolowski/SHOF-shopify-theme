@@ -5,7 +5,7 @@
   <!-- LOGO WITH ACTIONS -->
   <div class="sm:container mx-auto relative">
     <!-- MENU BUTTON -->
-    <div x-on:click="toggleMenu" class="absolute sm:left-6 lef-0 top-1/2 p-2 sm:p-3 rounded-full hover:bg-gray-100 transform -translate-y-1/2 lg:hidden">
+    <div x-on:click="toggleMenu" class="absolute sm:left-6 lef-0 top-1/2 p-3 sm:p-3 rounded-full hover:bg-gray-100 transform -translate-y-1/2 lg:hidden">
       {% render 'icon-menu' %}
     </div>
 
@@ -20,13 +20,13 @@
     <!-- SIDE ACTIONS -->
     <div class="flex sm:gap-2 sm:right-6 absolute right-0 top-1/2 transform -translate-y-1/2">
       <button
-        class="p-2 sm:p-3 cursor-pointer rounded-full hover:bg-gray-100"
+        class="p-3 sm:p-3 cursor-pointer rounded-full hover:bg-gray-100"
         @click="toggleSearch"
         type="button">
         {% render 'icon-search' %}
       </button>
       <a
-        class="p-2 sm:p-3 cursor-pointer rounded-full hover:bg-gray-100 "
+        class="p-3 sm:p-3 cursor-pointer rounded-full hover:bg-gray-100 "
         x-data
         @click="window.Functions.showCartDrawer()">{% render 'icon-shopping-bag' %}</a>
 
