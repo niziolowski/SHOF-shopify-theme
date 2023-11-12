@@ -9,6 +9,7 @@ import imageWithTitle from './imageWithTitle';
 import filters from './filters';
 import accordion from './accordion';
 import cart from './cart';
+import tooltip from './tooltip';
 
 Alpine.plugin(collapse);
 
@@ -23,5 +24,7 @@ Alpine.data('cart', cart);
 window.swiper = swiper2;
 
 window.Alpine = Alpine;
+
+Alpine.directive('tooltip', tooltip);
 
 Alpine.start();

@@ -97,7 +97,11 @@
                   class="sr-only peer variant-color-input"
                   {% if option.selected_value == value %}
                   checked{% endif %}>
-                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class=" {{value | downcase}} block cursor-pointer rounded-full w-7 h-7 hover:scale-110 hover:brightness-110 hover:shadow-md active:scale-100  transition"></label>
+                <label
+                  x-data
+                  x-tooltip.noarrow="{{ value }}"
+                  for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                  class=" {{value | downcase}} block cursor-pointer rounded-full w-7 h-7 hover:scale-110 hover:brightness-110 hover:shadow-md active:scale-100  transition"></label>
               </div>
             {% endunless %}
 
