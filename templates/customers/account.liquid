@@ -1,56 +1,25 @@
-{% comment %} Mobile account nav {% endcomment %}
-<div x-ref="container" x-data="{
-open: false,
+<div
+class="sm:container flex">
+  {% comment %} Desktop account nav {% endcomment %}
+  {% render 'account-navigation' %}
 
 
+  {% comment %} CONTENT {% endcomment %}
+  <div class="sm:px-6 w-full">
+    {% render 'account-content' %}
 
-toggleMenu() {
-  this.open = !this.open
-  // wait for dom to update
+      <div class="flex flex-col sm:flex-row sm:justify-between p-4 gap-6 mt-4">
+      {% comment %} Adresses {% endcomment %}
+      <div class="">
+        <h2 class="pb-2 font-normal">{{ customer.name }}</h2>
+        {{ customer.email }}
+      </div>
 
-  this.$nextTick(() => {
-    this.updateHeight()
-  })
-
-},
-
-updateHeight() {
-  // wait a bit because the dom needs to update (nextTick is not enough)
-  setTimeout(() => {
-    const navHeight = this.$refs.nav.children[0].getBoundingClientRect().height;
-    this.$refs.container.style.height = `${navHeight}px`
-    console.log(navHeight)
-},10);
-}
-}">
-
-  <div
-    x-cloak
-    x-show="open"
-    x-transition:enter="transition ease-in-out duration-300 transform"
-    x-transition:enter-start="-translate-x-full"
-    x-transition:enter-end="translate-x-0"
-    x-transition:leave="transition ease-in-out duration-300 transform"
-    x-transition:leave-start="translate-x-0"
-    x-transition:leave-end="-translate-x-full"
-    x-ref="nav"
-    class="absolute bg-white left-0 sm:shadow-m lg:hidden">
-    {% render 'account-navigation' mobile: true %}
-  </div>
-
-  <div class="hidden lg:hidden">
-    {% render 'account-navigation'
-      , mobile: true %}
-  </div>
-
-  <div class="sm:container flex ">
-    {% comment %} Desktop account nav {% endcomment %}
-    <div class="hidden lg:block">
-      {% render 'account-navigation' %}
-    </div>
-    {% comment %} CONTENT {% endcomment %}
-    <div class="sm:px-6 w-full">
-      {% render 'account-content' %}
+      <div class=" sm:text-right">
+        <h2 class="pb-2 font-normal">Domyślny adres:</h2>
+        {{ customer.default_address | format_address }}
+      </div>
     </div>
   </div>
+
 </div>

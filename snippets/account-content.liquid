@@ -1,18 +1,56 @@
-<div class="flex items-center" >
+<div class="flex sm:justify-start items-center">
 
-{% comment %} Heading {% endcomment %}
-  <button class="p-3 flex items-center justify-center rounded-full hover:bg-gray-100 cursor-pointer lg:hidden ml-2" @click="toggleMenu()">
-    {% render 'icon-menu' %}
-  </button>
-  <h3 class="text-xl font-normal px-5 py-5">Zamówienia</h3>
+  {% comment %} Mobile Nav {% endcomment %}
+  <div x-data="{ dropdownOpen: false }" class="relative w-full m-2 sm:w-max sm:mx-0 lg:hidden">
+
+    <button @click="dropdownOpen=true" class="w-full inline-flex items-center justify-center h-12 py-2 pl-3 pr-10 text-sm font-medium transition-colors bg-white border rounded-md text-neutral-700 hover:bg-gray-100 active:bg-white focus:outline-none disabled:opacity-50 disabled:pointer-events-none">
+      <span class="flex items-center flex-shrink-0 h-full leading-none px-5">
+        ZAMÓWIENIA
+      </span>
+      <svg
+        class="absolute right-0 w-5 h-5 mr-3"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" /></svg>
+    </button>
+
+    <div
+      x-show="dropdownOpen"
+      @click.away="dropdownOpen=false"
+      x-transition:enter="ease-out duration-200"
+      x-transition:enter-start="-translate-y-2"
+      x-transition:enter-end="translate-y-0"
+      class="absolute top-0 z-50 w-full mt-12 -translate-x-1/2 left-1/2"
+      x-cloak>
+      <div class="p-1 mt-1 bg-white border rounded-md shadow-md border-neutral-200/70 text-neutral-700">
+        <a href="{{ routes.account_addresses_url }}" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 justify-center">
+          Adresy
+        </a>
+
+        <div class="h-px my-1 -mx-1 bg-neutral-200"></div>
+
+        <a href="{{ routes.account_logout_url }}" class="relative flex justify-center cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+          <div class="px-2 py-1.5 text-sm font-semibold">Wyloguj się</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} Heading {% endcomment %}
+  <h3 class="hidden lg:block text-xl font-normal px-5 py-5">Zamówienia</h3>
 </div>
 {% paginate customer.orders by 10 %}
-
   {% if customer.orders.size != 0 %}
-<div class="flex flex-col border sm:rounded-md sm:shadow-m">
-  <div class="overflow-x-auto">
-    <div class="inline-block min-w-full">
-      <div class="overflow-hidden">
+    <div class="flex flex-col border sm:rounded-md sm:shadow-m">
+      <div class="overflow-x-auto">
+        <div class="inline-block min-w-full">
+          <div class="overflow-hidden">
             <table class="orders-table min-w-full divide-y divide-neutral-200/70">
               <thead>
                 <tr class="text-neutral-800">
@@ -24,12 +62,11 @@
                 </tr>
               </thead>
               <tbody class="divide-y divide-neutral-200/70" x-data="{
-            goToUrl(url) {
-              window.location = url;
-            }
-          }">
+              goToUrl(url) {
+                window.location = url;
+              }
+            }">
                 {% for order in customer.orders %}
-
                   <tr @click="goToUrl('{{ order.customer_url }}')" class="text-neutral-800 hover:bg-gray-100">
                     <td class="px-5 py-4 text-sm font-medium whitespace-nowrap" data-label="order name">{{ order.name }}</td>
                     <td class="px-5 py-4 text-sm whitespace-nowrap hidden md:table-cell" data-label="Date">{{ order.created_at | time_tag: format: 'date' }}</td>
@@ -37,29 +74,29 @@
                     <td class="px-5 py-4 text-sm font-medium whitespace-nowrap" data-label="Fulfillment Status">{{ order.fulfillment_status_label }}</td>
                     <td class="px-5 py-4 text-sm font-medium whitespace-nowrap hidden sm:table-cell" data-label="Total">{{ order.total_price | money }}</td>
                   </tr>
-
                 {% endfor %}
               </tbody>
             </table>
-          {% else %}
-            <div class="flex flex-col justify-center items-center">
-              <p>Nie masz jeszcze zamówień</p>
-              <a href="{{ routes.all_products_collection_url }}" class="inline-block button mt-3">
-                Kontynuuj zakupy
-              </a>
-            </div>
-          {% endif %}
 
-          {% if paginate.pages > 1 %}
-            <div class="pagination no-print">
-              {% render 'pagination' paginate: paginate %}
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-          {% endif %}
-        {% endpaginate %}
+            {% if paginate.pages > 1 %}
+              <div class="pagination no-print">
+                {% render 'pagination' paginate: paginate %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="flex flex-col justify-center items-center">
+      <p>Nie masz jeszcze zamówień</p>
+      <a href="{{ routes.all_products_collection_url }}" class="inline-block button mt-3">
+        Kontynuuj zakupy
+      </a>
+    </div>
+  {% endif %}
+{% endpaginate %}
+
 <style>
   .orders-table tr:nth-child(even) {
     background-color: #f7f7f7;
