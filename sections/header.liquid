@@ -49,7 +49,8 @@
             class="group"
             x-on:mouseenter="open = ! open"
             @mouseleave="open = false">
-            <a class="flex items-center gap-2 px-6 py-4 pr-2 group-hover:text-hover hover:scale-105 transition relative" href="#">{{ link.title }} {% render 'icon-dropdown' %}</a>
+            <a class="flex items-center gap-2 px-6 py-4 pr-2 group-hover:text-hover hover:scale-105 transition relative" href="{{ link.url }}">{{ link.title }} {% render 'icon-dropdown'
+  , class: 'group-hover:rotate-90 transition' %}</a>
             <div
               x-show="open"
               x-transition
