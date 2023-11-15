@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "877e808e-8a7c-4590-b143-6d2914d697bc": {
+      "type": "accordion-big",
+      "blocks": {
+        "09c261ec-9d0d-49fa-8df1-491d72d631d1": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "Pierszo raja",
+            "content": "<p>Ogłoszenia parafialne<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "09c261ec-9d0d-49fa-8df1-491d72d631d1"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "877e808e-8a7c-4590-b143-6d2914d697bc"
+  ]
+}
