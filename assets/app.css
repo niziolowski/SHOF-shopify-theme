@@ -1172,6 +1172,22 @@ th {
 .w-screen {
   width: 100vw;
 }
+.w-min {
+  width: -moz-min-content;
+  width: min-content;
+}
+.w-\[10vmin\] {
+  width: 10vmin;
+}
+.w-\[50vmin\] {
+  width: 50vmin;
+}
+.w-\[30vmin\] {
+  width: 30vmin;
+}
+.w-\[20vmin\] {
+  width: 20vmin;
+}
 .min-w-\[250px\] {
   min-width: 250px;
 }
@@ -2376,6 +2392,9 @@ div[data-block-handle='ig_feed'] {
   .sm\:w-max {
     width: -moz-max-content;
     width: max-content;
+  }
+  .sm\:w-\[10vmin\] {
+    width: 10vmin;
   }
   .sm\:min-w-\[400px\] {
     min-width: 400px;

@@ -12,7 +12,7 @@
             <a
               href="{{ item.url }}"
               title="{{ item.product.title }}"
-              class="">
+              class="flex-shrink-0 w-[20vmin] sm:w-max">
               {% if item.image %}
                 {{ item.image | image_url: width: 150, height: 150 | image_tag: loading: 'lazy', class: 'w-full max-w-[150px]' }}
               {% else %}
