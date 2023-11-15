@@ -5,10 +5,11 @@ export default () => {
     open: false,
 
     init() {
-      this.$nextTick(() => {
-        this.query = 'p';
-        this.search();
-      });
+      // Auto search for testing
+      // this.$nextTick(() => {
+      //   this.query = '';
+      //   this.search();
+      // });
     },
 
     search() {

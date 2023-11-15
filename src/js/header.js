@@ -1,6 +1,6 @@
 export default () => ({
   isMobileOpen: false,
-  isSearchOpen: true,
+  isSearchOpen: false,
 
   toggleMenu() {
     this.isMobileOpen = !this.isMobileOpen;
