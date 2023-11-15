@@ -1,5 +1,10 @@
 {
   "sections": {
+    "6d7a6f49-ee69-40d5-8012-29ddabbaa20a": {
+      "type": "heading",
+      "settings": {
+      }
+    },
     "877e808e-8a7c-4590-b143-6d2914d697bc": {
       "type": "accordion-big",
       "blocks": {
@@ -35,6 +40,7 @@
     }
   },
   "order": [
+    "6d7a6f49-ee69-40d5-8012-29ddabbaa20a",
     "877e808e-8a7c-4590-b143-6d2914d697bc"
   ]
 }
