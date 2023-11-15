@@ -10,6 +10,7 @@ import filters from './filters';
 import accordion from './accordion';
 import cart from './cart';
 import tooltip from './tooltip';
+import search from './search';
 
 Alpine.plugin(collapse);
 
@@ -19,6 +20,7 @@ Alpine.data('imageWithTitle', imageWithTitle);
 Alpine.data('filters', filters);
 Alpine.data('accordion', accordion);
 Alpine.data('cart', cart);
+Alpine.data('search', search);
 
 // Product gallery global object
 window.swiper = swiper2;
