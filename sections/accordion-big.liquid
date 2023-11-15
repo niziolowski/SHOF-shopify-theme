@@ -1,0 +1,59 @@
+<div class="container">
+
+  <div x-data="{ 
+          activeAccordion: '', 
+          setActiveAccordion(id) { 
+              this.activeAccordion = (this.activeAccordion == id) ? '' : id 
+          } 
+      }" class="relative w-full text-lg font-normal">
+    {% for item in section.settings.blocks %}
+      <div
+        x-data="{ id: $id('accordion') }"
+        :class="{ 'text-neutral-900': activeAccordion==id, 'text-neutral-600 hover:text-neutral-900': activeAccordion!=id }"
+        class="cursor-pointer group">
+        <button @click="setActiveAccordion(id)" class="flex items-center justify-start w-full border-b-2 border-gray-500 p-4 gap-4 select-none">
+          <div class="duration-300 ease-out" :class="{ 'rotate-[90deg]': activeAccordion==id }">
+            {% render 'icon-chevron-right' %}
+          </div>
+          <span>What is Pines?</span>
+        </button>
+        <div
+          x-show="activeAccordion==id"
+          x-collapse
+          x-cloak>
+          <div class="p-4 pt-2 opacity-70">
+            Pines is a UI library built for AlpineJS and TailwindCSS.
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Accordion",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "accordion-item",
+        "name": "Accordion Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Accordion Item"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content",
+            "default": "<p>Accordion Item Content</p>"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
