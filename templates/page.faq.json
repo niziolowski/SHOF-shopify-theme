@@ -16,11 +16,19 @@
             "title": "Drugo raja",
             "content": "<p>Fto kogo<\/p>"
           }
+        },
+        "63d80da0-415d-4cae-b35f-344e045fd9d8": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "Trzecio raja",
+            "content": "<p>Accordion Item Content<\/p>"
+          }
         }
       },
       "block_order": [
         "09c261ec-9d0d-49fa-8df1-491d72d631d1",
-        "d07f9aa6-4559-4518-bc31-06976103b8a4"
+        "d07f9aa6-4559-4518-bc31-06976103b8a4",
+        "63d80da0-415d-4cae-b35f-344e045fd9d8"
       ],
       "settings": {
       }
