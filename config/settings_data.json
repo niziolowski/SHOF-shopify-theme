@@ -31,7 +31,7 @@
     "blocks": {
       "15418052891816840908": {
         "type": "shopify:\/\/apps\/expo-extra-product-options\/blocks\/expo-embed\/07e9c3c4-4d7c-4540-8004-198ebcc5815d",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "swatch_width": 40,
           "swatch_height": 40,
