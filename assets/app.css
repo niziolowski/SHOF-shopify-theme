@@ -2671,6 +2671,10 @@ div[data-block-handle='ig_feed'] {
   .xl\:w-4\/6 {
     width: 66.666667%;
   }
+  .xl\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
 .peer:checked ~ .peer-checked\:\[\&_\.custom-checkbox\]\:border-primary .custom-checkbox {
   --tw-border-opacity: 1;

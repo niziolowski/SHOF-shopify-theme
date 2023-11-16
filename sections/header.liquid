@@ -40,7 +40,7 @@
   <div class="w-full bg-black h-[2px]"></div>
 
   <!-- NAVIGATION MENU -->
-  <div class="container mx-auto relative text-xl hidden lg:block z-40">
+  <div class="mx-auto relative text-lg hidden lg:block z-40">
     <nav class="flex w-max mx-auto">
       {% for link in linklists[section.settings.menu].links %}
         {% if link.links != blank %}
@@ -49,7 +49,7 @@
             class="group"
             x-on:mouseenter="open = ! open"
             @mouseleave="open = false">
-            <a class="flex items-center gap-2 px-6 py-4 pr-2 group-hover:text-hover hover:scale-105 transition relative" href="{{ link.url }}">{{ link.title }} {% render 'icon-dropdown'
+            <a class="flex items-center gap-2 px-3 xl:px-5 py-4 group-hover:text-hover hover:scale-105 transition relative" href="{{ link.url }}">{{ link.title }} {% render 'icon-dropdown'
   , class: 'group-hover:rotate-90 transition' %}</a>
             <div
               x-show="open"
@@ -57,7 +57,7 @@
               class="flex flex-col absolute shadow-m">
               {% for sublink in link.links %}
                 <div class="flex">
-                  <a class="w-full px-6 py-4 bg-background hover:bg-background-hover transition" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                  <a class="w-full px-3 xl:px-5 py-4 bg-background hover:bg-background-hover transition" href="{{ sublink.url }}">{{ sublink.title }}</a>
                 </div>
               {% endfor %}
             </div>
