@@ -1,21 +1,21 @@
 {% comment %} <div
-                                                                                            x-cloak
-                                                                                            x-show="isSearchOpen"
-                                                                                            class="fixed w-full h-full inset-0 flex justify-center z-50 items-start">
+                                                                                                                        x-cloak
+                                                                                                                        x-show="isSearchOpen"
+                                                                                                                        class="fixed w-full h-full inset-0 flex justify-center z-50 items-start">
 
-                                                                                            <form
-                                                                                              class="relative z-50 w-full flex bg-white border-b sm:m-10 sm:border sm:shadow-m sm:w-full sm:rounded-md text-gray-500 md:w-1/2 md:top-[10vmin]"
-                                                                                              action="{{ routes.search_url }}"
-                                                                                              method="get">
-                                                                                              <button type="submit" class="px-3">
-                                                                                                {% render 'icon-search' %}
-                                                                                              </button>
-                                                                                              <input
-                                                                                                class="w-full py-3"
-                                                                                                type="search"
-                                                                                                name="q"
-                                                                                                placeholder="Szukaj">
-                                                                                            </form>
+                                                                                                                        <form
+                                                                                                                          class="relative z-50 w-full flex bg-white border-b sm:m-10 sm:border sm:shadow-m sm:w-full sm:rounded-md text-gray-500 md:w-1/2 md:top-[10vmin]"
+                                                                                                                          action="{{ routes.search_url }}"
+                                                                                                                          method="get">
+                                                                                                                          <button type="submit" class="px-3">
+                                                                                                                            {% render 'icon-search' %}
+                                                                                                                          </button>
+                                                                                                                          <input
+                                                                                                                            class="w-full py-3"
+                                                                                                                            type="search"
+                                                                                                                            name="q"
+                                                                                                                            placeholder="Szukaj">
+                                                                                                                        </form>
 </div> {% endcomment %}
 
 <!-- search-bar.liquid -->
@@ -31,7 +31,7 @@
   {% comment %} CONTENT {% endcomment %}
   <div class="relative z-50 w-full h-full flex flex-col overflow-hidden bg-white border-b sm:mx-10 sm:border sm:shadow-l sm:h-auto sm:max-h-[80vh] sm:rounded-md text-gray-500 sm:w-[400px] sm:top-[10vh]">
     {% comment %} Search input {% endcomment %}
-    <div class="flex w-full z-[99] border rounded-md" :class="open ? 'shadow-m' : ''">
+    <div class="flex w-full z-[99] border-b rounded-t-md" :class="open ? 'border-b' : 'sm:border-none'">
       <div class="flex justify-center items-center px-3">{% render 'icon-search' %}</div>
       <input
         type="text"
