@@ -1,6 +1,7 @@
 import 'swiper/css';
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
+import focus from '@alpinejs/focus';
 
 import { swiper, swiper2 } from './productGallery';
 import header from './header';
@@ -13,6 +14,7 @@ import tooltip from './tooltip';
 import search from './search';
 
 Alpine.plugin(collapse);
+Alpine.plugin(focus);
 
 Alpine.data('header', header);
 Alpine.data('slider', slider);

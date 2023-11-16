@@ -5,6 +5,15 @@ export default () => {
     open: false,
 
     init() {
+      // Focus search input when opened (without watch and setTimeout its inconsistent)
+      this.$watch('isSearchOpen', (value) => {
+        if (value) {
+          setTimeout(() => {
+            this.$refs.searchInput.focus();
+          }, 100);
+        }
+      });
+
       // Auto search for testing
       // this.$nextTick(() => {
       //   this.query = '';
