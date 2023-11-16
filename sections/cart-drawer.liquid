@@ -4,8 +4,6 @@
 		loading: false,
     
 		updateCart(){
-      console.log(this.$refs);
-
 			fetch('/?view=ajax-cart-drawer')
 			.then(response => response.text())
 			.then(cartData => {
