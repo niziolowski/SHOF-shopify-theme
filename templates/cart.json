@@ -1,7 +1,10 @@
 {
   "sections": {
     "cart-items": {
-      "type": "cart-page"
+      "type": "cart-page",
+      "settings": {
+        "gift_wrap_product": "zapakuj-na-prezent"
+      }
     }
   },
   "order": [
