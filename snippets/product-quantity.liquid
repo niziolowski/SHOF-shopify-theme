@@ -1,6 +1,4 @@
-{% comment %} ID FOR PLUGINS {% endcomment %}
 <div
-  id="product-quantity"
   class="inline-flex gap-3 font-normal items-center"
   x-data="{ 
 		quantity: {% if product.quantity > 1 %} {{ product.quantity }} {% else %} 1 {% endif %},
