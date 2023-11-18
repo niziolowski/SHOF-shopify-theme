@@ -18,6 +18,11 @@
           "settings": {
           }
         },
+        "cca91fff-6608-469d-8465-82c27a6e6ddf": {
+          "type": "pasek",
+          "settings": {
+          }
+        },
         "quantity": {
           "type": "quantity",
           "settings": {
@@ -41,6 +46,7 @@
         "title",
         "price",
         "variant_selector",
+        "cca91fff-6608-469d-8465-82c27a6e6ddf",
         "quantity",
         "checkout_buttons",
         "description"
