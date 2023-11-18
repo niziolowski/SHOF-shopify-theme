@@ -3,7 +3,8 @@
     {% comment %} Product Media {% endcomment %}
     <div class="w-5/6 place-self-center self-start">
       {% if product.media.size > 1 %}
-        {% render 'product-gallery' , max-width: 100 %}
+        {% render 'product-gallery'
+          , max-width: 100 %}
       {% else %}
         {% for media in product.media %}
           {% render 'product-media'
@@ -11,11 +12,11 @@
         {% endfor %}
       {% endif %}
     </div>
+
     {% comment %} Product Description {% endcomment %}
     <div class="flex flex-col gap-4">
       {% for block in section.blocks %}
         {% case block.type %}
-
           {%- when '@app' -%}
             {% render block %}
 
@@ -26,14 +27,21 @@
               </span>
             </div>
 
+          {% when 'pasek' %}
+            test
+            {% if product.metafields.custom.pasek %}
+              {% render 'product-pasek-attribute' %}
+            {% endif %}
+
           {% when 'title' %}
             <div class="">
               <h1 class="text-3xl">{{ product.title }}</h1>
             </div>
 
-          {% when 'description'%}
+          {% when 'description' %}
             <div>
-              {% render 'accordion', data: product.description} %}
+              {% render 'accordion'
+                , data: product.description} %}
             </div>
 
           {% when 'variant_selector' %}
@@ -54,9 +62,13 @@
           {% when 'checkout_buttons' %}
             <div class="flex gap-4 items-center">
               {% render 'current-price' %}
-                <div x-data="{ 
-                  quantity: 1
-                }" @quantity-changed.window="quantity = $event.detail.quantity">
+              <div
+                x-data="{ 
+                  quantity: 1,
+                  pasek: '',
+                }"
+                @pasek-changed.window="pasek = $event.detail.pasek"
+                @quantity-changed.window="quantity = $event.detail.quantity">
                 {% assign product_form_installment_id = 'product-form-installment-' | append: section.id %}
                 {% form 'product'
                   , product
@@ -71,6 +83,11 @@
                     type="hidden"
                     name="quantity"
                     x-model="quantity" />
+                  <input
+                    type="hidden"
+                    name="properties[Pasek]"
+                    x-model="pasek" />
+
                   <button
                     type="submit"
                     name="add"
@@ -85,15 +102,15 @@
                       {{ block.settings.add_to_cart }}
                     {% endunless %}
                   </button>
-  
+
                   {% if block.settings.dynamic_buttons %}
                     {{ form | payment_button }}
                   {% endif %}
-  
-                  {% endform %}
-                </div>
+
+                {% endform %}
+              </div>
             </div>
-            
+
 
         {% endcase %}
       {% endfor %}
@@ -107,6 +124,11 @@
     "blocks": [
       {
         "type": "@app"
+      },
+      {
+        "type": "pasek",
+        "name": "Pasek",
+        "limit": 1
       },
       {
         "type": "vendor",
