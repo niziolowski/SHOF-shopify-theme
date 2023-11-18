@@ -17,12 +17,13 @@
         },
 
         initialize(selectableItems){
+            console.log(selectableItems);
           // Generate selectable items
           const generatedItems = this.generateSelectableItems(selectableItems);
           this.selectableItems = generatedItems;
           
           // Watch for changes
-          $watch('selectedItem', value =>  $dispatch('pasek-changed', { pasek: value.title }))
+          $watch('selectedItem', value =>  $dispatch('pasek-changed', { pasek: value.title }));
 
           // Select first item by default
           this.selectedItem = this.selectableItems[0];
@@ -31,9 +32,10 @@
 
         generateSelectableItems(selectableItems){
           return selectableItems.map((item, i) => {
+              console.log(item);
             return {
-              title: item.name,
-              value: item.name,
+              title: item,
+              value: item,
               imageUrl :item.image,
               disabled: false
             }
@@ -131,7 +133,7 @@
             }, 10);
             selectPositionUpdate();
             window.addEventListener('resize', (event) => { selectPositionUpdate(); });
-        }); initialize({{ product.metafields.custom.pasek2.value | json |  escape }}); 
+        }); initialize({{ product.metafields.custom.paski }}); 
     "
     @keydown.escape="if(selectOpen){ selectOpen=false; }"
     @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
