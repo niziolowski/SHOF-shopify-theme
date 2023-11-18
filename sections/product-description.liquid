@@ -1,7 +1,7 @@
 <div class="container my-10">
   <div class="grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 justify-center">
     {% comment %} Product Media {% endcomment %}
-    <div class="w-5/6 place-self-center self-start">
+    <div class="w-5/6 lg:max-w-[400px] place-self-center self-start">
       {% if product.media.size > 1 %}
         {% render 'product-gallery'
           , max-width: 100 %}
@@ -14,7 +14,7 @@
     </div>
 
     {% comment %} Product Description {% endcomment %}
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-3">
       {% for block in section.blocks %}
         {% case block.type %}
           {%- when '@app' -%}
@@ -27,10 +27,6 @@
               </span>
             </div>
 
-          {% when 'pasek' %}
-            {% if product.metafields.custom.pasek %}
-              {% render 'product-pasek-attribute' %}
-            {% endif %}
 
           {% when 'title' %}
             <div class="">
@@ -44,23 +40,31 @@
             </div>
 
           {% when 'variant_selector' %}
-            <div class="">
+            <div class="mt-4">
               {% unless product.has_only_default_variant %}
                 {% render 'product-variant-selector'
                   , product: product %}
               {% endunless %}
             </div>
 
+          {% when 'pasek' %}
+            {% if product.metafields.custom.pasek %}
+              {% render 'product-pasek-attribute' %}
+            {% endif %}
+
           {% when 'quantity' %}
-            {% render 'product-quantity' %}
+            <div class="mt-4">
+              {% render 'product-quantity' %}
+            </div>
 
           {% when 'price' %}
             {% render 'price'
               , product: product %}
 
           {% when 'checkout_buttons' %}
-            <div class="flex gap-4 items-center">
-              {% render 'current-price' %}
+            <div class="flex gap-4 flex-wrap items-center">
+              {% render 'current-price'
+                , class: "mx-4" %}
               <div
                 x-data="{ 
                   quantity: 1,
@@ -90,7 +94,7 @@
                   <button
                     type="submit"
                     name="add"
-                    class="product-section__cart-button button"
+                    class="product-section__cart-button button text-xl uppercase"
                     @click.prevent="Functions.addToCart($refs.product_form)"
                     {% unless product.selected_or_first_available_variant.available %}
                     disabled

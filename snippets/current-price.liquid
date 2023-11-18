@@ -25,7 +25,7 @@
                   this.updatedPrice = price.toString().replace(/(\d+)(\d{2})/, '$1,$2')
                 }
                 }"
-  class="flex font-medium text-xl"
+  class="flex font-medium text-2xl {{ class }}"
   @variant-change.window="updateBasePrice($event.detail.price)"
   @quantity-changed.window="updateQuantity($event.detail.quantity)">
   <div x-text="updatedPrice"></div>
