@@ -17,7 +17,6 @@
         },
 
         initialize(selectableItems){
-            console.log(selectableItems);
           // Generate selectable items
           const generatedItems = this.generateSelectableItems(selectableItems);
           this.selectableItems = generatedItems;
@@ -32,7 +31,6 @@
 
         generateSelectableItems(selectableItems){
           return selectableItems.map((item, i) => {
-              console.log(item);
             return {
               title: item,
               value: item,
@@ -133,7 +131,7 @@
             }, 10);
             selectPositionUpdate();
             window.addEventListener('resize', (event) => { selectPositionUpdate(); });
-        }); initialize({{ product.metafields.custom.paski }}); 
+        }); initialize({{ product.metafields.custom.paski | escape}}); 
     "
     @keydown.escape="if(selectOpen){ selectOpen=false; }"
     @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
@@ -162,7 +160,7 @@
         x-cloak>
 
       <template x-for="item in selectableItems" :key="item.value">
-        <li @click="selectedItem=item; selectOpen=false; $refs.selectButton.focus(); updateSwiper(item.imageUrl);"
+        <li @click="selectedItem=item; selectOpen=false; $refs.selectButton.focus();"
           :id="item.value + '-' + selectId"
           :data-disabled="item.disabled"
           :class="{ 'bg-neutral-100 text-gray-900' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
