@@ -4,6 +4,17 @@
         selectOpen: false,
         selectedItem: '',
         selectableItems: '',
+        
+        updateSwiper(imageUrl) {
+            // Get image id from url
+            const id = imageUrl.split('/')[imageUrl.split('/').length - 1].split('.')[0];
+            // Get all slides
+            const slides = Array.from(document.querySelectorAll('.swiper .swiper-slide'));
+            // Find index of slide with image id
+            const index = slides.findIndex(slide => slide.dataset.imageId === id);
+            // Update swiper
+            window.swiper.slideToLoop(index);
+        },
 
         initialize(selectableItems){
           // Generate selectable items
@@ -21,8 +32,9 @@
         generateSelectableItems(selectableItems){
           return selectableItems.map((item, i) => {
             return {
-              title: item,
-              value: item,
+              title: item.name,
+              value: item.name,
+              imageUrl :item.image,
               disabled: false
             }
           });
@@ -119,7 +131,7 @@
             }, 10);
             selectPositionUpdate();
             window.addEventListener('resize', (event) => { selectPositionUpdate(); });
-        }); initialize({{ product.metafields.custom.pasek | escape}}); 
+        }); initialize({{ product.metafields.custom.pasek2.value | json |  escape }}); 
     "
     @keydown.escape="if(selectOpen){ selectOpen=false; }"
     @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
@@ -148,7 +160,7 @@
         x-cloak>
 
       <template x-for="item in selectableItems" :key="item.value">
-        <li @click="selectedItem=item; selectOpen=false; $refs.selectButton.focus();"
+        <li @click="selectedItem=item; selectOpen=false; $refs.selectButton.focus(); updateSwiper(item.imageUrl);"
           :id="item.value + '-' + selectId"
           :data-disabled="item.disabled"
           :class="{ 'bg-neutral-100 text-gray-900' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
