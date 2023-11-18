@@ -1,7 +1,7 @@
 <div class="container my-10">
   <div class="grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 justify-center">
     {% comment %} Product Media {% endcomment %}
-    <div class="w-5/6 lg:max-w-[400px] place-self-center self-start">
+    <div class="w-5/6 lg:max-w-[400px] place-self-center md:place-self-end self-start md:self-start">
       {% if product.media.size > 1 %}
         {% render 'product-gallery'
           , max-width: 100 %}
@@ -36,7 +36,7 @@
           {% when 'description' %}
             <div>
               {% render 'accordion'
-                , data: product.description} %}
+                , data: product.description, class: "mt-6" %}
             </div>
 
           {% when 'variant_selector' %}
@@ -53,7 +53,7 @@
             {% endif %}
 
           {% when 'quantity' %}
-            <div class="mt-4">
+            <div class="mt-8 -ml-4">
               {% render 'product-quantity' %}
             </div>
 
@@ -64,7 +64,7 @@
           {% when 'checkout_buttons' %}
             <div class="flex gap-4 flex-wrap items-center">
               {% render 'current-price'
-                , class: "mx-4" %}
+                , class: "mr-4" %}
               <div
                 x-data="{ 
                   quantity: 1,

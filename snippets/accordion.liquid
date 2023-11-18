@@ -1,4 +1,4 @@
-<div x-data="accordion" x-init="initialize({{data | json | escape}})" class="relative w-full mx-auto overflow-hidden bg-white divide-y divide-gray-200 rounded-md">
+<div x-data="accordion" x-init="initialize({{data | json | escape}})" class=" {{class}} relative w-full mx-auto overflow-hidden bg-white divide-y divide-gray-400 rounded-md">
     <template x-for="item in data">
         <div x-data="{ id: $id('accordion') }" class="cursor-pointer group">
             <button @click="setActiveAccordion(id)" class="flex text-2xl tracking-widest items-center justify-center gap-4 w-full p-4 select-none group-hover:underline">
