@@ -22,8 +22,16 @@
 					</a>
 						<h3 class="font-normal hover:text-accent"><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
 						{% if item.variant.title != 'Default Title' and item.variant.title != 'No Color / OS' and item.variant.title != 'NC / OS' %}
-							<div class="text-sm mt-1">{{ item.variant.title }}</div>
+							{% for option in item.options_with_values %}
+								<div class="text-sm mt-1">{{ option.name }}: {{ option.value }}</div>
+							{% endfor %}
 						{% endif %}
+
+						{% comment %} Item Properties {% endcomment %}
+						{% for property in item.properties %} 
+							<p class="text-sm mt-1">{{ property.first }}: {{ property.last }}</p> 
+						{% endfor %}
+
 						<p class="font-normal my-2">{{ item.final_line_price | money }}</p>
 						<div class="flex items-center gap-3">
 							{% render 'product-quantity', product: item, product_index: forloop.index, cart_page: true %}
