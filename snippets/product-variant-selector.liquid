@@ -94,9 +94,7 @@
                   name="{{ option.name }}"
                   value="{{ value | escape }}"
                   form="{{ product_form_id }}"
-                  class="sr-only peer variant-color-input"
-                  {% if option.selected_value == value %}
-                  checked{% endif %}>
+                  class="sr-only peer variant-color-input">
                 <label
                   x-data
                   x-tooltip.noarrow="{{ value }}"
