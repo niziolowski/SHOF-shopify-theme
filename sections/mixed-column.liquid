@@ -1,0 +1,47 @@
+<div class="section container items-center gap-10 grid grid-cols-1 sm:grid-cols-2">
+  <div class="flex flex-col gap-4">
+    <h2 class="text-4xl text-primary font-normal">
+      {{ section.settings.title }}
+    </h2>
+    <div>
+      <p class="text-lg">
+        {{ section.settings.content | rich_text }}
+      </p>
+    </div>
+  </div>
+  <div class="bg-gray-100">
+    {{ 'image' | placeholder_svg_tag }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Kolumna mieszana",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Obrazek"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Tytuł",
+        "default": "Tytuł"
+
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Treść",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Kolumna mieszana",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

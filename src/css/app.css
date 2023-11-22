@@ -36,6 +36,10 @@
     @apply font-medium;
   }
 
+  .section {
+    @apply mt-10;
+  }
+
   .color-theme {
     /* $ SHADOW */
     --shadow-color: 0deg 0% 68%;
