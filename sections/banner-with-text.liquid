@@ -1,0 +1,94 @@
+<div class="
+relative overflow-hidden flex
+{{ section.settings.banner_size }}
+{{ section.settings.image_position}}
+{% unless section.settings.full_width %}
+  container
+{% endunless %}
+">
+
+  {% comment %} TODO: Pozycja obrazu, pozycja tekstu, rozmiar tekstu, wysokość {% endcomment %}
+  {% comment %} IMAGE {% endcomment %}
+  {% if section.settings.image %}
+    <div class="">
+      {{ section.settings.image | img_url: 'master' | img_tag: section.settings.text }}
+    </div>
+  {% else %}
+    {{ 'lifestyle-1' | placeholder_svg_tag }}
+  {% endif %}
+
+  {% comment %} TEXT {% endcomment %}
+  <h1 class="absolute whitespace-nowrap top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-light uppercase">{{ section.settings.text }}</h1>
+
+
+</div>
+
+{% schema %}
+  {
+    "name": "Baner z tekstem",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Obrazek"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Tekst",
+        "default": "Baner z tekstem"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Pełna szerokość",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "banner_size",
+        "label": "Rozmiar",
+        "default": "h-64",
+        "options": [
+          {
+            "value": "h-32",
+            "label": "Mały"
+          },
+          {
+            "value": "h-64",
+            "label": "Średni"
+          },
+          {
+            "value": "h-96",
+            "label": "Duży"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "image_position",
+        "label": "Pozycja obrazu",
+        "default": "items-center",
+        "options": [
+          {
+            "value": "items-start",
+            "label": "Góra"
+          },
+          {
+            "value": "items-center",
+            "label": "Środek"
+          },
+          {
+            "value": "items-end",
+            "label": "Dół"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Baner z tekstem"
+      }
+    ]
+  }
+{% endschema %}

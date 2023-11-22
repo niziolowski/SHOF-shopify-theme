@@ -872,6 +872,9 @@ th {
 .top-\[58px\] {
   top: 58px;
 }
+.-top-1\/2 {
+  top: -50%;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1132,6 +1135,22 @@ th {
 .h-screen {
   height: 100vh;
 }
+.h-1\/2 {
+  height: 50%;
+}
+.h-\[100px\] {
+  height: 100px;
+}
+.h-64 {
+  height: 16rem;
+}
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.h-32 {
+  height: 8rem;
+}
 .max-h-56 {
   max-height: 14rem;
 }
@@ -1196,6 +1215,10 @@ th {
 }
 .w-screen {
   width: 100vw;
+}
+.w-min {
+  width: -moz-min-content;
+  width: min-content;
 }
 .min-w-\[250px\] {
   min-width: 250px;
@@ -1369,6 +1392,9 @@ th {
 }
 .items-start {
   align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
 }
 .items-center {
   align-items: center;
