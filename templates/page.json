@@ -10,12 +10,12 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-11-21_at_22.15.37.jpg",
         "banner_size": "h-64",
-        "full_width": false,
-        "image_position": 50,
+        "full_width": true,
+        "image_position": 64,
         "text": "<p>O nas<\/p>",
         "text_position": "start",
         "text_color": "#ffffff",
-        "text_size": 50
+        "text_size": 35
       }
     }
   },
