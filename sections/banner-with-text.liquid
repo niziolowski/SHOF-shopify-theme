@@ -1,22 +1,21 @@
 <div
   x-data="{
   initialize(textSize) {
-    this.textSize = textSize;
-    console.log(this.textSize);
+    this.textSize = textSize / 100;
+    this.updateTextSize();
     // listen for resize events
-    // window.addEventListener('resize', this.updateTextSize);
+    window.addEventListener('resize', this.updateTextSize.bind(this));
   },
 
   updateTextSize() {
-    const width = this.$refs.bannerWithText.clientWidth;
+    const height = this.$refs.bannerWithText.getBoundingClientRect().height;
     const text = this.$refs.bannerWithText.querySelector('h1');
-   
-    console.log(textSize);
+    const fontSize = height * this.textSize;
     text.style.fontSize = fontSize + 'px';
   },
 
   destroy() {
-    window.removeEventListener('resize', this.updateTextSize);
+    window.removeEventListener('resize', this.updateTextSize.bind(this));
   }
 }"
   x-init="initialize({{ section.settings.text_size }})"
@@ -30,7 +29,7 @@ items-center
   container
 {% endunless %}
 ">
-  <div class="absolute w-full h-full overflow-hidden">
+  <div class="absolute inset-0 overflow-hidden">
     {% comment %} IMAGE {% endcomment %}
     {% if section.settings.image %}
       {% comment %} define styles using image position value {% endcomment %}
