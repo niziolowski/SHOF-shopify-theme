@@ -578,6 +578,12 @@ th {
 .section {
   margin-top: 2.5rem;
 }
+.cover {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 .color-theme {
     /* $ SHADOW */
     --shadow-color: 0deg 0% 68%;
@@ -1147,6 +1153,9 @@ th {
 .max-h-56 {
   max-height: 14rem;
 }
+.max-h-6 {
+  max-height: 1.5rem;
+}
 .min-h-0 {
   min-height: 0px;
 }
@@ -1248,6 +1257,12 @@ th {
 }
 .max-w-\[900px\] {
   max-width: 900px;
+}
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+.max-w-\[1000px\] {
+  max-width: 1000px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1472,6 +1487,9 @@ th {
 .divide-neutral-200\/70 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgb(229 229 229 / 0.7);
 }
+.place-self-end {
+  place-self: end;
+}
 .place-self-center {
   place-self: center;
 }
@@ -1483,6 +1501,12 @@ th {
 }
 .self-center {
   align-self: center;
+}
+.justify-self-end {
+  justify-self: end;
+}
+.justify-self-center {
+  justify-self: center;
 }
 .overflow-auto {
   overflow: auto;
@@ -1924,6 +1948,9 @@ th {
 }
 .tracking-widest {
   letter-spacing: 0.1em;
+}
+.tracking-normal {
+  letter-spacing: 0em;
 }
 .text-accent {
   --tw-text-opacity: 1;
@@ -2555,6 +2582,12 @@ div[data-block-handle='ig_feed'] {
   }
   .sm\:self-center {
     align-self: center;
+  }
+  .sm\:justify-self-start {
+    justify-self: start;
+  }
+  .sm\:justify-self-end {
+    justify-self: end;
   }
   .sm\:rounded-md {
     border-radius: 0.375rem;
