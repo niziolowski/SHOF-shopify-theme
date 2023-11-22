@@ -573,10 +573,10 @@ th {
   font-weight: 500;
 }
 .\!section {
-  margin-top: 2.5rem;
+  margin-top: 5rem;
 }
 .section {
-  margin-top: 2.5rem;
+  margin-top: 5rem;
 }
 .cover {
     -o-object-fit: cover;
@@ -1249,14 +1249,14 @@ th {
 .max-w-\[400px\] {
   max-width: 400px;
 }
+.max-w-\[500px\] {
+  max-width: 500px;
+}
 .max-w-\[600px\] {
   max-width: 600px;
 }
 .max-w-\[900px\] {
   max-width: 900px;
-}
-.max-w-\[500px\] {
-  max-width: 500px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -2580,12 +2580,6 @@ div[data-block-handle='ig_feed'] {
   .sm\:self-center {
     align-self: center;
   }
-  .sm\:justify-self-start {
-    justify-self: start;
-  }
-  .sm\:justify-self-end {
-    justify-self: end;
-  }
   .sm\:rounded-md {
     border-radius: 0.375rem;
   }
@@ -2810,17 +2804,9 @@ div[data-block-handle='ig_feed'] {
     padding-right: 1.25rem;
   }
 }
-.\[\&\>\*\:nth-child\(1\)\]\:bg-black>*:nth-child(1) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
 @media (min-width: 640px) {
   .\[\&\>\*\:nth-child\(1\)\]\:sm\:justify-self-end>*:nth-child(1) {
     justify-self: end;
-  }
-  .\[\&\>\*\:nth-child\(1\)\]\:sm\:bg-black>*:nth-child(1) {
-    --tw-bg-opacity: 1;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   }
   .\[\&\>\*\:nth-child\(2\)\]\:sm\:justify-self-start>*:nth-child(2) {
     justify-self: start;
