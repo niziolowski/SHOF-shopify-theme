@@ -1153,9 +1153,6 @@ th {
 .max-h-56 {
   max-height: 14rem;
 }
-.max-h-6 {
-  max-height: 1.5rem;
-}
 .min-h-0 {
   min-height: 0px;
 }
@@ -1260,9 +1257,6 @@ th {
 }
 .max-w-\[500px\] {
   max-width: 500px;
-}
-.max-w-\[1000px\] {
-  max-width: 1000px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1487,9 +1481,6 @@ th {
 .divide-neutral-200\/70 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgb(229 229 229 / 0.7);
 }
-.place-self-end {
-  place-self: end;
-}
 .place-self-center {
   place-self: center;
 }
@@ -1501,9 +1492,6 @@ th {
 }
 .self-center {
   align-self: center;
-}
-.justify-self-end {
-  justify-self: end;
 }
 .justify-self-center {
   justify-self: center;
@@ -1943,14 +1931,14 @@ th {
 .tracking-\[4px\] {
   letter-spacing: 4px;
 }
+.tracking-normal {
+  letter-spacing: 0em;
+}
 .tracking-wider {
   letter-spacing: 0.05em;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
-}
-.tracking-normal {
-  letter-spacing: 0em;
 }
 .text-accent {
   --tw-text-opacity: 1;
@@ -2256,6 +2244,9 @@ div[data-block-handle='ig_feed'] {
     max-width: 1536px !important;
   }
 }
+div[data-block-handle='ig_feed'] {
+  max-width: 1200px;
+}
 @supports not (aspect-ratio: 1 / 1) {
   .tz-i::before {
     float: left !important;
@@ -2268,6 +2259,9 @@ div[data-block-handle='ig_feed'] {
     content: '' !important;
     clear: both !important;
   }
+}
+.container {
+  max-width: 1200px;
 }
 @media (min-width: 640px) {
 
@@ -2501,6 +2495,9 @@ div[data-block-handle='ig_feed'] {
   }
   .sm\:top-\[10vh\] {
     top: 10vh;
+  }
+  .sm\:order-2 {
+    order: 2;
   }
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
@@ -2811,6 +2808,22 @@ div[data-block-handle='ig_feed'] {
   .xl\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+}
+.\[\&\>\*\:nth-child\(1\)\]\:bg-black>*:nth-child(1) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+@media (min-width: 640px) {
+  .\[\&\>\*\:nth-child\(1\)\]\:sm\:justify-self-end>*:nth-child(1) {
+    justify-self: end;
+  }
+  .\[\&\>\*\:nth-child\(1\)\]\:sm\:bg-black>*:nth-child(1) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+  .\[\&\>\*\:nth-child\(2\)\]\:sm\:justify-self-start>*:nth-child(2) {
+    justify-self: start;
   }
 }
 .peer:checked ~ .peer-checked\:\[\&_\.custom-checkbox\]\:border-primary .custom-checkbox {

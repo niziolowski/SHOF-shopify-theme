@@ -157,3 +157,7 @@ div[data-block-handle='ig_feed'] {
     clear: both !important;
   }
 }
+
+.container {
+  @apply max-w-[1200px];
+}

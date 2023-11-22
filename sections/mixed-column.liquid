@@ -1,6 +1,11 @@
-<div class="section container items-center gap-10 grid grid-cols-1 sm:grid-cols-2">
+<div class="section section-mixed-column container items-center gap-10 grid grid-cols-1 sm:grid-cols-2
+[&>*:nth-child(1)]:sm:justify-self-end [&>*:nth-child(2)]:sm:justify-self-start">
   {% comment %} Left column {% endcomment %}
-  <div class="flex flex-col gap-4 justify-self-center sm:justify-self-end">
+  <div class="flex flex-col gap-4 justify-self-center max-w-[500px]
+  {% if section.settings.image_to_left %}
+    sm:order-2
+  {% endif %}
+  ">
     <h2 class="text-4xl text-primary font-normal">
       {{ section.settings.title }}
     </h2>
@@ -11,7 +16,7 @@
     </div>
   </div>
   {% comment %} Right column {% endcomment %}
-  <div class="justify-self-center sm:justify-self-start">
+  <div class="justify-self-center max-w-[500px]">
     {% if section.settings.image %}
       <div>
         {{ section.settings.image | image_url: width: 500, height: 500 | image_tag: class: 'cover' }}
@@ -32,6 +37,12 @@
         "type": "image_picker",
         "id": "image",
         "label": "Obrazek"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_to_left",
+        "label": "Obrazek po lewej stronie",
+        "default": "false"
       },
       {
         "type": "text",
