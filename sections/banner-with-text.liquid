@@ -1,5 +1,27 @@
-<div class="
-relative
+<div
+  x-data="{
+  initialize(textSize) {
+    this.textSize = textSize;
+    console.log(this.textSize);
+    // listen for resize events
+    // window.addEventListener('resize', this.updateTextSize);
+  },
+
+  updateTextSize() {
+    const width = this.$refs.bannerWithText.clientWidth;
+    const text = this.$refs.bannerWithText.querySelector('h1');
+   
+    console.log(textSize);
+    text.style.fontSize = fontSize + 'px';
+  },
+
+  destroy() {
+    window.removeEventListener('resize', this.updateTextSize);
+  }
+}"
+  x-init="initialize({{ section.settings.text_size }})"
+  x-ref="bannerWithText"
+  class="relative
 flex
 justify-{{ section.settings.text_position }}
 items-center
@@ -114,11 +136,11 @@ items-center
         "type": "range",
         "id": "text_size",
         "label": "Rozmiar tekstu",
-        "min": 20,
-        "max": 150,
-        "step": 5,
-        "default": 20,
-        "unit": "px"
+        "min": 0.1,
+        "max": 1,
+        "step": 0.1,
+        "default": 0.5,
+        "unit": "%"
       }
     ],
     "presets": [
