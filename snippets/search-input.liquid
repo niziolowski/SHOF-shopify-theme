@@ -4,7 +4,7 @@
   class="fixed w-full h-full inset-0 flex justify-center z-50 items-start"
   x-data="search"
   @click.away="reset()"
-  @keydown.escape="query.length > 0 ? reset() : isSearchOpen = false">
+  @keydown.escape="query.length > 0 ? reset() : toggleSearch">
   {% comment %} OVERLAY {% endcomment %}
   <div class="overlay fixed inset-0 transition-all z-50 backdrop-blur-sm bg-white/50" @click="toggleSearch"></div>
 
