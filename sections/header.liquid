@@ -22,6 +22,8 @@
       <button
         class="p-3 sm:p-3 cursor-pointer rounded-full hover:bg-gray-100"
         @click="toggleSearch"
+        @keydown.window.prevent.cmd.k="toggleSearch"
+        @keydown.window.prevent.slash="toggleSearch"
         type="button">
         {% render 'icon-search' %}
       </button>

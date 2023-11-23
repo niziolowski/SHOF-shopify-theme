@@ -3,6 +3,9 @@ export default () => {
     query: '',
     results: [],
     open: false,
+    searchBody: true,
+    searchTitle: true,
+    filterAvailable: true,
 
     init() {
       // Focus search input when opened (without watch and setTimeout its inconsistent)
@@ -28,9 +31,19 @@ export default () => {
         return;
       }
       this.open = true;
+
+      // Construct the fields parameter based on boolean variables
+      let fields = [];
+      if (this.searchBody) fields.push('body');
+      if (this.searchTitle) fields.push('title');
+      let fieldsParam = fields.length > 0 ? `&resources[options][fields]=${fields.join(',')}` : '';
+
+      // Construct the availability parameter based on filterAvailable
+      let availabilityParam = this.filterAvailable ? '&resources[options][unavailable_products]=hide' : '';
+
       const searchUrl = `search/suggest.json?q=${encodeURIComponent(
         this.query
-      )}&resources[type]=product,collection,query&resources[options][unavailable_products]=hide&resources[options][fields]=tag`;
+      )}&resources[type]=product,collection,query${availabilityParam}${fieldsParam}`;
 
       fetch(window.Shopify.routes.root + searchUrl)
         .then((response) => response.json())
@@ -43,6 +56,7 @@ export default () => {
           this.results = [];
         });
     },
+
     reset() {
       this.query = '';
       this.results = [];

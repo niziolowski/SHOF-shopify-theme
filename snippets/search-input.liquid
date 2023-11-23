@@ -1,30 +1,10 @@
-{% comment %} <div
-                                                                                                                                                x-cloak
-                                                                                                                                                x-show="isSearchOpen"
-                                                                                                                                                class="fixed w-full h-full inset-0 flex justify-center z-50 items-start">
-
-                                                                                                                                                <form
-                                                                                                                                                  class="relative z-50 w-full flex bg-white border-b sm:m-10 sm:border sm:shadow-m sm:w-full sm:rounded-md text-gray-500 md:w-1/2 md:top-[10vmin]"
-                                                                                                                                                  action="{{ routes.search_url }}"
-                                                                                                                                                  method="get">
-                                                                                                                                                  <button type="submit" class="px-3">
-                                                                                                                                                    {% render 'icon-search' %}
-                                                                                                                                                  </button>
-                                                                                                                                                  <input
-                                                                                                                                                    class="w-full py-3"
-                                                                                                                                                    type="search"
-                                                                                                                                                    name="q"
-                                                                                                                                                    placeholder="Szukaj">
-                                                                                                                                                </form>
-</div> {% endcomment %}
-
-<!-- search-bar.liquid -->
 <div
   x-cloak
   x-show="isSearchOpen"
   class="fixed w-full h-full inset-0 flex justify-center z-50 items-start"
   x-data="search"
-  @click.away="reset()">
+  @click.away="reset()"
+  @keydown.escape="query.length > 0 ? reset() : isSearchOpen = false">
   {% comment %} OVERLAY {% endcomment %}
   <div class="overlay fixed inset-0 transition-all z-50 backdrop-blur-sm bg-white/50" @click="toggleSearch"></div>
 
