@@ -6,35 +6,41 @@
   {% assign class = class | append: 'group-hover:hidden' %}
 {% endif %}
 
-<a class="relative hover:shadow-lg transition p-2 text-xl font-light group" href="{{ product.url |  within: collection }}">
-  <div class="aspect-square">
-    {% comment %} Featured image {% endcomment %}
-    {{ product.featured_media | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: class }}
+<a
+  x-data="{show: false}"
+  x-intersect.once="show = true"
+  class="relative hover:shadow-lg transition p-2 text-xl font-light group"
+  href="{{ product.url |  within: collection }}">
+  <div x-show="show" x-transition:enter.duration.1500ms>
+    <div class="aspect-square">
+      {% comment %} Featured image {% endcomment %}
+      {{ product.featured_media | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: class }}
 
-    {% comment %} Second image {% endcomment %}
-    {% if multiple_images %}
-      {{ product.images[1] | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: 'hidden group-hover:block' }}
+      {% comment %} Second image {% endcomment %}
+      {% if multiple_images %}
+        {{ product.images[1] | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: 'hidden group-hover:block' }}
+      {% endif %}
+    </div>
+
+    <!-- Product Title -->
+    <div class="flex flex-col py-4 gap-2">
+      <div class="transition underline-offset-2 decoration-1 group-hover:underline">{{ product.title }}</div>
+      {% render 'price'
+        , product: product %}
+    </div>
+
+    <!-- TAG -->
+    {% if product.metafields.custom.tag %}
+      <div class="absolute top-6 select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag.value.kolor }};">
+        {{ product.metafields.custom.tag.value.content }}
+      </div>
+    {% endif %}
+
+    <!-- TAG2 -->
+    {% if product.metafields.custom.tag_2 %}
+      <div class="absolute top-[58px] select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag_2.value.kolor }};">
+        {{ product.metafields.custom.tag_2.value.content }}
+      </div>
     {% endif %}
   </div>
-
-  <!-- Product Title -->
-  <div class="flex flex-col py-4 gap-2">
-    <div class="transition underline-offset-2 decoration-1 group-hover:underline">{{ product.title }}</div>
-    {% render 'price'
-      , product: product %}
-  </div>
-
-  <!-- TAG -->
-  {% if product.metafields.custom.tag %}
-    <div class="absolute top-6 select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag.value.kolor }};">
-      {{ product.metafields.custom.tag.value.content }}
-    </div>
-  {% endif %}
-
-  <!-- TAG2 -->
-  {% if product.metafields.custom.tag_2 %}
-    <div class="absolute top-[58px] select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag_2.value.kolor }};">
-      {{ product.metafields.custom.tag_2.value.content }}
-    </div>
-  {% endif %}
 </a>

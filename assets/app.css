@@ -814,6 +814,9 @@ th {
 .pointer-events-none {
   pointer-events: none;
 }
+.visible {
+  visibility: visible;
+}
 .fixed {
   position: fixed;
 }
@@ -1149,6 +1152,13 @@ th {
 }
 .h-screen {
   height: 100vh;
+}
+.h-1\/2 {
+  height: 50%;
+}
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
 }
 .max-h-56 {
   max-height: 14rem;
