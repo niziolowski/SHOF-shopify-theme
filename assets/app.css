@@ -2804,14 +2804,6 @@ div[data-block-handle='ig_feed'] {
     padding-right: 1.25rem;
   }
 }
-@media (min-width: 640px) {
-  .\[\&\>\*\:nth-child\(1\)\]\:sm\:justify-self-end>*:nth-child(1) {
-    justify-self: end;
-  }
-  .\[\&\>\*\:nth-child\(2\)\]\:sm\:justify-self-start>*:nth-child(2) {
-    justify-self: start;
-  }
-}
 .peer:checked ~ .peer-checked\:\[\&_\.custom-checkbox\]\:border-primary .custom-checkbox {
   --tw-border-opacity: 1;
   border-color: rgb(236 118 74 / var(--tw-border-opacity));
