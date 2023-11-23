@@ -13,9 +13,11 @@ import imageWithTitle from './imageWithTitle';
 import filters from './filters';
 import accordion from './accordion';
 import cart from './cart';
-import tooltip from './tooltip';
 import search from './search';
 
+// Alpine directives
+import tooltip from './tooltip';
+import reveal from './directives/reveal';
 // Alpine plugins
 Alpine.plugin(collapse);
 Alpine.plugin(focus);
@@ -37,5 +39,11 @@ window.Alpine = Alpine;
 
 // Alpine directives
 Alpine.directive('tooltip', tooltip);
+Alpine.directive('reveal', reveal);
 
 Alpine.start();
+
+import instaFeed from './instaFeed'; // For adding AlpineJS to the app elements
+window.addEventListener('load', () => {
+  instaFeed();
+});
