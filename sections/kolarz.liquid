@@ -3,8 +3,29 @@
   :class="{ 'z-40': showModal }"
   class=" container flex flex-col md:flex-row gap-4 my-10"
   x-data="{
+    show: false,
     showModal: false,
     imageSrc: '',
+
+    // This function is setting up the animation and it's properties
+    init() {
+      this.setupAlpineAnimations();
+    },
+
+    setupAlpineAnimations() {
+      // Get all images DOM elements
+      const firstColumn = this.$el.children[1];
+      const secondColumn = this.$el.children[2].children[0].children;
+      const allImages = [firstColumn, ...secondColumn];
+
+      // Apply attributes to elements with respective delay
+      allImages.forEach((image, index) => {
+        // add attributes to image
+          image.setAttribute('x-show', 'show');
+          image.setAttribute(`x-transition:enter.duration.500ms.delay.${index}50ms`, '');
+      });
+    },
+
     openModal(imageSrc) {
       this.imageSrc = imageSrc;
       this.showModal = true;
@@ -12,7 +33,8 @@
     closeModal() {
       this.showModal = false;
     }
-  }">
+  }"
+  x-intersect.once="show = true">
   <!-- Modal overlay (click to close) -->
   <template x-teleport="body">
     <div
