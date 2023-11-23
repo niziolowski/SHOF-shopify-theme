@@ -53,7 +53,7 @@
 				<h3 class="font-normal text-xl">Suma:</h3>
 				<p class="font-medium text-xl text-accent">{{ cart.total_price | money }}</p>
 			</div>
-			<button type="submit" name="checkout" class="button w-full">Do kasy</button>
+			<a class="button text-center uppercase" href="{{ routes.cart_url }}">Do koszyka</a>
 		</div>
 	</form>
 	{% else %}
