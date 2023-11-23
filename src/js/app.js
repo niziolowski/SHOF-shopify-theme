@@ -2,7 +2,6 @@ import { swiper, swiper2 } from './alpine/components/productGallery.js'; // Swip
 
 import instaFeed from './instaFeed.js'; // A function for adding reveal effect to InstaFeed third-party widget
 import './alpine/alpine.js'; // AlpineJS setup
-
 // Product gallery global object (for slide manipulation)
 window.swiper = swiper2;
 

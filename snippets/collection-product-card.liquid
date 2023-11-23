@@ -6,12 +6,13 @@
   {% assign class = class | append: 'group-hover:hidden' %}
 {% endif %}
 
+{% comment %} TODO: product needs a wrapper with fixed size for the reveal effect to work correctly {% endcomment %}
 <a
-  x-data="{show: false}"
-  x-intersect.once="show = true"
-  class="relative hover:shadow-lg transition p-2 text-xl font-light group"
+  x-data
+  x-reveal
+  class="relative hover:shadow-lg transition p-2 text-xl font-light group h-max"
   href="{{ product.url |  within: collection }}">
-  <div x-show="show" x-transition:enter.duration.1500ms>
+  <div>
     <div class="aspect-square">
       {% comment %} Featured image {% endcomment %}
       {{ product.featured_media | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: class }}

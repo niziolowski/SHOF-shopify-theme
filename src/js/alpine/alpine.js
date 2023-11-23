@@ -17,24 +17,26 @@ import search from './components/search';
 import tooltip from './directives/tooltip';
 import reveal from './directives/reveal';
 
-// Alpine plugin setup
-Alpine.plugin(collapse);
-Alpine.plugin(focus);
-Alpine.plugin(intersect);
+document.addEventListener('alpine:init', () => {
+  // Alpine plugin setup
+  Alpine.plugin(collapse);
+  Alpine.plugin(focus);
+  Alpine.plugin(intersect);
 
-// Alpine data setup
-Alpine.data('header', header);
-Alpine.data('slider', slider);
-Alpine.data('imageWithTitle', imageWithTitle);
-Alpine.data('filters', filters);
-Alpine.data('accordion', accordion);
-Alpine.data('cart', cart);
-Alpine.data('search', search);
+  // Alpine data setup
+  Alpine.data('header', header);
+  Alpine.data('slider', slider);
+  Alpine.data('imageWithTitle', imageWithTitle);
+  Alpine.data('filters', filters);
+  Alpine.data('accordion', accordion);
+  Alpine.data('cart', cart);
+  Alpine.data('search', search);
 
-// Alpine directives
-Alpine.directive('tooltip', tooltip);
-Alpine.directive('reveal', reveal);
+  // Alpine directives
+  Alpine.directive('tooltip', tooltip);
+  Alpine.directive('reveal', reveal);
 
-window.Alpine = Alpine;
+  window.Alpine = Alpine;
+});
 
 Alpine.start();
