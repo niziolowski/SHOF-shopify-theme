@@ -3,6 +3,7 @@
 @import './slider.css';
 @import './product-gallery.css';
 @import './ios-fixes.css';
+@import './color-swatch.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -73,7 +73,9 @@
                 x-data="{ 
                   quantity: 1,
                   pasek: '',
+                  finish: ''
                 }"
+                @finish-changed.window="finish = $event.detail.finish"
                 @pasek-changed.window="pasek = $event.detail.pasek"
                 @quantity-changed.window="quantity = $event.detail.quantity">
                 {% assign product_form_installment_id = 'product-form-installment-' | append: section.id %}
@@ -94,6 +96,10 @@
                     type="hidden"
                     name="properties[Pasek]"
                     x-model="pasek" />
+                  <input
+                  type="hidden"
+                  name="properties[Wykończenie]"
+                  x-model="finish" />
 
                   <button
                     type="submit"

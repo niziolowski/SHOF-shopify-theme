@@ -1,1 +1,17 @@
-test2
+{% if product.metafields.custom.finish %}
+  <div
+    x-data="customAttributes"
+    x-init="initialize({{ product.metafields.custom.finish.value | json | escape}},'color')"
+    class="flex items-center gap-4 w-fit flex-wrap">
+    <div>Wykończenie:</div>
+    <template x-for="(option, index) in options" :key="index">
+      <label @click="selectedOption=option.name" class="color-swatch">
+        <input
+          type="radio"
+          name="radio-group"
+          :value="option.name"
+          class="hidden" />
+      </label>
+    </template>
+  </div>
+{% endif %}

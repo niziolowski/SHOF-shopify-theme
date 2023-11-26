@@ -96,10 +96,18 @@
                   form="{{ product_form_id }}"
                   class="sr-only peer variant-color-input">
                 <label
-                  x-data
+                  x-data="{
+										updateLabels() {
+											document.querySelectorAll('.color-swatch').forEach((swatch) => {
+												swatch.classList.remove('selected');
+											});
+											document.querySelector(`.{{value | downcase}}`).classList.add('selected');
+										}
+									}"
+                  @click="updateLabels"
                   x-tooltip.noarrow="{{ value }}"
                   for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                  class=" {{value | downcase}} block cursor-pointer rounded-full w-7 h-7 hover:scale-110 hover:brightness-110 hover:shadow-md active:scale-100  transition"></label>
+                  class=" {{value | downcase}} color-swatch"></label>
               </div>
             {% endunless %}
 

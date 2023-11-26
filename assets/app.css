@@ -229,6 +229,39 @@ body {
   min-height: -webkit-fill-available;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
+.color-swatch {
+  display: block;
+  height: 1.75rem;
+  width: 1.75rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: transparent;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.color-swatch:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-brightness: brightness(1.1);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.color-swatch:active {
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.color-swatch.selected {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
 /* ! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -959,10 +992,6 @@ th {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -978,9 +1007,6 @@ th {
 }
 .mb-10 {
   margin-bottom: 2.5rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 .mb-3 {
   margin-bottom: 0.75rem;
@@ -1114,9 +1140,6 @@ th {
 .h-64 {
   height: 16rem;
 }
-.h-7 {
-  height: 1.75rem;
-}
 .h-8 {
   height: 2rem;
 }
@@ -1192,9 +1215,6 @@ th {
 }
 .w-64 {
   width: 16rem;
-}
-.w-7 {
-  width: 1.75rem;
 }
 .w-8 {
   width: 2rem;
@@ -1273,9 +1293,6 @@ th {
 }
 .flex-grow {
   flex-grow: 1;
-}
-.table-auto {
-  table-layout: auto;
 }
 .origin-right {
   transform-origin: right;
@@ -1377,17 +1394,11 @@ th {
 .grid-cols-\[1fr_2fr\] {
   grid-template-columns: 1fr 2fr;
 }
-.grid-cols-\[minmax\(max-content\2c 1fr\)_minmax\(min-content\2c 2fr\)\] {
-  grid-template-columns: minmax(max-content,1fr) minmax(min-content,2fr);
-}
-.grid-cols-\[1fr\2c max-content\] {
-  grid-template-columns: 1fr max-content;
-}
 .grid-cols-\[1fr_max-content\] {
   grid-template-columns: 1fr max-content;
 }
-.grid-cols-\[1fr_\.4fr\] {
-  grid-template-columns: 1fr .4fr;
+.grid-cols-\[minmax\(max-content\2c 1fr\)_minmax\(min-content\2c 2fr\)\] {
+  grid-template-columns: minmax(max-content,1fr) minmax(min-content,2fr);
 }
 .flex-row {
   flex-direction: row;
@@ -1436,9 +1447,6 @@ th {
 }
 .gap-10 {
   gap: 2.5rem;
-}
-.gap-12 {
-  gap: 3rem;
 }
 .gap-2 {
   gap: 0.5rem;
@@ -1574,10 +1582,6 @@ th {
 .border-2 {
   border-width: 2px;
 }
-.border-x {
-  border-left-width: 1px;
-  border-right-width: 1px;
-}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1642,10 +1646,6 @@ th {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 .bg-hover {
   --tw-bg-opacity: 1;
@@ -1818,6 +1818,9 @@ th {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
+.pb-4 {
+  padding-bottom: 1rem;
+}
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1847,12 +1850,6 @@ th {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
 }
 .text-left {
   text-align: left;
@@ -2349,11 +2346,6 @@ div[data-block-handle='ig_feed'] {
   --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.hover\:scale-110:hover {
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .hover\:scale-125:hover {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -2384,10 +2376,6 @@ div[data-block-handle='ig_feed'] {
 .hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-.hover\:bg-gray-900:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 .hover\:bg-hover:hover {
   --tw-bg-opacity: 1;
@@ -2439,10 +2427,6 @@ div[data-block-handle='ig_feed'] {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.hover\:brightness-110:hover {
-  --tw-brightness: brightness(1.1);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
@@ -2553,12 +2537,6 @@ div[data-block-handle='ig_feed'] {
   }
   .sm\:col-start-4 {
     grid-column-start: 4;
-  }
-  .sm\:row-start-1 {
-    grid-row-start: 1;
-  }
-  .sm\:row-start-2 {
-    grid-row-start: 2;
   }
   .sm\:mx-0 {
     margin-left: 0px;
@@ -2832,9 +2810,6 @@ div[data-block-handle='ig_feed'] {
   .md\:\!overflow-visible {
     overflow: visible !important;
   }
-  .md\:p-12 {
-    padding: 3rem;
-  }
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2868,12 +2843,6 @@ div[data-block-handle='ig_feed'] {
   }
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .lg\:gap-12 {
-    gap: 3rem;
-  }
-  .lg\:gap-4 {
-    gap: 1rem;
   }
 }
 @media (min-width: 1280px) {

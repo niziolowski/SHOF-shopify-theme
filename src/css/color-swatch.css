@@ -1,0 +1,6 @@
+.color-swatch {
+  @apply block border border-transparent cursor-pointer rounded-full w-7 h-7 hover:scale-110 hover:brightness-110 hover:shadow-md active:scale-100 transition;
+}
+.color-swatch.selected {
+  @apply border-black;
+}
