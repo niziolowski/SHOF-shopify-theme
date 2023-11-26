@@ -1,25 +1,77 @@
-<div class="container mx-auto px-4 py-12">
-  <div class="flex items-start md:items-end justify-between my-5">
-    <div class="w-1/2">
-      <h1 class="text-2xl font-light">Zamówienie {{ order.name }}</h1>
-      <p class="my-2">
-        {{ order.created_at | date: format: 'date' }}</p>
-      <span class="text-sm bg-accent text-white rounded-full whitespace-nowrap uppercase my-2 px-4 py-1">{{ order.financial_status_label }}</span>
+<div class="container mx-auto px-4 sm:px-10 py-10">
+  <div class="flex flex-col gap-4">
+    {% comment %} Account actions {% endcomment %}
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+      <div class="font-normal text-4xl">Konto</div>
+      <a href="{{ routes.account_url }}" class="link">Powrót do konta</a>
     </div>
-    <a href="{{ routes.account_url }}" class="link">powrót do konta</a>
+    {% comment %} Order info {% endcomment %}
+    <div>
+      <h1 class="text-2xl font-light">Zamówienie {{ order.name }}
+      </h1>
+      {% comment %} Order date and time {% endcomment %}
+      <div class="text-sm">
+        {%- assign order_date = order.created_at | time_tag: format: 'date_at_time' -%}
+        <p>{{ 'customer.order.date_html' | t: date: order_date }}</p>
+        {%- if order.cancelled -%}
+          {%- assign cancelled_at = order.cancelled_at | time_tag: format: 'date_at_time' -%}
+          <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
+          <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+    {% comment %} Items {% endcomment %}
+
+    {% for line_item in order.line_items %}
+      <div class="border-b pb-3 grid grid-cols-[minmax(max-content,1fr)_minmax(min-content,2fr)] gap-x-4 gap-y-2 sm:gap-4 sm:grid-cols-[minmax(min-content,1fr)_repeat(3,.4fr)]">
+
+        <p class="uppercase tracking-widest">Produkt</p>
+        <div class="flex flex-col sm:col-start-1 sm:row-start-2">
+          <div class="text-lg underline decoration-1 hover:decoration-2">{{ line_item.title | link_to: line_item.product.url }}</div>
+          {% comment %} Item properties {% endcomment %}
+          {%- assign property_size = line_item.properties | size -%}
+          {%- unless line_item.selling_plan_allocation == null and property_size == 0 -%}
+            {%- unless line_item.product.has_only_default_variant -%}
+              <span>
+                {{ line_item.variant.title }}
+              </span>
+            {%- endunless -%}
+            {%- if property_size != 0 -%}
+              {%- for property in line_item.properties -%}
+                {% assign property_first_char = property.first | slice: 0 %}
+                {%- if property.last != blank and property_first_char != '_' -%}
+                  <span>{{ property.first }}:</span>
+                  <span>
+                    {%- if property.last contains '/uploads/' -%}
+                      <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                    {%- else -%}
+                      {{ property.last }}
+                    {%- endif -%}
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endunless -%}
+        </div>
+        <p class="uppercase tracking-widest sm:col-start-2 sm:row-start-1">Cena</p>
+        <div class="font-medium sm:col-start-2 sm:row-start-2">{{ line_item.original_price | money }}</div>
+        <p class="uppercase tracking-widest sm:col-start-3 sm:row-start-1">Ilość</p>
+        <div class="font-medium sm:col-start-3 sm:row-start-2">{{ line_item.quantity }}</div>
+        <p class="uppercase tracking-widest sm:col-start-4 sm:row-start-1">Suma</p>
+        <div class="font-medium sm:col-start-4 sm:row-start-2">
+          {{ line_item.final_line_price | money }}</div>
+
+
+      </div>
+    {% endfor %}
+
   </div>
 
   <div>
     {% for line_item in order.line_items %}
       <div class="w-full border divide-y rounded mb-4">
         <div class="grid grid-cols-1 md:grid-cols-3 lg:gap-4 gap-12 p-4 md:p-12">
-          <div class="w-full h-80 min-h-80 bg-gray-200 rounded-md overflow-hidden">
-            {% if line_item.image %}
-              {{ line_item.image | image_url: width: 350, height: 350 | image_tag: loading: 'lazy', class: 'w-full h-full object-center object-cover' }}
-            {% else %}
-              {{ 'product-5' | placeholder_svg_tag: 'w-full h-full object-center object-cover' }}
-            {% endif %}
-          </div>
+
           <div>
             <h1 class="text-xl font-medium mb-4">{{ line_item.title | link_to: line_item.product.url }}</h1>
             <table class="table-auto w-full mb-4">
@@ -101,11 +153,11 @@
       <table class="table-auto w-full mb-4">
         <tbody>
           <tr>
-            <td class="border px-4 py-2">Suma</td>
+            <td class="border px-4 py-2">Suma częściowa</td>
             <td class="border px-4 py-2">{{ order.subtotal_price | money }}</td>
           </tr>
           <tr>
-            <td class="border px-4 py-2">Dostawa</td>
+            <td class="border px-4 py-2">Wysyłka</td>
             <td class="border px-4 py-2">{{ order.shipping_price | money }}</td>
           </tr>
           <tr>
