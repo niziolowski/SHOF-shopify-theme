@@ -5,23 +5,33 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+          }
         },
         "variant_selector": {
           "type": "variant_selector",
-          "settings": {}
+          "settings": {
+          }
+        },
+        "a140f0ed-6ce9-47c6-a0c1-82fe78d1df48": {
+          "type": "custom-attributes",
+          "settings": {
+          }
         },
         "97367c60-d077-4fef-93fd-30e58579d6b6": {
           "type": "pasek",
-          "settings": {}
+          "settings": {
+          }
         },
         "quantity": {
           "type": "quantity",
-          "settings": {}
+          "settings": {
+          }
         },
         "checkout_buttons": {
           "type": "checkout_buttons",
@@ -33,20 +43,25 @@
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
         "title",
         "price",
         "variant_selector",
+        "a140f0ed-6ce9-47c6-a0c1-82fe78d1df48",
         "97367c60-d077-4fef-93fd-30e58579d6b6",
         "quantity",
         "checkout_buttons",
         "description"
       ],
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": ["product-description"]
+  "order": [
+    "product-description"
+  ]
 }
