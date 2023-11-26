@@ -48,6 +48,9 @@
               {% endunless %}
             </div>
 
+          {% when 'custom-attributes' %}
+            {% render 'product-custom-attributes' %}
+            
           {% when 'pasek' %}
             {% if product.metafields.custom.paski %}
               {% render 'product-pasek-attribute' %}
@@ -128,6 +131,11 @@
     "blocks": [
       {
         "type": "@app"
+      },
+      {
+        "type": "custom-attributes",
+        "name": "Custom Attributes",
+        "limit": 1
       },
       {
         "type": "pasek",
