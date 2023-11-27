@@ -1,12 +1,58 @@
-test
+<div class="product-recommendations container" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{section.settings.limit}}&intent=complementary">
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    {% if recommendations.intent == 'related' %}
+      <h2 class="text-4xl uppercase text-center text-primary">Powiązane produkty</h2>
+    {% elsif recommendations.intent == 'complementary' %}
+      <h2 class="text-4xl uppercase text-center text-primary">Produkty uzupełniające</h2>
+    {% endif %}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-start text-xl relative place-items-center mt-10">
+      {%- for product in recommendations.products -%}
+        {% render 'collection-product-card'		
+          , product: product
+        %}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+{% javascript %}
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+    
+
+
+    observer.unobserve(productRecommendationsSection);
+
+    const url = productRecommendationsSection.dataset.url;
+
+    fetch(url).then(response => response.text()).then(text => {
+      const html = document.createElement('div');
+      html.innerHTML = text;
+      const recommendations = html.querySelector('.product-recommendations');
+
+      if (recommendations && recommendations.innerHTML.trim().length) {
+        productRecommendationsSection.innerHTML = recommendations.innerHTML;
+      }
+    }).catch(e => {
+      console.error(e);
+    });
+  };
+
+  const productRecommendationsSection = document.querySelector('.product-recommendations');
+  const observer = new IntersectionObserver(handleIntersection, {rootMargin: '0px 0px 200px 0px'});
+
+  observer.observe(productRecommendationsSection);
+{% endjavascript %}
 {% schema %}
-{
-  "name": "Produkty uzupełniające",
-  "settings": [],
-    "presets": [
+  {
+    "name": "Produkty uzupełniające",
+    "settings": [
       {
-        "name": "Produkty uzupełniające"
+        "type": "number",
+        "id": "limit",
+        "label": "Maksymalna liczba produktów",
+        "default": 4
       }
     ]
-}
+  }
 {% endschema %}
