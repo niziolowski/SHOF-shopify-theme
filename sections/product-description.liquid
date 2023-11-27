@@ -65,9 +65,6 @@
             {% render 'price'
               , product: product %}
 
-          {% when 'complementary-products' %}
-            {% render 'complementary-products' %}
-
           {% when 'checkout_buttons' %}
             <div class="flex gap-4 flex-wrap items-center">
               {% render 'current-price'
@@ -132,6 +129,10 @@
       {% endfor %}
     </div>
   </div>
+
+  {% comment %} Complementary products {% endcomment %}
+  {% when 'complementary-products' %}
+    {% render 'complementary-products' %}
 </div>
 
 {% schema %}
