@@ -4,7 +4,5 @@
       "type": "collection-grid"
     }
   },
-  "order": [
-    "collection-grid"
-  ]
+  "order": ["collection-grid"]
 }
