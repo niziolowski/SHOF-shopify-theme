@@ -3,7 +3,7 @@ export default () => {
     query: '',
     results: [],
     open: false,
-    searchBody: true,
+    searchBody: false,
     searchTitle: true,
     filterAvailable: true,
 
