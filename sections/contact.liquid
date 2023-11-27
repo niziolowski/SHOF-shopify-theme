@@ -1,111 +1,90 @@
-<div class="container max-w-[600px]">
-  <div class="text-center mb-5">
-    <h1 class="text-3xl font-bold my-1">
+<div class="container !max-w-[500px]">
+  <div class="text-center my-5">
+    <h1 class="text-4xl text-primary my-1">
       {{ section.settings.title }}
     </h1>
     {{ section.settings.text }}
   </div>
   {% form 'contact' %}
     {% if form.errors %}
-			<div class="flex flex-row items-center justify-center w-full my-3">
-				{% for error in form.errors %}
-					<div class="text-red-500">
-						{% render 'icon-failed' %}
-					</div>
-					<p class="text-red-500 text-sm font-bold ml-2">
-						{{ form.errors.translated_fields[error] | capitalize }} - {{ form.errors.messages[error] }}
-					</p>
-				{% endfor %}
-			</div>
+      <div class="flex flex-row items-center justify-center w-full my-3">
+        {% for error in form.errors %}
+          <div class="text-red-500">
+            {% render 'icon-failed' %}
+          </div>
+          <p class="text-red-500 text-sm font-bold ml-2">
+            {{ form.errors.translated_fields[error] | capitalize }} - {{ form.errors.messages[error] }}
+          </p>
+        {% endfor %}
+      </div>
     {% elsif form.posted_successfully? %}
-			<div class="flex flex-row items-center justify-center w-full gap-2 my-5">
-				<div class="text-green-500">
-					{% render 'icon-success' %}
-				</div>
-				<p class="text-green-500 font-bold text-center">
-					Message is sent successfully
-				</p>
-			</div>
+      <div class="flex flex-row items-center justify-center w-full gap-2 my-5">
+        <div class="text-green-500">
+          {% render 'icon-success' %}
+        </div>
+        <p class="text-green-500 font-bold text-center">
+          Wiadomość wysłana pomyślnie!
+        </p>
+      </div>
     {% endif %}
     <div class="grid grid-cols-2 gap-3">
-      <label
-        for="contact_name"
-        class="sr-only"
-        >First Name</label
-      >
+      <label for="contact_name" class="sr-only">Imię</label>
       <input
         type="text"
         name="contact[first_name]"
         id="contact_name"
         class="input sm:col-span-2"
-        placeholder="First Name*"
-				required
-      >
-      <label
-        for="contact_name"
-        class="sr-only"
-        >Last Name</label
-      >
+        placeholder="Imię*"
+        required>
+      <label for="contact_name" class="sr-only">Nazwisko</label>
       <input
         type="text"
         name="contact[last_name]"
         id="contact_name"
         class="input sm:col-span-2"
-        placeholder="Last Name*"
-				required
-      >
-      <label
-        for="contact_email"
-        class="sr-only"
-        >Email</label
-      >
+        placeholder="Nazwisko*"
+        required>
+      <label for="contact_email" class="sr-only">E-mail</label>
       <input
         type="email"
         name="contact[email]"
         id="contact_email"
         class="input col-span-2"
-        placeholder="Email*"
-				required
-      >
-      <label
-        for="contact_message"
-        class="sr-only"
-        >Message</label
-      >
+        placeholder="E-mail*"
+        required>
+      <label for="contact_message" class="sr-only">Wiadomość</label>
       <textarea
         name="contact[body]"
         id="contact_message"
         class="input resize-none h-20 py-2 col-span-2"
-        placeholder="Message"
-      ></textarea>
+        placeholder="Wiadomość"></textarea>
     </div>
     <div class="text-center mt-3">
-      <button type="submit" class="button">Submit</button>
+      <button type="submit" class="button">Wyślij</button>
     </div>
   {% endform %}
 </div>
 
 {% schema %}
-{
-  "name": "Contact Form",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Contact Us"
-    },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text",
-      "default": "<p>Feel Free to Contact Us!</p>"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Contact Form"
-    }
-  ]
-}
+  {
+    "name": "Contact Form",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Kontakt"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Napisz do nas</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Form"
+      }
+    ]
+  }
 {% endschema %}

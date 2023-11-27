@@ -1292,6 +1292,12 @@ th {
 .max-w-\[900px\] {
   max-width: 900px;
 }
+.\!max-w-\[600px\] {
+  max-width: 600px !important;
+}
+.\!max-w-\[500px\] {
+  max-width: 500px !important;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
