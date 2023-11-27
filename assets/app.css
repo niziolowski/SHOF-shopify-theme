@@ -1071,6 +1071,9 @@ th {
 .mt-auto {
   margin-top: auto;
 }
+.box-border {
+  box-sizing: border-box;
+}
 .block {
   display: block;
 }
@@ -1293,6 +1296,9 @@ th {
 }
 .flex-grow {
   flex-grow: 1;
+}
+.border-collapse {
+  border-collapse: collapse;
 }
 .origin-right {
   transform-origin: right;
@@ -1695,6 +1701,10 @@ th {
 }
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
+}
+.bg-off-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 249 244 / var(--tw-bg-opacity));
 }
 .bg-opacity-10 {
   --tw-bg-opacity: 0.1;
@@ -2361,6 +2371,9 @@ div[data-block-handle='ig_feed'] {
   --tw-scale-y: 1.3;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.hover\:border-2:hover {
+  border-width: 2px;
+}
 .hover\:\!bg-gray-100:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity)) !important;
@@ -2389,11 +2402,18 @@ div[data-block-handle='ig_feed'] {
   --tw-bg-opacity: 1;
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
+.hover\:bg-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 118 74 / var(--tw-bg-opacity));
+}
 .hover\:fill-accent:hover {
   fill: #ec764a;
 }
 .hover\:fill-primary:hover {
   fill: #ec764a;
+}
+.hover\:font-medium:hover {
+  font-weight: 500;
 }
 .hover\:text-accent:hover {
   --tw-text-opacity: 1;
@@ -2414,6 +2434,10 @@ div[data-block-handle='ig_feed'] {
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(236 118 74 / var(--tw-text-opacity));
+}
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .hover\:decoration-2:hover {
   text-decoration-thickness: 2px;

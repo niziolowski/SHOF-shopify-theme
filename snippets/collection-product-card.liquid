@@ -21,6 +21,7 @@
       {% if multiple_images %}
         {{ product.images[1] | image_url: width: 500, height: 600 | image_tag: loading: 'lazy', class: 'hidden group-hover:block' }}
       {% endif %}
+
     </div>
 
     <!-- Product Title -->
@@ -43,5 +44,42 @@
         {{ product.metafields.custom.tag_2.value.content }}
       </div>
     {% endif %}
+
+    <div
+      class="mt-auto "
+      x-data
+      x-show="'{{ addToCart }}'">
+      <form
+        class="w-full flex justify-stretch"
+        method="post"
+        action="/cart/add"
+        x-ref="product_form">
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.variants.first.id }}" />
+        <input
+          min="1"
+          type="hidden"
+          id="quantity"
+          name="quantity"
+          value="1" />
+        <button
+          type="submit"
+          name="add"
+          class="button w-full bg-transparent border border-1 text-primary border-primary shadow-none hover:bg-primary hover:text-white transition ease-in-out"
+          @click.prevent="Functions.addToCart($refs.product_form)"
+          {% unless product.selected_or_first_available_variant.available %}
+          disabled
+          {% endunless %}>
+          {% unless product.selected_or_first_available_variant.available %}
+            Wyprzedane
+          {% else %}
+            Do koszyka
+          {% endunless %}
+        </button>
+      </form>
+    </div>
   </div>
+
 </a>
