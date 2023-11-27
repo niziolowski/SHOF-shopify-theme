@@ -66,8 +66,8 @@
         "limit": 4
       }
     },
-    "eee6da77-89b4-4270-aeaf-9464a173b8aa": {
-      "type": "complementary-products",
+    "bbbf6d80-287d-4c6d-92c8-dfb3a7e3d142": {
+      "type": "related-products",
       "settings": {
         "limit": 4
       }
@@ -76,6 +76,6 @@
   "order": [
     "product-description",
     "6f74d670-dc2d-4663-adde-b779a2ec8a72",
-    "eee6da77-89b4-4270-aeaf-9464a173b8aa"
+    "bbbf6d80-287d-4c6d-92c8-dfb3a7e3d142"
   ]
 }
