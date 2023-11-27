@@ -59,9 +59,15 @@
       ],
       "settings": {
       }
+    },
+    "6f74d670-dc2d-4663-adde-b779a2ec8a72": {
+      "type": "complementary-products",
+      "settings": {
+      }
     }
   },
   "order": [
-    "product-description"
+    "product-description",
+    "6f74d670-dc2d-4663-adde-b779a2ec8a72"
   ]
 }
