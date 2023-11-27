@@ -129,10 +129,6 @@
       {% endfor %}
     </div>
   </div>
-
-  {% comment %} Complementary products {% endcomment %}
-  {% when 'complementary-products' %}
-    {% render 'complementary-products' %}
 </div>
 
 {% schema %}
@@ -141,11 +137,6 @@
     "blocks": [
       {
         "type": "@app"
-      },
-      {
-        "type": "complementary-products",
-        "name": "Produkty uzupełniające",
-        "limit": 1
       },
       {
         "type": "custom-attributes",
