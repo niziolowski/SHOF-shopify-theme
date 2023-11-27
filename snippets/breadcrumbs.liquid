@@ -7,7 +7,7 @@
     class="breadcrumb px-2 pb-4"
     role="navigation"
     aria-label="breadcrumbs">
-    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">HOME</a>
+    <a href="/" title="home">HOME</a>
 
     {%comment%} DETERMINE OBJECT TYPE - product, collection or page   {%endcomment%}
 
@@ -23,26 +23,26 @@
     {%- assign object_urls = object_url_string | split: '|' -%}
 
     {%comment%} 
-                                                                      GET TITLES OF ALL LINKLISTS
-                                                                      Linklist is the Shopify term for a menu or submenu. We grab all the titles so we can match against them and
-                                                                      find out if they are linked from a parent menu.
-                                                {%endcomment%}
+                                                                            GET TITLES OF ALL LINKLISTS
+                                                                            Linklist is the Shopify term for a menu or submenu. We grab all the titles so we can match against them and
+                                                                            find out if they are linked from a parent menu.
+                                                    {%endcomment%}
     {%- capture linklist_titles_str -%}{%- for linklist in linklists -%}{{ linklist.title | handleize }}|{%- endfor -%}{%- endcapture -%}
     {%- assign str_size = linklist_titles_str | size | minus: 1 -%}
     {%- assign linklist_titles_str = linklist_titles_str | slice: 0, str_size -%}
   {%- assign linklist_titles = linklist_titles_str | split: '|' -%}
 
     {%comment%} 
-                                                                      GET TOP LEVEL MENU THEN DRILL DOWN
-                                                                      First we grab all the top-level menu items and we create a set of strings for each property, which 
-                                                                      we will eventually split into arrays. We cannot create multi-dimensional arrays in Liquid, but we 
-                                                                      can create parallel arrays so that if we know the index in the handle array, we can find it's title
-                                                                      by iterating through the title array until we hit the same index.
-                           
-                                                                      If the link handle matches a string in the linklist_titles, the list with that title is the child.
-                                                                      You might think we would match handles to handles, but we don't. Shopify creates nested menus based
-                                                                      on the parent item having the exact same label as the child item and converts that to a handle.
-                                                {%endcomment%}
+                                                                            GET TOP LEVEL MENU THEN DRILL DOWN
+                                                                            First we grab all the top-level menu items and we create a set of strings for each property, which 
+                                                                            we will eventually split into arrays. We cannot create multi-dimensional arrays in Liquid, but we 
+                                                                            can create parallel arrays so that if we know the index in the handle array, we can find it's title
+                                                                            by iterating through the title array until we hit the same index.
+                             
+                                                                            If the link handle matches a string in the linklist_titles, the list with that title is the child.
+                                                                            You might think we would match handles to handles, but we don't. Shopify creates nested menus based
+                                                                            on the parent item having the exact same label as the child item and converts that to a handle.
+                                                    {%endcomment%}
 
     {%- assign level = 1 -%}
     {%- for link in linklists.main-menu.links -%}
@@ -136,9 +136,9 @@
   {%- endfor -%}
 
     {%- comment -%} LEVEL 2: TWO DOWN FROM THE TOP
-                                                                      Next level. If we found something, we can save a lot of processing. Otherwise, 
-                                                                      we need to scan everything on this level 
-                                              {%- endcomment -%}
+                                                                            Next level. If we found something, we can save a lot of processing. Otherwise, 
+                                                                            we need to scan everything on this level 
+                                                  {%- endcomment -%}
     {%- assign depth = '2' -%}
     {%- assign bc2_parent_list_handle = '' %}
 
@@ -203,9 +203,9 @@
           {%- assign bc1_parent_list_handle = lparents[forloop.index0] -%}
           {%- assign bc1_title = ltitles[forloop.index0] -%}
           {%- comment -%} 
-                                                                                                                                                    We HAVE PARENT, so now we GET THE SIBLING links, find where title 
-                                                                                                                                                    matches parent title, then we have the collection URL
-                                                                                                                            {%- endcomment -%}
+                                                                                                                                                                We HAVE PARENT, so now we GET THE SIBLING links, find where title 
+                                                                                                                                                                matches parent title, then we have the collection URL
+                                                                                                                                      {%- endcomment -%}
           {%- for bc1_sibling_link in linklists[bc1_parent_list_handle].links -%}
             {%- assign bc1_sibling_title_handleized = bc1_sibling_link.title | handle -%}
             {% if bc1_sibling_title_handleized == bc1_list_handle %}

@@ -106,8 +106,6 @@ export default () => ({
   },
 
   setFilterData(lastUrl) {
-    console.log(lastUrl);
-
     const filterData = {
       selectedSortOption: this.selectedSortOption,
       selectedColorOption: this.selectedColorOption,
