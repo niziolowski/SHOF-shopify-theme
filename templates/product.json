@@ -63,11 +63,19 @@
     "6f74d670-dc2d-4663-adde-b779a2ec8a72": {
       "type": "complementary-products",
       "settings": {
+        "limit": 4
+      }
+    },
+    "eee6da77-89b4-4270-aeaf-9464a173b8aa": {
+      "type": "complementary-products",
+      "settings": {
+        "limit": 4
       }
     }
   },
   "order": [
     "product-description",
-    "6f74d670-dc2d-4663-adde-b779a2ec8a72"
+    "6f74d670-dc2d-4663-adde-b779a2ec8a72",
+    "eee6da77-89b4-4270-aeaf-9464a173b8aa"
   ]
 }
