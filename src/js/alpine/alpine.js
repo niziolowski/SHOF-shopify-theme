@@ -13,7 +13,6 @@ import accordion from './components/accordion';
 import cart from './components/cart';
 import search from './components/search';
 import customAttributes from './components/customAttributes';
-import recommendations from './components/recommendations';
 
 // Alpine directives
 import tooltip from './directives/tooltip';
@@ -34,7 +33,6 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('cart', cart);
   Alpine.data('search', search);
   Alpine.data('customAttributes', customAttributes);
-  Alpine.data('recommendations', recommendations);
 
   // Alpine directives
   Alpine.directive('tooltip', tooltip);
