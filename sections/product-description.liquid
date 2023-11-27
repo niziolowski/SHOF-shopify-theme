@@ -65,6 +65,9 @@
             {% render 'price'
               , product: product %}
 
+          {% when 'complementary-products' %}
+            {% render 'complementary-products' %}
+
           {% when 'checkout_buttons' %}
             <div class="flex gap-4 flex-wrap items-center">
               {% render 'current-price'
@@ -137,6 +140,11 @@
     "blocks": [
       {
         "type": "@app"
+      },
+      {
+        "type": "complementary-products",
+        "name": "Produkty uzupełniające",
+        "limit": 1
       },
       {
         "type": "custom-attributes",
