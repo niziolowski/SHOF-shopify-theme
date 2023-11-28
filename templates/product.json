@@ -60,12 +60,6 @@
       "settings": {
       }
     },
-    "ed76995a-1012-4914-8e49-316e3062f14d": {
-      "type": "related-products",
-      "settings": {
-        "limit": 4
-      }
-    },
     "47224dcf-c2ab-4b57-82b8-a150223baac1": {
       "type": "complementary-products",
       "settings": {
@@ -75,7 +69,6 @@
   },
   "order": [
     "product-description",
-    "ed76995a-1012-4914-8e49-316e3062f14d",
     "47224dcf-c2ab-4b57-82b8-a150223baac1"
   ]
 }
