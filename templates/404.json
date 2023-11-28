@@ -1,7 +1,13 @@
 {
   "sections": {
     "404": {
-      "type": "404"
+      "type": "404",
+      "settings": {
+        "title": "404, not found",
+        "text": "<p>The page you were looking for does not exist<\/p>",
+        "button_url": "shopify:\/\/collections\/wszystko",
+        "button_text": "Continue Shopping"
+      }
     }
   },
   "order": [
