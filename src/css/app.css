@@ -142,8 +142,9 @@
 }
 
 /* Instagram feed styles */
-div[data-block-handle='ig_feed'] {
+#tizzy-ig-container-1 {
   @apply container !important;
+  max-width: 1200px !important; /* the container class has this applied but for some reason it's not working. maybe it's overwritten by the IG FEED app */
 }
 @supports not (aspect-ratio: 1 / 1) {
   .tz-i::before {

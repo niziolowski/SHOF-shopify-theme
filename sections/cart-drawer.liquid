@@ -42,3 +42,26 @@
     </div>
   </div>
 </div>
+
+{% schema %}
+  {
+    "name": "Koszyk",
+    "settings": [
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Link w przypadku pustego koszyka",
+        "default": "/collections/all"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Koszyk",
+        "category": "Koszyk",
+        "settings": {
+          "button_url": "/collections/all"
+        }
+      }
+    ]
+  }
+{% endschema %}
