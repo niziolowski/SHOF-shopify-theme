@@ -160,7 +160,7 @@
     "image-with-title": {
       "type": "image-with-title",
       "settings": {
-        "image": "shopify:\/\/shop_images\/nerkatyl.png",
+        "image": "shopify:\/\/shop_images\/o-nas.png",
         "url": "shopify:\/\/pages\/o-nas",
         "container_size": 1240,
         "title": "<p>O<\/p><p>NAS<\/p>",
