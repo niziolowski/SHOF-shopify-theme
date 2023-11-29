@@ -1098,6 +1098,9 @@ th {
 .aspect-\[1\/1\] {
   aspect-ratio: 1/1;
 }
+.aspect-\[8\/10\] {
+  aspect-ratio: 8/10;
+}
 .aspect-auto {
   aspect-ratio: auto;
 }
@@ -1106,12 +1109,6 @@ th {
 }
 .aspect-video {
   aspect-ratio: 16 / 9;
-}
-.aspect-\[3\/4\] {
-  aspect-ratio: 3/4;
-}
-.aspect-\[8\/10\] {
-  aspect-ratio: 8/10;
 }
 .h-10 {
   height: 2.5rem;

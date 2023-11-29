@@ -2,14 +2,14 @@ export default () => {
   return {
     products: [],
 
-    async init() {
+    async initialize(productId) {
       // Fetch current product's related products IDs
-      const relatedProductsIds = await this.fetchRelatedProductsIds();
-      if (!relatedProductsIds) return;
+      //! THIS
+      const relatedProductsIds = await this.fetchRelatedProductsIds(productId);
 
+      if (!relatedProductsIds) return;
       // Fetch related products
       const relatedProducts = await this.fetchRelatedProducts(relatedProductsIds);
-
       this.products = relatedProducts;
     },
 
@@ -93,9 +93,9 @@ export default () => {
       return data.nodes;
     },
 
-    async fetchRelatedProductsIds() {
+    async fetchRelatedProductsIds(id) {
       const query = `{
-        product(id: "gid://shopify/Product/9448658993455") {
+        product(id: "gid://shopify/Product/${id}") {
           
           metafield(key: "related_products", namespace: "shopify--discovery--product_recommendation") {
             value
@@ -103,7 +103,7 @@ export default () => {
         }
       }`;
       const data = await this.fetch(query);
-      return data.product.metafield.value;
+      return data.product?.metafield?.value;
     },
 
     // Function to find the selected or first available variant

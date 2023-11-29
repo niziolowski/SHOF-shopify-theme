@@ -5,12 +5,12 @@ export default (el, { modifiers, expression }, { cleanup }) => {
   let duration = +modifiers[modifiers.indexOf('duration') + 1] || 500;
 
   // Set parent attributes
-  el.setAttribute('x-data', `{ show: false }`);
-  el.setAttribute('x-intersect.once', 'show = true');
+  el.setAttribute('x-data', `{ reveal: false }`);
+  el.setAttribute('x-intersect', 'reveal = true');
 
   // Set children attributes
   Array.from(items).forEach((item, index) => {
-    item.setAttribute('x-show', 'show');
+    item.setAttribute('x-show', 'reveal');
     item.setAttribute(`x-transition:enter.duration.${duration}ms.delay.${delay * index}ms`, '');
   });
 };
