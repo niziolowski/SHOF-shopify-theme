@@ -1,17 +1,18 @@
-<div x-data="relatedProducts" class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-start text-xl relative place-items-center mt-10">
-  <template x-for="product in products">
-    {% comment %} TODO: refactor price, fix image size, review the code {% endcomment %}
-    {% comment %} TODO: product needs a wrapper with fixed size for the reveal effect to work correctly {% endcomment %}
-    <a
-      x-data
-      x-reveal
-      class="relative hover:shadow-lg transition p-2 text-xl font-light group h-max"
-      :href="product.onlineStoreUrl == null ? product.handle : product.onlineStoreUrl">
-      <div>
-        <div class="aspect-square">
+<div x-data="relatedProducts" class="container mt-10">
+  <h2 class="text-4xl uppercase text-primary text-center my-10">Podobne produkty</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-start text-xl relative place-items-center my-10">
+    <template x-for="product in products">
+      <a
+        x-data
+        x-reveal
+        class="relative hover:shadow-lg transition p-2 text-xl font-light group h-max"
+        :href="product.onlineStoreUrl == null ? product.handle : product.onlineStoreUrl">
+        <div>
+
             {% comment %} Featured image {% endcomment %}
           <img
             :src="product.featuredImage.url"
+            class="aspect-[8/10]"
             width="500"
             height="600"
             loading="lazy"
@@ -25,81 +26,80 @@
             width="500"
             height="600"
             loading="lazy"
-            class="hidden group-hover:block" />
+            class="aspect-[8/10] hidden group-hover:block" />
 
 
-        </div>
+          <!-- Product Title -->
+          <div class="flex flex-col py-4 gap-2">
+            <div class="transition underline-offset-2 decoration-1 group-hover:underline" x-text="product.title"></div>
+            <template x-if="product.availableForSale">
+              <div class="font-medium flex gap-3">
 
-        <!-- Product Title -->
-        <div class="flex flex-col py-4 gap-2">
-          <div class="transition underline-offset-2 decoration-1 group-hover:underline" x-text="product.title"></div>
-          <template x-if="product.availableForSale">
-            <div class="font-medium flex gap-3">
+                <!-- Price range -->
+                <div x-show="priceVaries(product)">
+                  <span x-text="helpers.formatMoney(product.priceRange.minVariantPrice.amount)"></span>
+                  -
+                  <span x-text="helpers.formatMoney(product.priceRange.maxVariantPrice.amount,true)"></span>
+                </div>
+                <!-- Price -->
+                <div x-show="!priceVaries(product)">
+                  <span x-text="helpers.formatMoney(product.priceRange.minVariantPrice.amount,true)"></span>
+                </div>
 
-              <!-- Price range -->
-              <div x-show="priceVaries(product)">
-                <span x-text="helpers.formatMoney(product.priceRange.minVariantPrice.amount)"></span>
-                -
-                <span x-text="helpers.formatMoney(product.priceRange.maxVariantPrice.amount,true)"></span>
+                <!-- Compare at price -->
+                <s
+                  x-show="product.compareAtPriceRange.maxVariantPrice.amount > product.priceRange.minVariantPrice.amount"
+                  class=" font-normal"
+                  x-text="helpers.formatMoney(product.compareAtPriceRange.maxVariantPrice.amount,true)"></s>
               </div>
-              <!-- Price -->
-              <div x-show="!priceVaries(product)">
-                <span x-text="helpers.formatMoney(product.priceRange.minVariantPrice.amount,true)"></span>
-              </div>
-
-              <!-- Compare at price -->
-              <s
-                x-show="product.compareAtPriceRange.maxVariantPrice.amount > product.priceRange.minVariantPrice.amount"
-                class=" font-normal"
-                x-text="helpers.formatMoney(product.compareAtPriceRange.maxVariantPrice.amount,true)"></s>
-            </div>
-          </template>
-        </div>
-
-        <!-- TAGS -->
-        <div class="absolute top-6 select-none -left-1 flex flex-col gap-2 w-max items-start">
-          <template x-for="tag in product.metafields">
-            <template x-if="tag">
-              <div
-                x-text="tag?.reference.fields[0].value"
-                class="px-3 py-1 uppercase text-white text-sm shadow-m"
-                :style="{backgroundColor: tag?.reference.fields[1].value}"></div>
             </template>
-          </template>
+          </div>
+
+          <!-- TAGS -->
+          <div class="absolute top-6 select-none -left-1 flex flex-col gap-2 w-max items-start">
+            <template x-for="tag in product.metafields">
+              <template x-if="tag">
+                <div
+                  x-text="tag?.reference.fields[0].value"
+                  class="px-3 py-1 uppercase text-white text-sm shadow-m"
+                  :style="{backgroundColor: tag?.reference.fields[1].value}"></div>
+              </template>
+            </template>
+          </div>
+
+          <div
+            class="mt-auto "
+            x-data
+            x-show="true">
+            <form
+              class="w-full flex justify-stretch"
+              method="post"
+              action="/cart/add"
+              x-ref="product_form">
+              <input
+                type="hidden"
+                name="id"
+                :value="findFirstAvailableVariant(product.variants.edges) ? findFirstAvailableVariant(product.variants.edges).split('/')[4] : null" />
+              <input
+                min="1"
+                type="hidden"
+                id="quantity"
+                name="quantity"
+                value="1" />
+              <button
+                type="submit"
+                name="add"
+                class="button w-full bg-transparent border border-1 text-primary border-primary shadow-none hover:bg-primary hover:text-white transition ease-in-out"
+                @click.prevent="Functions.addToCart($refs.product_form)"
+                :disabled="!findFirstAvailableVariant(product.variants.edges)"
+                x-text="findFirstAvailableVariant(product.variants.edges) ? 'Do koszyka' : 'Wyprzedane'"></button>
+            </form>
+          </div>
         </div>
 
-        <div
-          class="mt-auto "
-          x-data
-          x-show="true">
-          <form
-            class="w-full flex justify-stretch"
-            method="post"
-            action="/cart/add"
-            x-ref="product_form">
-            <input
-              type="hidden"
-              name="id"
-              :value="findFirstAvailableVariant(product.variants.edges) ? findFirstAvailableVariant(product.variants.edges).split('/')[4] : null" />
-            <input
-              min="1"
-              type="hidden"
-              id="quantity"
-              name="quantity"
-              value="1" />
-            <button
-              type="submit"
-              name="add"
-              class="button w-full bg-transparent border border-1 text-primary border-primary shadow-none hover:bg-primary hover:text-white transition ease-in-out"
-              @click.prevent="Functions.addToCart($refs.product_form)"
-              :disabled="!findFirstAvailableVariant(product.variants.edges)"
-              x-text="findFirstAvailableVariant(product.variants.edges) ? 'Do koszyka' : 'Wyprzedane'"></button>
-          </form>
-        </div>
-      </div>
-
-    </a>
-  </template>
+      </a>
+    </template>
+  </div>
 </div>
 {% schema %}
   {
