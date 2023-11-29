@@ -28,20 +28,62 @@ export default () => {
     },
 
     async fetchRelatedProducts(ids) {
-      const query = `{
+      const query = `query MyQuery {
         nodes(ids: ${ids}) {
           ... on Product {
             id
             title
             handle
+            availableForSale
+            onlineStoreUrl
+            featuredImage {
+              altText
+              id
+              url(transform: {maxHeight: 500, maxWidth: 600})
+            }
+            images(first: 2) {
+              nodes {
+                id
+                url(transform: {maxWidth: 500, maxHeight: 600})
+                altText
+              }
+            }
+            variants(first: 250) {
+              edges {
+                node {
+                  id
+                  title
+                  availableForSale
+                }
+              }
+            }
             priceRange {
               minVariantPrice {
                 amount
               }
+              maxVariantPrice {
+                amount
+              }
             }
-            featuredImage {
-              originalSrc
-              altText
+            compareAtPriceRange {
+              maxVariantPrice {
+                amount
+              }
+            }
+            metafields(
+              identifiers: [{key: "tag", namespace: "custom"}, {key: "tag_2", namespace: "custom"}]
+            ) {
+              id
+              reference {
+                ... on Metaobject {
+                  id
+                  fields {
+                    key
+                    value
+                  }
+                }
+              }
+              key
             }
           }
         }
@@ -62,6 +104,19 @@ export default () => {
       }`;
       const data = await this.fetch(query);
       return data.product.metafield.value;
+    },
+
+    // Function to find the selected or first available variant
+    findFirstAvailableVariant(variants) {
+      // Find the first available variant
+      let selectedVariant = variants.find((variant) => variant.node.availableForSale);
+
+      return selectedVariant ? selectedVariant.node.id : null;
+    },
+
+    // Check if product price varies
+    priceVaries(product) {
+      return product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount;
     },
 
     async fetch(query) {
