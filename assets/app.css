@@ -2584,8 +2584,8 @@ th {
   .sm\:w-5\/6 {
     width: 83.333333%;
   }
-  .sm\:w-\[400px\] {
-    width: 400px;
+  .sm\:w-\[500px\] {
+    width: 500px;
   }
   .sm\:w-max {
     width: -moz-max-content;
