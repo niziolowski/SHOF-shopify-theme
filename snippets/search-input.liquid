@@ -9,7 +9,7 @@
   <div class="overlay fixed inset-0 transition-all z-50 backdrop-blur-sm bg-white/50" @click="toggleSearch"></div>
 
   {% comment %} CONTENT {% endcomment %}
-  <div class="relative z-50 w-full h-full flex flex-col overflow-hidden bg-white border-b sm:mx-10 sm:border sm:shadow-l sm:h-auto sm:max-h-[80vh] sm:rounded-md text-gray-500 sm:w-[400px] sm:top-[10vh]">
+  <div class="relative z-50 w-full h-full flex flex-col overflow-hidden bg-white border-b sm:mx-10 sm:border sm:shadow-l sm:h-auto sm:max-h-[80vh] sm:rounded-md text-gray-500 sm:w-[500px] sm:top-[10vh]">
     {% comment %} Search input {% endcomment %}
     <div
       class="flex w-full z-[99] border-b rounded-t-md"
@@ -25,6 +25,9 @@
         placeholder="Szukaj..."
         x-model="query"
         @input.debounce.300="search" />
+      <div @click="toggleSearch" class="flex justify-center items-center px-3 hover:scale-125 transition active:scale-100">
+        {% render 'icon-close' %}
+      </div>
     </div>
     <div class="relative flex-1 flex flex-col min-h-0 overflow-y-scroll bg-white rounded-md w-full" x-show="open">
       <template x-for="result in results" :key="result.id">
@@ -32,6 +35,7 @@
           <img
             :src="result.image"
             :alt="result.title"
+            class="aspect-square"
             width="100">
 
           <span class="max-w-[200px]" x-text="result.title"></span>
