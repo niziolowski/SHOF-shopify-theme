@@ -1071,6 +1071,15 @@ th {
 .mt-auto {
   margin-top: auto;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
+.mt-44 {
+  margin-top: 11rem;
+}
+.mt-32 {
+  margin-top: 8rem;
+}
 .block {
   display: block;
 }
@@ -2711,6 +2720,9 @@ th {
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+  .sm\:text-\[1rem\] {
+    font-size: 1rem;
   }
   .sm\:tracking-\[10px\] {
     letter-spacing: 10px;

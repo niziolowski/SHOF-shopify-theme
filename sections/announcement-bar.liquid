@@ -1,5 +1,5 @@
 {% for block in section.blocks %}
-  <div class="{{ section.settings.text_align }} flex select-none text-xs tracking-[3px] sm:tracking-[10px] sm:text-lg font-normal p-2 text-center" style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }}">
+  <div class="{{ section.settings.text_align }} flex select-none text-xs tracking-[3px] sm:tracking-[10px] sm:text-[1rem] font-normal p-2 text-center" style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }}">
     {{ block.settings.text }}
   </div>
 {% endfor %}
@@ -17,12 +17,10 @@
           {
             "value": "justify-start",
             "label": "Do lewej"
-          },
-          {
+          }, {
             "value": "justify-center",
             "label": "Do środka"
-          },
-          {
+          }, {
             "value": "justify-end",
             "label": "Do prawej"
           }
@@ -38,18 +36,15 @@
             "type": "richtext",
             "id": "text",
             "label": "Treść"
-          },
-          {
+          }, {
             "type": "header",
             "content": "Wygląd"
-          },
-          {
+          }, {
             "type": "color",
             "id": "bg_color",
             "label": "Kolor tła",
             "default": "#fff"
-          },
-          {
+          }, {
             "type": "color",
             "id": "text_color",
             "label": "Kolor tekstu",
