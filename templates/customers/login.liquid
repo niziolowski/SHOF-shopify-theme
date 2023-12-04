@@ -33,10 +33,10 @@
         {% if form.errors %}
           <div class="flex flex-row items-center justify-center w-full gap-2">
             {% for error in form.errors %}
-              <div class="text-red-500">
+              <div class="text-red-700">
                 {% render 'icon-failed' %}
               </div>
-              <p class="text-red-500 text-sm font-normal">
+              <p class="text-red-700 text-sm font-normal">
                 {{ form.errors.messages[error] }}
               </p>
             {% endfor %}
@@ -119,20 +119,20 @@
       {% if form.errors %}
         <div class="flex flex-row items-center justify-center w-full gap-2">
           {% for error in form.errors %}
-            <div class="text-red-500">
+            <div class="text-red-700">
               {% render 'icon-failed' %}
             </div>
-            <p class="text-red-500 text-sm font-normal ml-2">
+            <p class="text-red-700 text-sm font-normal ml-2">
               {{ form.errors.translated_fields[error] | capitalize }} - {{ form.errors.messages[error] }}
             </p>
           {% endfor %}
         </div>
       {% elsif form.posted_successfully? %}
         <div class="flex flex-row items-center justify-center w-full gap-2">
-          <div class="text-green-500">
+          <div class="text-green-700">
             {% render 'icon-success' %}
           </div>
-          <p class="text-green-500 font-normal text-center">
+          <p class="text-green-700 font-normal text-center">
             Hasło odzyskano pomyślnie. Sprawdź swoją skrzynkę pocztową.
           </p>
         </div>

@@ -9,10 +9,10 @@
       {% if form.errors %}
         <div class="flex flex-row items-center justify-center w-full my-3">
           {% for error in form.errors %}
-            <div class="text-red-500">
+            <div class="text-red-700">
               {% render 'icon-failed' %}
             </div>
-            <p class="text-red-500 text-sm font-bold ml-2">
+            <p class="text-red-700 text-sm font-bold ml-2">
               {{ form.errors.translated_fields[error] }} - {{ form.errors.messages[error] }}
             </p>
           {% endfor %}
