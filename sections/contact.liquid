@@ -52,15 +52,20 @@
         class="input col-span-2"
         placeholder="E-mail*"
         required>
-      <label for="tytuł" class="sr-only">Tytuł</label>
+
+      {% comment %} Subject {% endcomment %}
+      <label for="tytuł" class="sr-only">Temat</label>
       <select
+        x-data="{
+        subjects: '{{ section.settings.subjects }}'.split(', ')
+      }"
         id="tytuł"
         name="contact[tytuł]"
         class="input col-span-2">
         <option disabled selected>Wybierz temat</option>
-        <option>Zwroty</option>
-        <option>Wysyłka</option>
-        <option>Inne</option>
+        <template x-for="subject in subjects">
+          <option x-text="subject"></option>
+        </template>
       </select>
 
       <label for="contact_message" class="sr-only">Wiadomość</label>
@@ -81,6 +86,12 @@
     "name": "Contact Form",
     "settings": [
       {
+        "type": "text",
+        "label": "Tematy",
+        "id": "subjects",
+        "info": "Wpisz tematy, które będą dostępne w formularzu. Oddziel je przecinkiem.",
+        "default": "Zwroty, Wysyłka, Inne"
+      }, {
         "type": "text",
         "id": "title",
         "label": "Title",
