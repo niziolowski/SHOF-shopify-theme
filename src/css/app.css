@@ -141,6 +141,11 @@
   margin-bottom: 20px;
 }
 
+/* Challenge page button */
+.shopify-challenge__button {
+  @apply button;
+}
+
 /* Instagram feed styles */
 #tizzy-ig-container-1 {
   @apply container !important;
