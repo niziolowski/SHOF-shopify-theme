@@ -52,6 +52,17 @@
         class="input col-span-2"
         placeholder="E-mail*"
         required>
+      <label for="tytuł" class="sr-only">Tytuł</label>
+      <select
+        id="tytuł"
+        name="contact[tytuł]"
+        class="input col-span-2">
+        <option disabled selected>Wybierz temat</option>
+        <option>Zwroty</option>
+        <option>Wysyłka</option>
+        <option>Inne</option>
+      </select>
+
       <label for="contact_message" class="sr-only">Wiadomość</label>
       <textarea
         name="contact[body]"
