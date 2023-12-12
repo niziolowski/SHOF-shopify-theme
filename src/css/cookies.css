@@ -1,0 +1,14 @@
+#shopify-pc__banner {
+  margin: 20px;
+  border-radius: 10px !important;
+}
+
+.shopify-pc__banner__dialog button {
+  transition: 0.1s ease-in-out;
+}
+
+.shopify-pc__banner__btn-accept:hover,
+.shopify-pc__banner__btn-decline:hover {
+  background-color: black !important;
+  color: white !important;
+}

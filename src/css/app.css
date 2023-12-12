@@ -4,6 +4,8 @@
 @import './product-gallery.css';
 @import './ios-fixes.css';
 @import './color-swatch.css';
+@import './cookies.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
