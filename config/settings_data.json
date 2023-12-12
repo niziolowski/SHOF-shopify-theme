@@ -28,7 +28,15 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "5981748856676454061": {
+        "type": "shopify:\/\/apps\/avada-cookie-bar\/blocks\/app-embed\/deacc407-65bc-4a4e-84d9-f90e9e492cf3",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
