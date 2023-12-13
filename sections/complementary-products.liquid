@@ -1,49 +1,112 @@
-<div class="product-recommendations container" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{section.settings.limit}}&intent=complementary">
-  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
-    {% if recommendations.intent == 'related' %}
-      <h2 class="text-4xl uppercase text-center text-primary">Powiązane produkty</h2>
-    {% elsif recommendations.intent == 'complementary' %}
-      <h2 class="text-4xl uppercase text-center text-primary mt-32">Akcesoria dodatkowe</h2>
-    {% endif %}
+<div
+  x-data="complementaryProducts"
+  x-init="initialize({{ product.id }})"
+  x-show="products.length > 0"
+  class="container mt-10">
+  <h2 class="text-2xl uppercase text-primary text-center my-10">A może pasek...</h2>
+  <div class="swiper complementary-products-swiper">
+    <div class="swiper-wrapper items-stretch">
+      <template x-for="product in products">
+        <a
+          x-data
+          x-reveal.delay.500
+          class="!h-auto relative hover:shadow-lg transition p-2 text-xl font-light group swiper-slide "
+          :href="product.onlineStoreUrl == null ? product.handle : product.onlineStoreUrl">
+          <div class="h-full flex flex-col">
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-start text-xl relative place-items-center mt-10">
-      {%- for product in recommendations.products -%}
-        {% render 'collection-product-card'		
-          , product: product
-          , addToCart: true
-        %}
-      {%- endfor -%}
+              {% comment %} Featured image {% endcomment %}
+            <img
+              :src="product.featuredImage.url"
+              class="aspect-[8/10]"
+              width="500"
+              height="600"
+              loading="lazy"
+              :class="product.images.nodes[1] ? 'group-hover:hidden' : '' " />
+
+              {% comment %} Second image {% endcomment %}
+
+            <img
+              x-show="product.images.nodes[1]"
+              :src="product.images.nodes[1] ? product.images.nodes[1].url : ''"
+              width="500"
+              height="600"
+              loading="lazy"
+              class="aspect-[8/10] hidden group-hover:block" />
+
+
+            <!-- Product Title -->
+            <div class="flex flex-col py-4 gap-2">
+              <div class="transition underline-offset-2 decoration-1 group-hover:underline" x-text="product.title"></div>
+              <template x-if="product.availableForSale">
+                <div class="font-medium flex gap-3">
+
+                  <!-- Price range -->
+                  <div x-show="priceVaries(product)">
+                    <span x-text="helpers.formatMoney(product.priceRange.minVariantPrice.amount)"></span>
+                    -
+                    <span x-text="helpers.formatMoney(product.priceRange.maxVariantPrice.amount,true)"></span>
+                  </div>
+                  <!-- Price -->
+                  <div x-show="!priceVaries(product)">
+                    <span x-text="helpers.formatMoney(product.priceRange.minVariantPrice.amount,true)"></span>
+                  </div>
+
+                  <!-- Compare at price -->
+                  <s
+                    x-show="product.compareAtPriceRange.maxVariantPrice.amount > product.priceRange.minVariantPrice.amount"
+                    class=" font-normal"
+                    x-text="helpers.formatMoney(product.compareAtPriceRange.maxVariantPrice.amount,true)"></s>
+                </div>
+              </template>
+            </div>
+
+            <!-- TAGS -->
+            <div class="absolute top-6 select-none -left-1 flex flex-col gap-2 w-max items-start">
+              <template x-for="tag in product.metafields">
+                <template x-if="tag">
+                  <div
+                    x-text="tag?.reference.fields[0].value"
+                    class="px-3 py-1 uppercase text-white text-sm shadow-m"
+                    :style="{backgroundColor: tag?.reference.fields[1].value}"></div>
+                </template>
+              </template>
+            </div>
+
+            <div
+              class="mt-auto "
+              x-data
+              x-show="true">
+              <form
+                class="w-full flex justify-stretch"
+                method="post"
+                action="/cart/add"
+                x-ref="product_form">
+                <input
+                  type="hidden"
+                  name="id"
+                  :value="findFirstAvailableVariant(product.variants.edges) ? findFirstAvailableVariant(product.variants.edges).split('/')[4] : null" />
+                <input
+                  min="1"
+                  type="hidden"
+                  id="quantity"
+                  name="quantity"
+                  value="1" />
+                <button
+                  type="submit"
+                  name="add"
+                  class="button w-full bg-transparent border border-1 text-primary border-primary shadow-none hover:bg-primary hover:text-white transition ease-in-out"
+                  @click.prevent="Functions.addToCart($refs.product_form)"
+                  :disabled="!findFirstAvailableVariant(product.variants.edges)"
+                  x-text="findFirstAvailableVariant(product.variants.edges) ? 'Do koszyka' : 'Wyprzedane'"></button>
+              </form>
+            </div>
+          </div>
+
+        </a>
+      </template>
     </div>
-  {%- endif -%}
+  </div>
 </div>
-{% javascript %}
-  const handleIntersection = (entries, observer) => {
-    if (!entries[0].isIntersecting) return;
-    
-
-
-    observer.unobserve(productRecommendationsSection);
-
-    const url = productRecommendationsSection.dataset.url;
-
-    fetch(url).then(response => response.text()).then(text => {
-      const html = document.createElement('div');
-      html.innerHTML = text;
-      const recommendations = html.querySelector('.product-recommendations');
-
-      if (recommendations && recommendations.innerHTML.trim().length) {
-        productRecommendationsSection.innerHTML = recommendations.innerHTML;
-      }
-    }).catch(e => {
-      console.error(e);
-    });
-  };
-
-  const productRecommendationsSection = document.querySelector('.product-recommendations');
-  const observer = new IntersectionObserver(handleIntersection, {rootMargin: '0px 0px 200px 0px'});
-
-  observer.observe(productRecommendationsSection);
-{% endjavascript %}
 {% schema %}
   {
     "name": "Produkty uzupełniające",

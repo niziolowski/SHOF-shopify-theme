@@ -10,5 +10,5 @@ window.swiper = swiper2;
 window.helpers = helpers;
 
 window.addEventListener('load', () => {
-  instaFeed();
+  instaFeed(); // add reveal effect for instaFeed app
 });
