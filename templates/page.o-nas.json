@@ -3,12 +3,12 @@
     "5697173c-019f-4eb2-b517-383a4ed1616f": {
       "type": "banner-with-text",
       "settings": {
-        "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-11-21_at_22.15.37.jpg",
-        "banner_size": "h-64",
+        "image": "shopify:\/\/shop_images\/zd_w_tle.jpg",
+        "banner_size": "h-96",
         "full_width": true,
-        "image_position": 64,
+        "image_position": 18,
         "text": "<p>O nas<\/p>",
-        "text_position": "start",
+        "text_position": "end",
         "text_color": "#ffffff",
         "text_size": 35
       }
@@ -17,13 +17,41 @@
       "type": "mixed-column",
       "settings": {
         "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-11-21_at_22.15.37.jpg",
+        "image_to_left": false,
         "title": "Tytuł",
-        "content": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.<\/p>"
+        "content": "<p>Hej! Tu Bajka, głowa shofowej rodziny ;)<br\/><br\/><\/p><p>Wszystko zaczęło się od spóźnienia do opery, przez przypadek zostałam obdarowana dodatkowymi godzinami od losu i tak zaczęłam szyć akcesoria (a na skrzypka na dachu nigdy nie poszłam). <br\/><br\/>Studiowałam wówczas projektowanie ubioru na Uniwersytecie Artystycznym w Poznaniu, byłam zmęczona szyciem wielkich kostiumów teatralnych, kiedy sięgnęłam po małe formy akcesoriów okazało się, że jednak lubię szyć :)<\/p>"
+      }
+    },
+    "ee950acb-f015-47bd-841a-e6991194a019": {
+      "type": "mixed-column",
+      "settings": {
+        "image_to_left": true,
+        "title": "",
+        "content": "<p><\/p><p>Później sprawy potoczyły się szybko i chaotycznie aż pewnego dnia postanowiłam uszyć sobie portfel, miał to być projekt jednorazowy, tylko dla mnie. Zastanawiałam się jaki chciałabym kształt klapy i w mojej głowie pojawiła się odpowiedź oczywista “najpiękniejszy kształt jaki znam to jest kobiecy biust”. Jak pomyślałam, tak zrobiłam. Z biegiem czasu coraz<br\/>więcej moich znajomych mówiło mi, że jest to rzecz wspaniała i powinnam je sprzedawać.<br\/><br\/><\/p><p>Jak powiedzieli, tak zrobiłam i tak oto cycki od 2019 roku trafiają w Wasze ręce &lt;3<br\/><\/p>"
+      }
+    },
+    "117c8833-41d6-416e-a5ee-228ee188208b": {
+      "type": "mixed-column",
+      "settings": {
+        "image_to_left": false,
+        "title": "",
+        "content": "<p>Kiedy robiłam dyplom licencjacki o modzie recyklingowej i do swoich projektów użyłam taśm VHS, mój profesor z kostiumu teatralnego powiedział, że “kiedy raz wejdzie się na drogę mody ekologicznej, trudno z niej zejść”, jakże prorocze były to słowa ;)<br\/><br\/><\/p><p>Zawsze kiedy jestem pytana o to, dlaczego skóra z drugiego obiegu, dlaczego recykling, jestem trochę zmieszana, bo dla mnie po prostu było to oczywiste, że jeśli skóra naturalna to tylko z ekologicznego źródła. W moim rodzinnym domu od zawsze idee ekologiczne były czymś codziennym i naturalnym, nie marnowanie zasobów jest dla mnie priorytetem w każdej dziedzinie.<\/p>"
+      }
+    },
+    "0ab32db7-8a94-4a16-9bf2-f54512384c5c": {
+      "type": "mixed-column",
+      "settings": {
+        "image_to_left": true,
+        "title": "",
+        "content": "<p>Dziś już nie szyję sama wszystkiego po nocach. Dziś jestem flądrą biznesu, szycie zlecam specjalistycznej szwalni,  mam niezastapioną Asię Asistentkę, która odpowiada za milion ważnych spraw, w których sama dawno bym się pogubiła. Jest też z nami Natalia, nasza marketingowa prawa ręka, która analizuje dane i co ważne, ma wspaniałego kotka &lt;3<\/p>"
       }
     }
   },
   "order": [
     "5697173c-019f-4eb2-b517-383a4ed1616f",
-    "mixed-column"
+    "mixed-column",
+    "ee950acb-f015-47bd-841a-e6991194a019",
+    "117c8833-41d6-416e-a5ee-228ee188208b",
+    "0ab32db7-8a94-4a16-9bf2-f54512384c5c"
   ]
 }
