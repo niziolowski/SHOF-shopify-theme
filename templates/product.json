@@ -65,10 +65,17 @@
       "settings": {
         "limit": 4
       }
+    },
+    "3f8f9546-8f4a-4d96-a324-89f43c9520d5": {
+      "type": "related-collection",
+      "settings": {
+        "limit": 4
+      }
     }
   },
   "order": [
     "product-description",
-    "ce4385f6-1527-4291-b4ea-d4eed54f33a4"
+    "ce4385f6-1527-4291-b4ea-d4eed54f33a4",
+    "3f8f9546-8f4a-4d96-a324-89f43c9520d5"
   ]
 }
