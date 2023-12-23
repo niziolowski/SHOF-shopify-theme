@@ -15,6 +15,7 @@ import search from './components/search';
 import customAttributes from './components/customAttributes';
 import relatedProducts from './components/relatedProducts';
 import complementaryPrducts from './components/complementaryProducts';
+import relatedCollection from './components/relatedCollection';
 
 // Alpine directives
 import tooltip from './directives/tooltip';
@@ -37,6 +38,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('customAttributes', customAttributes);
   Alpine.data('relatedProducts', relatedProducts);
   Alpine.data('complementaryProducts', complementaryPrducts);
+  Alpine.data('relatedCollection', relatedCollection);
 
   // Alpine directives
   Alpine.directive('tooltip', tooltip);
