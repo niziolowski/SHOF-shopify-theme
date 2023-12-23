@@ -59,9 +59,23 @@
       ],
       "settings": {
       }
+    },
+    "ce4385f6-1527-4291-b4ea-d4eed54f33a4": {
+      "type": "complementary-products",
+      "settings": {
+        "limit": 4
+      }
+    },
+    "f1f37f62-f3c7-4b10-be9e-d4b9a60fb128": {
+      "type": "related-collection",
+      "settings": {
+        "limit": 4
+      }
     }
   },
   "order": [
-    "product-description"
+    "product-description",
+    "ce4385f6-1527-4291-b4ea-d4eed54f33a4",
+    "f1f37f62-f3c7-4b10-be9e-d4b9a60fb128"
   ]
 }
