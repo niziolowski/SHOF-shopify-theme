@@ -1,17 +1,44 @@
+import 'swiper/css';
+import Swiper from 'swiper';
+import { Navigation, Thumbs } from 'swiper/modules';
+
 export default () => {
   return {
     products: [],
 
     async initialize(productId) {
-      console.log('test');
-      // Fetch current product's related products IDs
       if (!productId) return;
-      const relatedProductsIds = await this.fetchRelatedProductsIds(productId);
 
-      if (!relatedProductsIds) return;
-      // Fetch related products
-      const relatedProducts = await this.fetchRelatedProducts(relatedProductsIds);
-      this.products = relatedProducts;
+      const globalId = `gid://shopify/Product/${productId}`;
+      // Fetch current product's complementary products IDs
+      const collection = await this.fetchProductCollection(globalId);
+
+      // Filter out current product
+      const filteredCollection = collection.filter((product) => product.id !== globalId && product.availableForSale);
+
+      this.products = filteredCollection;
+
+      this.$nextTick(() => {
+        this.swiper = new Swiper('.complementary-products-swiper', {
+          modules: [Navigation, Thumbs],
+          loop: true,
+          spaceBetween: 20,
+          slidesPerView: 2,
+          freeMode: true,
+          watchSlidesProgress: true,
+          breakpoints: {
+            640: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+          },
+        });
+      });
     },
 
     getImageSrcWithSize(originalSrc, size) {
@@ -28,83 +55,78 @@ export default () => {
       return `${pathWithoutExtension}_${size}${extension}`;
     },
 
-    async fetchRelatedProducts(ids) {
-      const query = `query MyQuery {
-        nodes(ids: ${ids}) {
-          ... on Product {
-            id
-            title
-            handle
-            availableForSale
-            onlineStoreUrl
-            featuredImage {
-              altText
-              id
-              url(transform: {maxHeight: 500, maxWidth: 600})
-            }
-            images(first: 2) {
-              nodes {
+    async fetchProductCollection(id) {
+      const query = `{
+        product(id: "${id}") {
+          metafield(key: "reszta_kolekcji", namespace: "custom") {
+            reference {
+              ... on Collection {
                 id
-                url(transform: {maxWidth: 500, maxHeight: 600})
-                altText
-              }
-            }
-            variants(first: 250) {
-              edges {
-                node {
-                  id
+                products(first: 250) {
+                  nodes {
+                   id
                   title
+                  handle
                   availableForSale
-                }
-              }
-            }
-            priceRange {
-              minVariantPrice {
-                amount
-              }
-              maxVariantPrice {
-                amount
-              }
-            }
-            compareAtPriceRange {
-              maxVariantPrice {
-                amount
-              }
-            }
-            metafields(
-              identifiers: [{key: "tag", namespace: "custom"}, {key: "tag_2", namespace: "custom"}]
-            ) {
-              id
-              reference {
-                ... on Metaobject {
-                  id
-                  fields {
+                  onlineStoreUrl
+                  featuredImage {
+                    altText
+                    id
+                    url(transform: {maxHeight: 500, maxWidth: 600})
+                  }
+                  images(first: 2) {
+                    nodes {
+                      id
+                      url(transform: {maxWidth: 500, maxHeight: 600})
+                      altText
+                    }
+                  }
+                  variants(first: 250) {
+                    edges {
+                      node {
+                        id
+                        title
+                        availableForSale
+                      }
+                    }
+                  }
+                  priceRange {
+                    minVariantPrice {
+                      amount
+                    }
+                    maxVariantPrice {
+                      amount
+                    }
+                  }
+                  compareAtPriceRange {
+                    maxVariantPrice {
+                      amount
+                    }
+                  }
+                  metafields(
+                    identifiers: [{key: "tag", namespace: "custom"}, {key: "tag_2", namespace: "custom"}]
+                  ) {
+                    id
+                    reference {
+                      ... on Metaobject {
+                        id
+                        fields {
+                          key
+                          value
+                        }
+                      }
+                    }
                     key
-                    value
+                  }
                   }
                 }
               }
-              key
             }
           }
         }
       }`;
-
       const data = await this.fetch(query);
-      return data.nodes;
-    },
-
-    async fetchRelatedProductsIds(id) {
-      const query = `{
-        product(id: "gid://shopify/Product/${id}") {
-          
-          metafield(key: "related_products", namespace: "shopify--discovery--product_recommendation") {
-            value
-          }
-        }
-      }`;
-      const data = await this.fetch(query);
-      return data.product?.metafield?.value;
+      return data?.product?.metafield?.reference?.products?.nodes;
     },
 
     // Function to find the selected or first available variant

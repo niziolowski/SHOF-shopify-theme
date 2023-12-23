@@ -3,7 +3,6 @@ export default () => {
     products: [],
 
     async initialize(productId) {
-      console.log('test');
       // Fetch current product's related products IDs
       if (!productId) return;
       const relatedProductsIds = await this.fetchRelatedProductsIds(productId);
