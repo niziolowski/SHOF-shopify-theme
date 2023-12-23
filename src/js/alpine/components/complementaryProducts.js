@@ -7,8 +7,8 @@ export default () => {
     products: [],
 
     async initialize(productId) {
+      if (!productId) return;
       // Fetch current product's complementary products IDs
-      //! THIS
       const complementaryProductsIds = await this.fetchComplementaryProductsIds(productId);
 
       if (!complementaryProductsIds) return;

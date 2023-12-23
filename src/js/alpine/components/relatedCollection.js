@@ -4,7 +4,7 @@ export default () => {
 
     async initialize(productId) {
       // Fetch current product's related products IDs
-      //! THIS
+      if (!productId) return;
       const relatedProductsIds = await this.fetchRelatedProductsIds(productId);
 
       if (!relatedProductsIds) return;
