@@ -19,7 +19,7 @@ export default () => {
       this.products = filteredCollection;
 
       this.$nextTick(() => {
-        this.swiper = new Swiper('.complementary-products-swiper', {
+        this.swiper = new Swiper('#related-collection-swiper', {
           modules: [Navigation, Thumbs],
           loop: true,
           spaceBetween: 20,
@@ -36,6 +36,10 @@ export default () => {
             1024: {
               slidesPerView: 5,
             },
+          },
+          navigation: {
+            nextEl: '#related-collection-btn-next',
+            prevEl: '#related-collection-btn-prev',
           },
         });
       });

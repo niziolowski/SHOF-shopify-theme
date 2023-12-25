@@ -17,7 +17,7 @@ export default () => {
       this.products = complementaryProducts;
 
       this.$nextTick(() => {
-        this.swiper = new Swiper('.complementary-products-swiper', {
+        this.swiper = new Swiper('#complementary-products-swiper', {
           modules: [Navigation, Thumbs],
           loop: true,
           spaceBetween: 20,
@@ -34,6 +34,10 @@ export default () => {
             1024: {
               slidesPerView: 5,
             },
+          },
+          navigation: {
+            nextEl: '#complementary-products-btn-next',
+            prevEl: '#complementary-products-btn-prev',
           },
         });
       });
