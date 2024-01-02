@@ -68,6 +68,7 @@
     },
     "21e62ace-f5fc-4748-9bc6-a0697d96f6bc": {
       "type": "related-collection",
+      "disabled": true,
       "settings": {
         "limit": 4
       }
