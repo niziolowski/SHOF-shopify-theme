@@ -60,15 +60,14 @@
       "settings": {
       }
     },
-    "ce4385f6-1527-4291-b4ea-d4eed54f33a4": {
-      "type": "complementary-products",
+    "21e62ace-f5fc-4748-9bc6-a0697d96f6bc": {
+      "type": "related-collection",
       "settings": {
         "limit": 4
       }
     },
-    "21e62ace-f5fc-4748-9bc6-a0697d96f6bc": {
-      "type": "related-collection",
-      "disabled": true,
+    "ce4385f6-1527-4291-b4ea-d4eed54f33a4": {
+      "type": "complementary-products",
       "settings": {
         "limit": 4
       }
@@ -76,7 +75,7 @@
   },
   "order": [
     "product-description",
-    "ce4385f6-1527-4291-b4ea-d4eed54f33a4",
-    "21e62ace-f5fc-4748-9bc6-a0697d96f6bc"
+    "21e62ace-f5fc-4748-9bc6-a0697d96f6bc",
+    "ce4385f6-1527-4291-b4ea-d4eed54f33a4"
   ]
 }
