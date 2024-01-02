@@ -13,6 +13,7 @@ export default () => {
       // Fetch current product's complementary products IDs
       const collection = await this.fetchProductCollection(globalId);
 
+      if (!collection) return;
       // Filter out current product
       const filteredCollection = collection.filter((product) => product.id !== globalId && product.availableForSale);
 
