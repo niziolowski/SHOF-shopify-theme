@@ -9,3 +9,7 @@
 .swiper-slide-thumb-active {
   @apply border-2 border-primary !important;
 }
+.mySwiper2 {
+  overflow: clip !important;
+  overflow-clip-margin: 10px !important;
+}

@@ -1,5 +1,6 @@
 {% assign width = width | default: 500 %}
 {% assign height = height | default: 600 %}
+
 {% case media.media_type %}
   {% when 'image' %}
     {{ media | image_url: width: width, height: height | image_tag: loading: 'lazy', class: class, id: id }}
@@ -10,3 +11,20 @@
   {% else %}
     {{ media | media_tag }}
 {% endcase %}
+
+{% unless noTags %}
+  <!-- TAG -->
+  {% if product.metafields.custom.tag %}
+    <div class="absolute z-10 top-6 select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag.value.kolor }};">
+      {{ product.metafields.custom.tag.value.content }}
+    </div>
+  {% endif %}
+
+  <!-- TAG2 -->
+  {% if product.metafields.custom.tag_2 %}
+    <div class="absolute z-10 top-[58px] select-none -left-1 px-3 py-1 uppercase text-white text-sm shadow-m" style="background-color: {{ product.metafields.custom.tag_2.value.kolor }};">
+      {{ product.metafields.custom.tag_2.value.content }}
+    </div>
+  {% endif %}
+
+{% endunless %}

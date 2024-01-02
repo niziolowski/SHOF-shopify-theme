@@ -1,6 +1,8 @@
 <div class="relative sm:px-4 py-2 select-none w-full">
+
   <div style="--swiper-navigation-color: #939090; --swiper-pagination-color: #fff" class="swiper mySwiper2">
-    <div class="swiper-wrapper">
+
+    <div class="swiper-wrapper ">
       {% for media in product.media %}
         <div class="swiper-slide cursor-pointer" data-image-id="{{ media.id }}">
           {% render 'product-media'
@@ -27,6 +29,7 @@
               , media: media
               , width: 200
               , height: 200
+              , noTags: true
               , class: 'w-full' %}
           </div>
         {% endfor %}

@@ -217,6 +217,10 @@
   --tw-border-opacity: 1 !important;
   border-color: rgb(236 118 74 / var(--tw-border-opacity)) !important;
 }
+.mySwiper2 {
+  overflow: clip !important;
+  overflow-clip-margin: 10px !important;
+}
 /* Remove outline for non-keyboard :focus */
 *:focus:not(.focus-visible) {
   outline: none;
