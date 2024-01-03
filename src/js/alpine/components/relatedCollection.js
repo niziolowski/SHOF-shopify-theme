@@ -22,7 +22,7 @@ export default () => {
       this.$nextTick(() => {
         this.swiper = new Swiper('#related-collection-swiper', {
           modules: [Navigation, Thumbs],
-          loop: true,
+          loop: false,
           spaceBetween: 20,
           slidesPerView: 2,
           freeMode: true,
@@ -42,7 +42,44 @@ export default () => {
             nextEl: '#related-collection-btn-next',
             prevEl: '#related-collection-btn-prev',
           },
+          on: {
+            slideChangeTransitionEnd: function () {
+              toggleNavigationButtons.call(this);
+            },
+            reachEnd: function () {
+              toggleNavigationButtons.call(this);
+            },
+            reachBeginning: function () {
+              toggleNavigationButtons.call(this);
+            },
+            breakpoint: function () {
+              toggleNavigationButtons.call(this);
+            },
+          },
         });
+
+        function toggleNavigationButtons() {
+          var firstVisibleIndex = this.activeIndex === 0;
+          var lastVisibleIndex = this.activeIndex + this.params.slidesPerView - 1;
+
+          const prevEl = document.querySelector('#related-collection-btn-prev');
+          const nextEl = document.querySelector('#related-collection-btn-next');
+          // Toggle visibility of both navigation buttons based on the current slide
+          if (firstVisibleIndex || this.slides.length < this.params.slidesPerView) {
+            prevEl.style.display = 'none';
+          } else {
+            prevEl.style.display = 'block';
+          }
+
+          if (lastVisibleIndex === this.slides.length - 1 || this.slides.length < this.params.slidesPerView) {
+            nextEl.style.display = 'none';
+          } else {
+            nextEl.style.display = 'block';
+          }
+        }
+
+        // Toggle navigaion buttons on load
+        toggleNavigationButtons.call(this.swiper);
       });
     },
 

@@ -2,19 +2,19 @@
   x-data="complementaryProducts"
   x-init="initialize({{ product.id }})"
   x-show="products.length > 0"
-  class="container mt-10">
-  <h2 class="text-2xl uppercase text-primary text-center my-10">A może pasek...</h2>
-  <div class="flex items-center gap-2 sm:gap-4">
-    <div id="complementary-products-btn-prev" class=" hidden sm:block cursor-pointer text-primary  hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-left'
+  class="container mt-10 flex flex-col items-center">
+  <h2 class="text-2xl uppercase text-primary text-center my-10 flex-1">A może pasek...</h2>
+
+  <div class="relative w-[90%]">
+    <div id="complementary-products-btn-prev" class="absolute z-10 top-1/2 -translate-y-1/2 -left-10 sm:block cursor-pointer text-primary  hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-left'
+, size: 30 %}</div>
+
+    <div id="complementary-products-btn-next" class="absolute z-10 top-1/2 -translate-y-1/2 -right-10 sm:block cursor-pointer text-primary  hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-right'
 , size: 30 %}</div>
     <div id="complementary-products-swiper" class="swiper">
       <div class="swiper-wrapper items-stretch">
         <template x-for="product in products">
-          <a
-            x-data
-            x-reveal.delay.500
-            class="!h-auto relative hover:shadow-lg transition p-2 text-xl font-light group swiper-slide "
-            :href="product.onlineStoreUrl == null ? product.handle : product.onlineStoreUrl">
+          <a class="!h-auto select-none relative hover:shadow-lg transition p-2 text-xl font-light group swiper-slide " :href="product.onlineStoreUrl == null ? product.handle : product.onlineStoreUrl">
             <div class="h-full flex flex-col">
 
                 {% comment %} Featured image {% endcomment %}
@@ -39,9 +39,9 @@
 
               <!-- Product Title -->
               <div class="flex flex-col py-4 gap-2">
-                <div class="transition underline-offset-2 decoration-1 group-hover:underline" x-text="product.title"></div>
+                <div class="transition underline-offset-2 decoration-1 group-hover:underline" x-text="product.title.substring(0,30) + '...'"></div>
                 <template x-if="product.availableForSale">
-                  <div class="font-medium flex gap-3">
+                  <div class="font-medium flex gap-3 flex-wrap text-base">
 
                     <!-- Price range -->
                     <div x-show="priceVaries(product)">
@@ -109,9 +109,9 @@
         </template>
       </div>
     </div>
-    <div id="complementary-products-btn-next" class=" hidden sm:block cursor-pointer text-primary  hover:scale-125 active:scale-100 transition rounded-full">{% render 'icon-chevron-right'
-, size: 30 %}</div>
   </div>
+
+
 </div>
 {% schema %}
   {
