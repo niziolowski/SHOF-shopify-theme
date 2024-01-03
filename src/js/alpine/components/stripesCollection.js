@@ -20,7 +20,7 @@ export default () => {
       this.products = filteredCollection;
 
       this.$nextTick(() => {
-        this.swiper = new Swiper('#related-collection-swiper', {
+        this.swiper = new Swiper('#stripes-collection-swiper', {
           modules: [Navigation, Thumbs],
           loop: false,
           spaceBetween: 20,
@@ -39,8 +39,8 @@ export default () => {
             },
           },
           navigation: {
-            nextEl: '#related-collection-btn-next',
-            prevEl: '#related-collection-btn-prev',
+            nextEl: '#stripes-collection-btn-next',
+            prevEl: '#stripes-collection-btn-prev',
           },
           on: {
             slideChangeTransitionEnd: function () {
@@ -62,8 +62,8 @@ export default () => {
           var firstVisibleIndex = this.activeIndex === 0;
           var lastVisibleIndex = this.activeIndex + this.params.slidesPerView - 1;
 
-          const prevEl = document.querySelector('#related-collection-btn-prev');
-          const nextEl = document.querySelector('#related-collection-btn-next');
+          const prevEl = document.querySelector('#stripes-collection-btn-prev');
+          const nextEl = document.querySelector('#stripes-collection-btn-next');
           // Toggle visibility of both navigation buttons based on the current slide
           if (firstVisibleIndex || this.slides.length < this.params.slidesPerView) {
             prevEl.style.display = 'none';
@@ -100,7 +100,7 @@ export default () => {
     async fetchProductCollection(id) {
       const query = `{
         product(id: "${id}") {
-          metafield(key: "reszta_kolekcji", namespace: "custom") {
+          metafield(key: "stripes_collection", namespace: "custom") {
             reference {
               ... on Collection {
                 id
