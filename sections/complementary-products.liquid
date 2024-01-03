@@ -56,7 +56,7 @@
 
                     <!-- Compare at price -->
                     <s
-                      x-show="product.compareAtPriceRange.maxVariantPrice.amount > product.priceRange.minVariantPrice.amount"
+                      x-show="+product.compareAtPriceRange.maxVariantPrice.amount > +product.priceRange.minVariantPrice.amount"
                       class=" font-normal"
                       x-text="helpers.formatMoney(product.compareAtPriceRange.maxVariantPrice.amount,true)"></s>
                   </div>
