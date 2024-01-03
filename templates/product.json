@@ -60,22 +60,21 @@
       "settings": {
       }
     },
-    "ce4385f6-1527-4291-b4ea-d4eed54f33a4": {
-      "type": "complementary-products",
+    "0ac7a20a-1a7d-49bf-b610-512aa060bdaa": {
+      "type": "stripes-collection",
       "settings": {
-        "limit": 4
+        "collection": ""
       }
     },
     "21e62ace-f5fc-4748-9bc6-a0697d96f6bc": {
       "type": "related-collection",
       "settings": {
-        "limit": 4
       }
     }
   },
   "order": [
     "product-description",
-    "ce4385f6-1527-4291-b4ea-d4eed54f33a4",
+    "0ac7a20a-1a7d-49bf-b610-512aa060bdaa",
     "21e62ace-f5fc-4748-9bc6-a0697d96f6bc"
   ]
 }
