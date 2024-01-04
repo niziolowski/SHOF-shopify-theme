@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="">
+    {{ page.title | escape }}
+  </h1>
+  <div class="">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Strona",
+
+    "presets": [
+      {
+        "name": "Strona"
+      }
+    ]
+  }
+{% endschema %}
