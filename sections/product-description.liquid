@@ -1,7 +1,7 @@
 <div class="container my-10">
   <div class="grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 justify-center">
     {% comment %} Product Media {% endcomment %}
-    <div class="w-5/6 lg:max-w-[400px] place-self-center md:place-self-end self-start md:self-start">
+    <div class="w-5/6 relative lg:max-w-[400px] place-self-center md:place-self-end self-start md:self-start">
       {% if product.media.size > 1 %}
         {% render 'product-gallery'
           , max-width: 100 %}

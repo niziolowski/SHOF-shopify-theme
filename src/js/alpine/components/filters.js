@@ -7,7 +7,7 @@ export default () => ({
     { value: 'price-ascending', label: 'Od najtańszych' },
     {
       value: 'price-descending',
-      label: 'Od najdroszych',
+      label: 'Od najdroższych',
     },
   ],
   colorOptions: [
