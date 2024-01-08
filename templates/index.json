@@ -3,20 +3,20 @@
     "kolarz": {
       "type": "kolarz",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/SHOF-Banner-Profilaktyka-raka-piersi-1.png",
-        "first_image_link": "shopify:\/\/collections\/shof-x-rakiety",
+        "first_image": "shopify:\/\/shop_images\/SHOF_Banner_Outlet_24.png",
+        "first_image_link": "shopify:\/\/collections\/outlet",
         "first_image_zoom": false,
         "image_2": "shopify:\/\/shop_images\/baner-nowosci-1-1.jpg",
-        "image_2_link": "",
+        "image_2_link": "shopify:\/\/collections\/jesien-zima-23",
         "image_2_zoom": false,
         "image_3": "shopify:\/\/shop_images\/baner-biust-napis.jpg",
         "image_3_link": "",
         "image_3_zoom": false,
-        "image_4": "shopify:\/\/shop_images\/kalendarz-15x15-1.png",
-        "image_4_link": "",
+        "image_4": "shopify:\/\/shop_images\/20210219_121924.jpg",
+        "image_4_link": "shopify:\/\/collections\/mini-portfele",
         "image_4_zoom": true,
         "image_5": "shopify:\/\/shop_images\/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
-        "image_5_link": "",
+        "image_5_link": "shopify:\/\/collections\/torebki",
         "image_5_zoom": false
       }
     },
