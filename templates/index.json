@@ -34,14 +34,14 @@
           "type": "feature",
           "settings": {
             "image": "shopify:\/\/shop_images\/Warstwa-20.png",
-            "text": "<p>DARMOWA DOSTAWA OD 300zł<\/p>"
+            "text": "<p>WYSYŁKI<\/p><p>WE WTORKI<\/p><p>I CZWARTKI<\/p>"
           }
         },
         "f0f8669f-014f-45ca-bc4d-08ff954ef4ce": {
           "type": "feature",
           "settings": {
             "image": "shopify:\/\/shop_images\/Warstwa-234.png",
-            "text": "<p>NOWOŚCI<\/p><p>PIĄTKI O 12:00<\/p>"
+            "text": "<p>DARMOWA DOSTAWA OD 300zł<\/p>"
           }
         },
         "91c9c047-3dcc-4706-bfb2-21c5605834c6": {
@@ -127,11 +127,11 @@
     "reviews": {
       "type": "reviews",
       "blocks": {
-        "c66bdd1f-f854-41af-8fe2-9fc616838016": {
+        "42ccfac9-84a3-4041-bfc6-040f34c4bf4e": {
           "type": "review",
           "settings": {
-            "content": "<p>Białe w czarne kropki są najlepsze<\/p>",
-            "author": "Frelka"
+            "content": "<p>Najlepsze, niezniszczalne, od 2 lat nie użyłam innej torebki. Miłością do cycportfeli zaraziłam nawet Mamę!<\/p>",
+            "author": "Monia z Żelisławic"
           }
         },
         "39bfa9fb-3bb5-475a-b163-b42f1347888a": {
@@ -144,15 +144,143 @@
         "48570364-1291-4c82-bf2a-566290fb04e9": {
           "type": "review",
           "settings": {
-            "content": "<p>Trzecia opinia<\/p>",
-            "author": "anonim"
+            "content": "<p>Po poważnym testowaniu nerki i 2 midi torebek muszę przyznać, że są nie do zdarcia! Zwiedziły ze mną pół świata i wszystkie wyglądają jak nowe! Kosmos trzyma się bez zarzutu zarówno złoty jak i srebrny ♥️ midi torebki całkiem pojemne - idealnie do codziennego użytku!<\/p>",
+            "author": "Jagoda z Górek Małych"
+          }
+        },
+        "412ebe0f-dfa1-4e28-8150-aa5dfe0d783a": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Cyckotorebka to idealny kompan podróży! Jest miękka, więc nie zajmuje dużo miejsca w plecaku\/walizce a przy tym jest super pojemna i mieści wszystko czego potrzebuję podczas zwiedzania 🌍♥️<\/p>",
+            "author": "Magda z Sopotu"
+          }
+        },
+        "ea5e06d3-d604-4e1d-bdff-74cfa5788270": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Odkąd kupiłam pierwszą cyckotorebkę, innych już nie noszę! Na mieście wszyscy pytają, gdzie można dostać takie cuda, a ja się chętnie dzielę tą tajemną wiedzą :) Piękne, ekologiczne, pojemne, niezniszczalne. Ale uwaga, uzależniające - szczególnie, gdy wjeżdżają nowe kolory ♥️<\/p>",
+            "author": "Kinga z Gdańska"
+          }
+        },
+        "966e07f7-c716-46df-a089-f48c6390b814": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Shof to nie tylko piękne dodatki, ale też wspaniała idea zero waste. Wszystko uszyte z zaangażowaniem, te produkty są niezniszczalne :) Ogromną zaletą jest też przemiła obsługa, zawsze można liczyć na wsparcie i szybką reakcję. Kocham całym sercem i bardzo polecam<\/p>",
+            "author": "Paula z Gdańska"
+          }
+        },
+        "bb744775-8271-4154-a1ba-ae53beef0032": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Mam torebki tylko ze Shofa, bardzo trwałe, były ze mną na niejednym wyjeździe. Mini portfel również ♥️<\/p>",
+            "author": "Aneta z Krakowa"
+          }
+        },
+        "61363cc8-4889-4e78-a2f7-7f557aca70ec": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Po prostu uwielbiam! Pierwszy był mini portfel, ostatnio dołączyła do mnie mini torebka i zachwytu nad jakością wykonania nie ma końca. Koncept wykorzystania skór z drugiego obiegu - sztos 👌 Niewątpliwie wrócę po kolejne<\/p>",
+            "author": "Paulina z Wrocławia"
+          }
+        },
+        "3b336c63-1607-4896-a35e-53a3771cc1b4": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Wczoraj odebrałam czarne mini cycki. Pięknie wykonane, na żywo istne cudo. Zachwyt! ♥️<\/p>",
+            "author": "Ania z Bytomia"
+          }
+        },
+        "c66bdd1f-f854-41af-8fe2-9fc616838016": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Białe w czarne kropki są najlepsze<\/p>",
+            "author": "Frelka"
+          }
+        },
+        "86543b75-3959-4ecc-90bb-c1d8f2fc768b": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Jedyna torebka, której kiedykolwiek używałam!<\/p>",
+            "author": "Margot z Gdańska"
+          }
+        },
+        "f2e2ada9-05bf-4491-a499-066c4dc62fd8": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Najlepsze na świecie torebki, wielkościowo niepozorne, a mieszczą wszystko czego na co dzień potrzebuję, czyli dużo 🤣<\/p><p>Jakość wykonania 💯💯💯<\/p><p>Kocham miłością nieskończoną ja i moja mama, którą też ma swoje cycki<\/p>",
+            "author": "Patrycja z Warszawy"
+          }
+        },
+        "b6717cbc-668c-478b-b18a-40682ca4aa23": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Obsługa klienta na medal (ekspresowa wysyłka tuż przed moim ślubem!) jakość na medal<\/p>",
+            "author": "Olga z Warszawy"
+          }
+        },
+        "f4961f43-d2b1-4ba2-8d54-0a9270ae2193": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Przepięknie skrojone małe arcydzieła. Trudno wybrać jedną sztukę i nie chcieć więcej<\/p>",
+            "author": "Sylwia z Łodzi"
+          }
+        },
+        "515375ec-ab9d-4896-aec9-4f0e9af0420d": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Torebka mini jest cudowna, bardzo pakowna i mała. Mógłby być trochę dłuższy pasek, ale ogólnie super!<\/p>",
+            "author": "Gosia z Krakowa"
+          }
+        },
+        "8b7d95fd-60f9-4f3c-85e9-530398425d15": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Najbardziej pojemne i trwałe minitorebki! Przeżyły wszystkie możliwe upadki i dalej jak nowe<\/p>",
+            "author": "Joanna z Krakowa"
+          }
+        },
+        "20d672c0-ecce-474f-bae9-ad7b326fec03": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Najlepsza obsługa jaką do tej pory spotkałam. Marzyła mi się torebka wyjątkowa, niebieska z różowym paskiem. Właścicielka zaproponowała nietypowy kolor szwu: zdecydowałam się na różowy, pasujący do paska. Dzięki temu dostałam prezent od siebie dla siebie na urodziny, w pełni spersonalizowany. Z torebką praktycznie się nie rozstaję: wersja MIDI mieści kubek termiczny i inne przydatne rzeczy. Dzięki kilku przegródkom zawsze wiem gdzie szybko znajdę klucze i słuchawki. No i ten kształt! Istne cudo 💙💗 na pewno wrócę jeszcze po więcej cycków 🥰<\/p>",
+            "author": "Agata z Warszawy"
+          }
+        },
+        "1ed2639e-f2ec-459f-bf33-9b9bd80d6672": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Kto nie lubi cycków? Nie ma takich ludzi. Cycki ze Shof są bezkonkurencyjne 🫶<\/p>",
+            "author": "Karolina z Kielc"
+          }
+        },
+        "403a0d01-3440-47fd-b704-c2eae3cdec74": {
+          "type": "review",
+          "settings": {
+            "content": "<p>Obserwuje od 3 lat i podziwiam i od tygodnia jestem w posiadaniu pięknej cyckonerki! Wykonanie sztos<\/p>",
+            "author": "Natalia z Wrocławia"
           }
         }
       },
       "block_order": [
-        "c66bdd1f-f854-41af-8fe2-9fc616838016",
+        "42ccfac9-84a3-4041-bfc6-040f34c4bf4e",
         "39bfa9fb-3bb5-475a-b163-b42f1347888a",
-        "48570364-1291-4c82-bf2a-566290fb04e9"
+        "48570364-1291-4c82-bf2a-566290fb04e9",
+        "412ebe0f-dfa1-4e28-8150-aa5dfe0d783a",
+        "ea5e06d3-d604-4e1d-bdff-74cfa5788270",
+        "966e07f7-c716-46df-a089-f48c6390b814",
+        "bb744775-8271-4154-a1ba-ae53beef0032",
+        "61363cc8-4889-4e78-a2f7-7f557aca70ec",
+        "3b336c63-1607-4896-a35e-53a3771cc1b4",
+        "c66bdd1f-f854-41af-8fe2-9fc616838016",
+        "86543b75-3959-4ecc-90bb-c1d8f2fc768b",
+        "f2e2ada9-05bf-4491-a499-066c4dc62fd8",
+        "b6717cbc-668c-478b-b18a-40682ca4aa23",
+        "f4961f43-d2b1-4ba2-8d54-0a9270ae2193",
+        "515375ec-ab9d-4896-aec9-4f0e9af0420d",
+        "8b7d95fd-60f9-4f3c-85e9-530398425d15",
+        "20d672c0-ecce-474f-bae9-ad7b326fec03",
+        "1ed2639e-f2ec-459f-bf33-9b9bd80d6672",
+        "403a0d01-3440-47fd-b704-c2eae3cdec74"
       ],
       "settings": {
       }
