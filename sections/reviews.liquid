@@ -18,14 +18,15 @@
     <div @click="previousSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-left' size: 80 %}</div>
     <div @click="nextSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-right' size: 80 %}</div>
   </div>
-  <div class="indicators absolute left-1/2 -translate-x-1/2 bottom-4 flex gap-4">
-    {% for block in section.blocks %}
-      <div
-        @click="goToSlide({{ forloop.index }})"
-        class="transition w-2 h-2 hover:bg-hover rounded-full hover:scale-[1.3] active:scale-[1]"
-        :class="currentIndex == {{ forloop.index }} ? 'bg-hover' : 'bg-shof-pink'"></div>
-    {% endfor %}
-  </div>
+{% comment %} Indicators {% endcomment %}
+{% comment %} <div class="indicators absolute left-1/2 -translate-x-1/2 bottom-4 flex gap-4">
+      {% for block in section.blocks %}
+        <div
+          @click="goToSlide({{ forloop.index }})"
+          class="transition w-2 h-2 hover:bg-hover rounded-full hover:scale-[1.3] active:scale-[1]"
+          :class="currentIndex == {{ forloop.index }} ? 'bg-hover' : 'bg-shof-pink'"></div>
+      {% endfor %}
+  </div> {% endcomment %}
 </div>
 
 
@@ -42,8 +43,7 @@
             "type": "richtext",
             "id": "content",
             "label": "Treść"
-          },
-          {
+          }, {
             "type": "text",
             "id": "author",
             "label": "Autor"
