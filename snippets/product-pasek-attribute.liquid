@@ -20,7 +20,19 @@
           // Generate selectable items
           const generatedItems = this.generateSelectableItems(selectableItems);
           this.selectableItems = generatedItems;
-          
+          this.selectableItems.unshift({
+            title: 'Wybierz',
+            value: 'Wybierz',
+            imageUrl :null,
+            disabled: true
+          })
+
+          const sendMessage = () => {
+        this.$dispatch('pasek-changed', { pasek: 'initialized' });
+        window.removeEventListener('DOMContentLoaded', sendMessage);
+      };
+      window.addEventListener('DOMContentLoaded', sendMessage);
+
           // Watch for changes
           $watch('selectedItem', value =>  $dispatch('pasek-changed', { pasek: value.title }));
 

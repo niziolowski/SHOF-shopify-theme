@@ -927,6 +927,18 @@ th {
 .top-\[58px\] {
   top: 58px;
 }
+.top-full {
+  top: 100%;
+}
+.-bottom-full {
+  bottom: -100%;
+}
+.-bottom-4 {
+  bottom: -1rem;
+}
+.-bottom-1 {
+  bottom: -0.25rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -2098,6 +2110,10 @@ th {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;

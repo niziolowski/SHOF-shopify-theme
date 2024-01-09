@@ -4,8 +4,13 @@ export default () => {
     type: 'color',
 
     initialize(options, type) {
-      this.type = type;
+      const sendMessage = () => {
+        this.$dispatch('finish-changed', { finish: 'initialized' });
+        window.removeEventListener('DOMContentLoaded', sendMessage);
+      };
+      window.addEventListener('DOMContentLoaded', sendMessage);
 
+      this.type = type;
       if (this.type === 'color') this.setupColors(options);
     },
 
