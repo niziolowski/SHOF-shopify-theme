@@ -27,5 +27,15 @@
         "label": "Prediction Search"
       }
     ]
+  },
+  {
+    "name": "Developer",
+    "settings": [
+      {
+        "label": "Inpost API Key",
+        "type": "text",
+        "id": "inpostApiKey"
+      }
+    ]
   }
 ]
