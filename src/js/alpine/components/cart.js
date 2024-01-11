@@ -9,6 +9,15 @@ export default (giftWrapProductID) => {
       this.checkGiftWrapInCart();
     },
 
+    handleSubmit(e) {
+      // Get form element
+      const form = this.$refs.form;
+      // Get form data
+      const formData = new FormData(form);
+
+      this.$dispatch('form-submit', formData);
+    },
+
     updateCart() {
       // send fetch reqeust to update cart
       fetch('/?view=ajax-cart-page')

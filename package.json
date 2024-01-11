@@ -1,13 +1,16 @@
 {
   "name": "shopify",
   "version": "1.0.0",
-  "description": "Shopify Template Using Alpine.js and Tailwind css",
+  "description": "Shopify Theme Using Alpine.js and Tailwind css",
   "scripts": {
     "laravel": "npx mix watch",
     "dev": "shopify theme dev"
   },
   "keywords": [],
-  "author": "Bogdan Doroshev",
+  "author": "Krystian Piątkowski",
+  "contributors": [
+    "Bogdan Doroshev"
+  ],
   "license": "ISC",
   "devDependencies": {
     "laravel-mix": "^6.0.49",
@@ -20,6 +23,7 @@
     "@alpinejs/focus": "^3.13.2",
     "@alpinejs/intersect": "^3.13.3",
     "alpinejs": "^3.13.2",
+    "axios": "^1.6.5",
     "swiper": "^11.0.3"
   }
 }

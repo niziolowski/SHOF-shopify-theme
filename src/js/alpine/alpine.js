@@ -17,10 +17,12 @@ import relatedProducts from './components/relatedProducts';
 import complementaryPrducts from './components/complementaryProducts';
 import relatedCollection from './components/relatedCollection';
 import stripesCollection from './components/stripesCollection';
+import inpost from './components/inpost';
 
 // Alpine directives
 import tooltip from './directives/tooltip';
 import reveal from './directives/reveal';
+import addToCartValidation from './components/addToCartValidation';
 
 document.addEventListener('alpine:init', () => {
   // Alpine plugin setup
@@ -41,65 +43,8 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('complementaryProducts', complementaryPrducts);
   Alpine.data('relatedCollection', relatedCollection);
   Alpine.data('stripesCollection', stripesCollection);
-  Alpine.data('addToCartValidation', () => {
-    return {
-      quantity: 1,
-      pasek: '',
-      finish: '',
-      message: '',
-      pasekInitialized: false,
-      finishInitialized: false,
-
-      setMessage(message) {
-        const messageEl = document.getElementById('message');
-        messageEl.textContent = message;
-      },
-
-      validate() {
-        if (this.finish === 'initialized') return this.setMessage('Proszę wybrać wykończenie');
-        if (this.pasek === 'initialized') return this.setMessage('Proszę wybrać pasek');
-
-        this.setMessage('');
-        Functions.addToCart(this.$refs.product_form);
-      },
-
-      initializeFinishAttribute(e) {
-        this.finish = e.detail.finish;
-
-        if (!this.finishInitialized) {
-          // finish HTML
-          const finish = `<input
-        type="hidden"
-        name="properties[Wykończenie]"
-        x-model="finish" />`;
-
-          // Get the form DOM element
-          const form = this.$refs.product_form;
-          // insert attributes to form
-          form.insertAdjacentHTML('afterbegin', finish);
-          this.finishInitialized = true;
-        }
-      },
-
-      initializePasekAttribute(e) {
-        this.pasek = e.detail.pasek;
-
-        if (!this.pasekInitialized) {
-          // pasek HTML
-          const pasek = `<input
-        type="hidden"
-        name="properties[Pasek]"
-        x-model="pasek" />`;
-
-          // Get the form DOM element
-          const form = this.$refs.product_form;
-          // insert attributes to form
-          form.insertAdjacentHTML('afterbegin', pasek);
-          this.pasekInitialized = true;
-        }
-      },
-    };
-  });
+  Alpine.data('addToCartValidation', addToCartValidation);
+  Alpine.data('inpost', inpost);
 
   // Alpine directives
   Alpine.directive('tooltip', tooltip);

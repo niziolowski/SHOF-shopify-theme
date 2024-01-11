@@ -1,7 +1,9 @@
 <form
+  @submit.prevent="handleSubmit"
+  x-ref="form"
   action="{{ routes.cart_url }}"
   method="post"
-  class="h-full flex flex-col relative">
+  class="h-full flex flex-col gap-10 relative">
   {% if cart.item_count > 0 %}
     {% assign total_savings = 0 %}
     <div class="divide-y">
@@ -76,9 +78,60 @@
       {% endfor %}
     </div>
 
+    {% comment %} INPOST {% endcomment %}
+    <div
+      x-data="inpost"
+      @form-submit.window="handleSubmit"
+      class="flex flex-col gap-5 ">
+
+      {% render 'checkbox'
+        , model: 'x-model="isUsed"'
+        , name: 'name="inpost"'
+        , for: 'for="inpost"'
+        , id: 'id="inpost"'
+        , content: 'Paczkomat?' %}
+
+
+      <div x-show="isUsed" class="border max-h-[500px] flex flex-col rounded-xl gap-5 p-5">
+        <div class="flex gap-5 justify-stretch">
+          <input
+            @input.debounce="handleInput"
+            type="text"
+            x-model="input"
+            placeholder="Kod pocztowy / paczkomatu"
+            class="flex flex-1 h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
+          <button
+            type="button"
+            class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-neutral-500 hover:text-neutral-700 border-neutral-200/70 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline"
+            @click.debounce="handleLocalization">
+            {% render 'icon-pin' %}
+          </button>
+        </div>
+
+        <div x-show="points.length > 0" class="overflow-y-scroll flex flex-col gap-3">
+          <template x-for="(option, index) in points" :key="index">
+            <label @click="selected=option.name" class="flex items-start p-5 space-x-3 bg-white border rounded-md shadow-sm hover:bg-gray-50 border-neutral-200/70">
+              <input
+                type="radio"
+                name="radio-group"
+                :value="option.name"
+                class="text-gray-900 translate-y-px focus:ring-gray-700" />
+              <span class="relative flex flex-col text-left space-y-1.5 leading-none">
+                <span x-text="option.name" class="font-semibold"></span>
+                <div class="text-sm opacity-50">
+                  <span x-text="option.description"></span>
+                </div>
+              </span>
+            </label>
+          </template>
+        </div>
+      </div>
+    </div>
+
     <div class="flex flex-col gap-4">
       <label for="Cart-note" class="sr-only">Uwagi do zamówienia</label>
       <textarea
+        x-ref="note"
         class="input resize-none h-24 py-3"
         name="note"
         id="Cart-note"
@@ -102,6 +155,8 @@
           <span>-{{ total_savings | money_with_currency }}</span>
         </div>
       {% endif %}
+
+      <div x-ref="message" class="flex justify-center text-shof-orange"></div>
 
       <div class="flex justify-center sm:justify-start">
         {% render 'cart-gift-wrap' %}
