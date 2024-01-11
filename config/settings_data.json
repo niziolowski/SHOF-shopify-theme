@@ -1,6 +1,7 @@
 {
   "current": {
     "favicon": "shopify:\/\/shop_images\/favicon-bg.png",
+    "inpostApiKey": "TAJNY KLUCZ NIE DO PRZECZYTANIA!",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
