@@ -172,8 +172,6 @@ export default () => {
       const form = this.$refs.form;
       const formData = e.detail;
 
-      console.log(formData.get('note'), this.selected);
-
       // If the option is used, check validation
       if (this.isUsed) {
         if (!this.selected) isValid = false;
@@ -186,11 +184,8 @@ export default () => {
           // Update note in form data
 
           formData.set('note', updatedNote);
-          console.log('updated note:', updatedNote);
         }
       }
-      console.log('note content:', this.$refs.note.value);
-      console.log('note sent:', formData.get('note'));
 
       if (isValid) {
         // If the form is valid, send the form data using `fetch`

@@ -27,8 +27,6 @@ export default () => ({
 
     this.maxSlideIndex = biggestSlide.index;
 
-    console.log(this.maxSlideIndex);
-
     // Adjust the slider height
     this.adjustContainerHeight();
     // Add event user windows resizing

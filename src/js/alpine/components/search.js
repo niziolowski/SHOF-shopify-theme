@@ -48,7 +48,6 @@ export default () => {
       fetch(window.Shopify.routes.root + searchUrl)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.resources.results.products.length);
           this.results = data.resources.results.products || [];
         })
         .catch((error) => {
