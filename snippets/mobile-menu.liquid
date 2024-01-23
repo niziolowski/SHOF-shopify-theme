@@ -17,13 +17,21 @@
   <nav class="flex flex-col overflow-y-auto items-stretch w-full relative">
     {% for link in linklists[section.settings.menu].links %}
       {% if link.links != blank %}
-        <div x-data="{open: false}" x-on:click="open = ! open">
-          <a class="flex justify-center md:justify-start items-center gap-2 px-6 py-4 hover:text-hover hover:bg-background-hover transition" href="#">{{ link.title }} {% render 'icon-dropdown' %}</a>
-          <div x-show="open" x-transition>
+        <div x-data="{open: false}">
+          <a
+            class="flex justify-center md:justify-start items-center gap-2 px-6 py-4 hover:text-hover hover:bg-background-hover transition"
+            href="{{ link.url }}"
+            x-on:click="toggleSubmenu('{{link.url}}')">
+            {{ link.title }} {% render 'icon-dropdown' %}
+          </a>
+          <div
+            x-show="currentSubmenu == '{{link.url}}'"
+            x-transition
+            x-collapse>
             {% for sublink in link.links %}
               <div class="flex flex-col items-stretch w-full relative">
                 <a
-                  x-bind:class="open ? 'bg-background-hover' : '' "
+                  x-bind:class="{'bg-background-hover': open}"
                   class="px-6 py-4 pl-9 bg-background hover:bg-background-hover hover:text-hover transition text-center md:text-left"
                   href="{{ sublink.url }}">{{ sublink.title }}</a>
               </div>
