@@ -18,6 +18,7 @@ import complementaryPrducts from './components/complementaryProducts';
 import relatedCollection from './components/relatedCollection';
 import stripesCollection from './components/stripesCollection';
 import inpost from './components/inpost';
+import productGallery from './components/productGallery';
 
 // Alpine directives
 import tooltip from './directives/tooltip';
@@ -45,6 +46,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('stripesCollection', stripesCollection);
   Alpine.data('addToCartValidation', addToCartValidation);
   Alpine.data('inpost', inpost);
+  Alpine.data('productGallery', productGallery);
 
   // Alpine directives
   Alpine.directive('tooltip', tooltip);
