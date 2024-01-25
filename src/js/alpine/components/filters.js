@@ -161,9 +161,7 @@ export default () => ({
 
     // Filter by availability
     if (this.isLastOne) {
-      urlParams.set('filter.p.tag', 'ostatnia-sztuka');
-    } else {
-      urlParams.delete('filter.p.tag', 'ostatnia-sztuka');
+      urlParams.append('filter.p.tag', 'ostatnia-sztuka');
     }
 
     // Construct the new URL with existing page number and new filters
