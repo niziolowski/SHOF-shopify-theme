@@ -43,7 +43,6 @@ export default () => ({
   selectedColorOption: null,
   selectedMaterialOption: null,
   isLastOne: false,
-  isAvailable: false,
   currentCollection: null,
 
   init() {
@@ -75,7 +74,6 @@ export default () => ({
     this.selectedColorOption = filterData.selectedColorOption;
     this.selectedMaterialOption = filterData.selectedMaterialOption;
     this.isLastOne = filterData.isLastOne;
-    this.isAvailable = filterData.isAvailable;
 
     // If current filter query is different than last filter query, apply filters
     if (currentUrl !== lastUrl && lastUrl !== null) {
@@ -93,7 +91,6 @@ export default () => ({
     this.selectedColorOption = null;
     this.selectedMaterialOption = null;
     this.isLastOne = false;
-    this.isAvailable = false;
 
     window.location.href = window.location.pathname;
     localStorage.removeItem('filterData');
@@ -111,7 +108,6 @@ export default () => ({
       selectedColorOption: this.selectedColorOption,
       selectedMaterialOption: this.selectedMaterialOption,
       isLastOne: this.isLastOne,
-      isAvailable: this.isAvailable,
       isOpen: this.isOpen,
       currentCollection: this.currentCollection,
       lastUrl: lastUrl || null,
@@ -161,13 +157,6 @@ export default () => ({
     }
     if (this.selectedMaterialOption) {
       urlParams.append('filter.p.tag', this.selectedMaterialOption);
-    }
-
-    // Filter available products
-    if (this.isAvailable) {
-      urlParams.set('filter.v.availability', 1);
-    } else {
-      urlParams.delete('filter.v.availability');
     }
 
     // Filter by availability
