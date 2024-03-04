@@ -36,6 +36,12 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "2450789086036107872": {
+        "type": "shopify:\/\/apps\/wixpa-google-analytics-4\/blocks\/star_rating\/c2e14746-d691-44e9-a249-a159be386c1b",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
