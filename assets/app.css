@@ -1441,9 +1441,6 @@ th {
 .flex-col {
   flex-direction: column;
 }
-.flex-col-reverse {
-  flex-direction: column-reverse;
-}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -1675,8 +1672,9 @@ th {
   --tw-border-opacity: 1;
   border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
-.border-transparent {
-  border-color: transparent;
+.border-shof-orange {
+  --tw-border-opacity: 1;
+  border-color: rgb(236 118 74 / var(--tw-border-opacity));
 }
 .border-white {
   --tw-border-opacity: 1;
@@ -1721,14 +1719,6 @@ th {
 .bg-neutral-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-.bg-neutral-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
-}
-.bg-neutral-950 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(10 10 10 / var(--tw-bg-opacity));
 }
 .bg-primary {
   --tw-bg-opacity: 1;
@@ -2235,6 +2225,10 @@ th {
 .ring-offset-background {
   --tw-ring-offset-color: white;
 }
+.brightness-95 {
+  --tw-brightness: brightness(.95);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -2489,14 +2483,6 @@ th {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
-.hover\:bg-neutral-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
-}
-.hover\:bg-neutral-900:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
-}
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(236 118 74 / var(--tw-bg-opacity));
@@ -2552,6 +2538,10 @@ th {
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.hover\:brightness-95:hover {
+  --tw-brightness: brightness(.95);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .focus\:border-neutral-300:focus {
   --tw-border-opacity: 1;
   border-color: rgb(212 212 212 / var(--tw-border-opacity));
@@ -2573,20 +2563,12 @@ th {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
 }
-.focus\:ring-neutral-100:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(245 245 245 / var(--tw-ring-opacity));
-}
 .focus\:ring-neutral-200\/60:focus {
   --tw-ring-color: rgb(229 229 229 / 0.6);
 }
 .focus\:ring-neutral-400:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(163 163 163 / var(--tw-ring-opacity));
-}
-.focus\:ring-neutral-900:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(23 23 23 / var(--tw-ring-opacity));
 }
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
@@ -2609,6 +2591,10 @@ th {
 .active\:bg-white:active {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.active\:brightness-90:active {
+  --tw-brightness: brightness(.9);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .disabled\:pointer-events-none:disabled {
   pointer-events: none;
@@ -2786,9 +2772,6 @@ th {
   .sm\:justify-start {
     justify-content: flex-start;
   }
-  .sm\:justify-end {
-    justify-content: flex-end;
-  }
   .sm\:justify-center {
     justify-content: center;
   }
@@ -2800,11 +2783,6 @@ th {
   }
   .sm\:gap-4 {
     gap: 1rem;
-  }
-  .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
   .sm\:self-center {
     align-self: center;
@@ -2857,6 +2835,9 @@ th {
   }
   .sm\:text-left {
     text-align: left;
+  }
+  .sm\:text-center {
+    text-align: center;
   }
   .sm\:text-right {
     text-align: right;

@@ -3,7 +3,7 @@ export default () => {
   return {
     inpostApiUrl: 'https://api.inpost.pl',
     modalOpen: true,
-    isUsed: true,
+    isUsed: false,
     selected: null,
     input: '',
     points: [],
@@ -15,6 +15,8 @@ export default () => {
     },
 
     init() {
+      if (this.isUsed == false) this.selected = null;
+      this.setMessage('');
       // If user unchecks the isUsed input, reset this.selected variable
       this.$watch('isUsed', () => {
         if (this.isUsed == false) this.selected = null;
