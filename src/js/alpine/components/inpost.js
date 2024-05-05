@@ -2,13 +2,15 @@ import axios from 'axios';
 export default () => {
   return {
     inpostApiUrl: 'https://api.inpost.pl',
-    isUsed: false,
+    modalOpen: true,
+    isUsed: true,
     selected: null,
     input: '',
     points: [],
     key: null,
 
     setMessage(message) {
+      if (!this.$refs.message) return;
       this.$refs.message.textContent = message;
     },
 
