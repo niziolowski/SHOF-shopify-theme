@@ -17,10 +17,12 @@ export default () => {
     init() {
       if (this.isUsed == false) this.selected = null;
       this.setMessage('');
+      this.input = '';
       // If user unchecks the isUsed input, reset this.selected variable
       this.$watch('isUsed', () => {
         if (this.isUsed == false) this.selected = null;
         this.setMessage('');
+        this.input = '';
       });
     },
 
@@ -183,6 +185,7 @@ export default () => {
         if (this.selected) {
           // Get note element
           const note = this.$refs.note;
+
           // Add inpost point to note content
           const updatedNote = `${note.value} | Paczkomat: ${this.selected}`;
           // Update note in form data
