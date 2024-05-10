@@ -87,7 +87,7 @@
       <button
         @click="modalOpen=true"
         type="button"
-        x-text="selected ? selected : 'Wybór dostawy'"
+        x-text="method === 'Paczkomat' ? `${method}: ${selected}` : method ? method : 'Wybór dostawy'"
         class="self-start inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">
 
       </button>
@@ -125,19 +125,21 @@
 
               <div class="flex gap-5">
                 <button
-                  @click="isUsed=true"
+                  @click="method='Paczkomat'"
                   type="button"
-                  :class="isUsed ? 'border-shof-orange brightness-95' : ''"
-                  class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">PACZKOMATY<br>17zł</button>
+                  :class="method === 'Paczkomat' ? 'border-shof-orange brightness-95' : ''"
+                  class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">PACZKOMAT<br>17zł</button>
                 <button
-                  @click="isUsed=false;modalOpen=false"
+                  @click="method='Kurier';modalOpen=false;points=[];selected='';input='';message=''"
+                  :class="method === 'Kurier' ? 'border-shof-orange brightness-95' : ''"
                   type="button"
                   class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">KURIER<br>20zł</button>
               </div>
             </div>
 
 
-            <div x-show="isUsed" class=" min-h-0 flex-1 flex flex-col rounded-xl gap-5">
+            <div x-show="method === 'Paczkomat'" class="min-h-0 flex-1 flex flex-col rounded-xl gap-5">
+            
               <div class="flex gap-5 justify-stretch px-5 pb-5">
                 <input
                   @input.debounce="handleInput"
@@ -170,14 +172,13 @@
                   </label>
                 </template>
               </div>
-            </div>
-
-            <div class="px-5 flex justify-center">
-              <button
-                x-show="isUsed"
-                :class="!selected ? 'bg-neutral-200 pointer-events-none' : ''"
-                class="button uppercase"
-                @click="modalOpen=false">Wybierz</button>
+            
+              <div x-text="message" class="flex justify-center text-shof-orange"></div>
+              <div class="px-5 flex justify-center">
+                <button
+                  class="button uppercase"
+                  @click="handleSubmitPoint">Wybierz</button>
+              </div>
             </div>
 
           </div>
@@ -214,7 +215,7 @@
         </div>
       {% endif %}
 
-      <div x-ref="message" class="flex justify-center text-shof-orange"></div>
+      
 
       <div class="flex justify-center sm:justify-start">
         {% render 'cart-gift-wrap' %}

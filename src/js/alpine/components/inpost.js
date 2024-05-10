@@ -4,29 +4,41 @@ export default () => {
     inpostApiUrl: 'https://api.inpost.pl',
     modalOpen: true,
     isUsed: false,
-
     selected: null,
     input: '',
     points: [],
     key: null,
 
+    method: null, //Kurier, Paczkomat
+    isValid: false,
+    message: '',
+
     setMessage(message) {
-      if (!this.$refs.message) return;
-      this.$refs.message.textContent = message;
+      this.message = message;
+    },
+
+    handleSubmitPoint() {
+      // Validation
+      this.isValid = true;
+      if (!this.selected) {
+        this.isValid = false;
+        this.setMessage('Wybierz punkt odbioru');
+      } else this.modalOpen = false;
     },
 
     init() {
-      if (this.isUsed == false) this.selected = null;
+      if (this.method == 'Kurier') this.selected = null;
       this.setMessage('');
       this.input = '';
-      // If user unchecks the isUsed input, reset this.selected variable
-      this.$watch('isUsed', () => {
-        if (this.isUsed == false) this.selected = null;
+
+      this.$watch('method', () => {
+        if (this.method !== 'Paczkomat') this.selected = null;
         this.setMessage('');
         this.input = '';
       });
     },
 
+    // Fetch Inpost API key from Shopify Storefront API
     async fetchKey() {
       const apiUrl = 'https://shof-dev.myshopify.com/api/2023-10/graphql.json';
 
@@ -64,6 +76,8 @@ export default () => {
 
     async handleInput() {
       this.setMessage('');
+      this.selected = null;
+
       const fetchPointsByName = async (key) => {
         try {
           // Make a GET request to the API with authentication
@@ -175,27 +189,21 @@ export default () => {
 
     //* If There appears a better solution to get In-Post Points in the future, this whole function is not needed along with it's refs and listeners
     handleSubmit(e) {
-      let isValid = true;
       const form = this.$refs.form;
       const formData = e.detail;
 
-      // If the option is used, check validation
-      if (this.isUsed) {
-        if (!this.selected) isValid = false;
-
-        if (this.selected) {
+      if (this.isValid) {
+        if (this.method === 'Paczkomat') {
           // Get note element
           const note = this.$refs.note;
 
           // Add inpost point to note content
           const updatedNote = `${note.value} | Paczkomat: ${this.selected}`;
-          // Update note in form data
 
+          // Update note in form data
           formData.set('note', updatedNote);
         }
-      }
 
-      if (isValid) {
         // If the form is valid, send the form data using `fetch`
         fetch(form.getAttribute('action'), {
           method: 'POST',
@@ -214,9 +222,6 @@ export default () => {
             console.error('Error:', error);
             alert('Nastąpił problem z przetwarzaniem Twojego zamowienia');
           });
-      } else {
-        // If the form is not valid, show an error message
-        this.setMessage('Wybierz paczkomat');
       }
     },
   };
