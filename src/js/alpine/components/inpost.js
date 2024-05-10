@@ -4,6 +4,7 @@ export default () => {
     inpostApiUrl: 'https://api.inpost.pl',
     modalOpen: true,
     isUsed: false,
+
     selected: null,
     input: '',
     points: [],
