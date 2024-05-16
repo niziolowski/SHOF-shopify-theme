@@ -8,9 +8,8 @@ export default () => {
     input: '',
     points: [],
     key: null,
-
     method: null, //Kurier, Paczkomat
-    isValid: false,
+    isValid: true,
     message: '',
 
     setMessage(message) {
@@ -19,11 +18,13 @@ export default () => {
 
     handleSubmitPoint() {
       // Validation
-      this.isValid = true;
+      this.isValid = false;
       if (!this.selected) {
-        this.isValid = false;
         this.setMessage('Wybierz punkt odbioru');
-      } else this.modalOpen = false;
+      } else {
+        this.modalOpen = false;
+        this.isValid = true;
+      }
     },
 
     init() {
