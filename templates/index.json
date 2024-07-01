@@ -12,8 +12,8 @@
     "kolarz": {
       "type": "kolarz",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/SHOF_Banner_Urodzinowy_kosmos.png",
-        "first_image_link": "shopify:\/\/collections\/urodziny",
+        "first_image": "shopify:\/\/shop_images\/SHOF_Banner_Ostatni_drop_lata_24.png",
+        "first_image_link": "shopify:\/\/collections\/preorder-lata",
         "first_image_zoom": false,
         "image_2": "shopify:\/\/shop_images\/SHOF_Banner_Preorder_pomaranczy_e371cfa7-3136-4791-a0ca-c612b263df17.png",
         "image_2_link": "shopify:\/\/products\/midi-cyckotorebka-pomaranczowa",
