@@ -14,7 +14,7 @@
       "settings": {
         "subjects": "Zwroty, Wysyłka, Inne",
         "title": "Kontakt",
-        "text": "<p>Zanim do nas napiszesz, <\/p><p>sprawdź czy nie znajdziesz odpowiedzi w naszym <a href=\"\/pages\/faq\" title=\"FAQ\">FAQ.<\/a><\/p>"
+        "text": "<p>Zanim do nas napiszesz, <\/p><p>sprawdź czy nie znajdziesz odpowiedzi w naszym <a href=\"\/pages\/faq\" title=\"FAQ\"><strong>FAQ<\/strong>.<\/a><\/p>"
       }
     }
   },
