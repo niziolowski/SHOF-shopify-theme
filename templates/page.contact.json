@@ -1,7 +1,21 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "contact": {
-      "type": "contact"
+      "type": "contact",
+      "settings": {
+        "subjects": "Zwroty, Wysyłka, Inne",
+        "title": "Kontakt",
+        "text": "<p>Zanim do nas napiszesz, <\/p><p>sprawdź czy nie znajdziesz odpowiedzi w naszym <a href=\"\/pages\/faq\" title=\"FAQ\">FAQ.<\/a><\/p>"
+      }
     }
   },
   "order": [
