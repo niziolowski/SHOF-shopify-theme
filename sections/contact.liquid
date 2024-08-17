@@ -3,7 +3,9 @@
     <h1 class="text-4xl text-primary my-1">
       {{ section.settings.title }}
     </h1>
-    {{ section.settings.text }}
+    <div class="contact-form-subtitle">
+      {{ section.settings.text }}
+    </div>
   </div>
   {% form 'contact' %}
     {% if form.errors %}
@@ -73,13 +75,31 @@
         name="contact[body]"
         id="contact_message"
         class="input resize-none h-20 py-2 col-span-2"
-        placeholder="Wiadomość"></textarea>
+        placeholder="Wiadomość">
+      </textarea>
+
     </div>
+    <div class="flex gap-3 justify-center m-2"> 
+          <input
+        type="checkbox"
+        name="contact[consent]"
+        id="contact_consent"
+        required>
+        <label for="contact_consent">
+          Akceptuję warunki <b class="text-shof-orange"><a href="{{ section.settings.privacy_policy }}" target="_blank">polityki prywatności.</a></b>
+        </label>
+      </div>
     <div class="text-center mt-3">
       <button type="submit" class="button">Wyślij</button>
     </div>
   {% endform %}
 </div>
+
+{%  style  %}
+.contact-form-subtitle a {
+  color: rgb(236 118 74);
+}
+{% endstyle %}
 
 {% schema %}
   {
@@ -101,6 +121,13 @@
         "id": "text",
         "label": "Text",
         "default": "<p>Napisz do nas</p>"
+      },
+      {
+        "type": "text",
+        "label": "Polityka prywatności",
+        "id": "privacy_policy",
+        "info": "Wybież stronę z polityką prywatności",
+        "default": "/pages/polityka-prywatnosci"
       }
     ],
     "presets": [
