@@ -16,9 +16,9 @@
   {%- for option in product.options_with_values -%}
 
 
-    <fieldset class="flex gap-4 items-center js product-form__input">
+    <fieldset class="flex gap-4  {% if option.name == 'Nominał' %} flex-col {%else %}items-center{% endif %}  js product-form__input">
       <h5 class="">{{ option.name }}:</h5>
-      <div class="flex items-center gap-4">
+      <div class="flex flex-wrap items-center gap-4">
 
         {% if option.name == 'Pasek' %}
           <select
@@ -62,6 +62,54 @@
               </option>
             {%- endfor -%}
           </select>
+				{% elsif option.name == 'Nominał' %}
+					{%- for value in option.values -%}
+
+            {%- liquid
+              assign option_disabled = true
+
+              for option1_name in variants_option1_arr
+                case option.position
+                  when 1
+                    if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                      assign option_disabled = false
+                    endif
+                  when 2
+                    if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                      assign option_disabled = false
+                    endif
+                  when 3
+                    if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                      assign option_disabled = false
+                    endif
+                endcase
+              endfor
+            -%}
+            {% unless option_disabled %}
+              <div>
+                <input
+                  type="radio"
+                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="sr-only peer variant-color-input">
+                <label
+                  x-data="{
+										updateLabels() {
+											document.querySelectorAll('.text-radio').forEach((swatch) => {
+												swatch.classList.remove('selected');
+											});
+											document.querySelector(`.amount-{{value |  split: ',' | first }}`).classList.add('selected');
+										}
+									}"
+                  @click="updateLabels"
+                  for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                  class="amount-{{value |  split: ',' | first }} text-radio">{{value | split: ',' | first}}zł</label>
+              </div>
+            {% endunless %}
+
+          {%- endfor -%}
         {% else %}
 
           {%- for value in option.values -%}

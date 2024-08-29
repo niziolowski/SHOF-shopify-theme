@@ -278,6 +278,31 @@ body {
   background-color: black !important;
   color: white !important;
 }
+.text-radio {
+  white-space: nowrap;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.text-radio:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  text-decoration-line: underline;
+  --tw-brightness: brightness(1.1);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.text-radio:active {
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.text-radio.selected {
+  font-weight: 500;
+  text-decoration-line: underline;
+}
 /* ! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1199,9 +1224,6 @@ th {
 .max-h-56 {
   max-height: 14rem;
 }
-.max-h-\[500px\] {
-  max-height: 500px;
-}
 .max-h-full {
   max-height: 100%;
 }
@@ -1675,13 +1697,13 @@ th {
   --tw-border-opacity: 1;
   border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
 .border-shof-orange {
   --tw-border-opacity: 1;
   border-color: rgb(236 118 74 / var(--tw-border-opacity));
+}
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 .bg-\[\#f8f9f4\] {
   --tw-bg-opacity: 1;
@@ -1885,6 +1907,9 @@ th {
 .pb-4 {
   padding-bottom: 1rem;
 }
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1914,9 +1939,6 @@ th {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-5 {
-  padding-bottom: 1.25rem;
 }
 .text-left {
   text-align: left;
@@ -2703,11 +2725,11 @@ th {
   .sm\:max-h-\[80vh\] {
     max-height: 80vh;
   }
-  .sm\:max-h-\[90vmin\] {
-    max-height: 90vmin;
-  }
   .sm\:max-h-\[90vh\] {
     max-height: 90vh;
+  }
+  .sm\:max-h-\[90vmin\] {
+    max-height: 90vmin;
   }
   .sm\:w-2\/6 {
     width: 33.333333%;

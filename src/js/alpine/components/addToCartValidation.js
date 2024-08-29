@@ -20,7 +20,7 @@ export default (hasSingleVariant, defaultVariantId) => {
         // get variant input
         const variant = this.$refs.variant;
 
-        if (variant && this.$refs.variant.value.length === 0) return this.setMessage('Proszę wybrać wykończenie');
+        if (variant && this.$refs.variant.value.length === 0) return this.setMessage('Proszę wybrać wariant');
       }
 
       // If product has single variant, set default variant

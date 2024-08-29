@@ -8,7 +8,6 @@
     {% assign total_savings = 0 %}
     <div class="divide-y">
       {% for item in cart.items %}
-
         <div class="cart-item py-5 grid md:grid-cols-[1fr_.3fr_.3fr] grid-cols-[1fr_.3fr] items-center">
           <div class="flex md:items-center gap-3 items-start">
             <a
@@ -78,113 +77,156 @@
       {% endfor %}
     </div>
 
+    {% assign specific_product_name = 'Bon podarunkowy' %}
+{% assign cart_contains_only_specific_product = true %}
 
-    {% comment %} INPOST {% endcomment %}
+{% for item in cart.items %}
+  {% if item.product.title != specific_product_name %}
+    {% assign cart_contains_only_specific_product = false %}
+  {% endif %}
+{% endfor %}
+
+{%if cart_contains_only_specific_product%}
+  <div
+  x-data="{handleSubmit(e) {
+      const form = this.$refs.form;
+      const formData = e.detail;
+
+      // send the form data using `fetch`
+      fetch(form.getAttribute('action'), {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            // If the response is successful, redirect to the desired page
+            window.location.href = '/checkout'; // Change to your success URL
+          } else {
+            // Handle errors
+          }
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Error:', error);
+          alert('Nastąpił problem z przetwarzaniem Twojego zamowienia');
+        });
+      
+    }}"
+  @form-submit.window="handleSubmit"
+  ></div>
+
+  {% else %}
+  {% comment %} INPOST {% endcomment %}
+  <div
+  x-data="inpost"
+  @form-submit.window="handleSubmit"
+  class="flex flex-col gap-5 ">
+
+  <button
+    @click="modalOpen=true"
+    type="button"
+    x-text="method === 'Paczkomat' ? `${method}: ${selected}` : method ? method : 'Wybór dostawy'"
+    class="self-start inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">
+
+  </button>
+  <template x-teleport="body">
     <div
-      x-data="inpost"
-      @form-submit.window="handleSubmit"
-      class="flex flex-col gap-5 ">
-      <button
-        @click="modalOpen=true"
-        type="button"
-        x-text="method === 'Paczkomat' ? `${method}: ${selected}` : method ? method : 'Wybór dostawy'"
-        class="self-start inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none">
+      x-show="modalOpen"
+      class="fixed top-0 left-0 z-[99] flex sm:items-center justify-center w-screen h-screen"
+      x-cloak>
 
-      </button>
-      <template x-teleport="body">
-        <div
-          x-show="modalOpen"
-          class="fixed top-0 left-0 z-[99] flex sm:items-center justify-center w-screen h-screen"
-          x-cloak>
+      {% comment %} Overlay {% endcomment %}
+      <div
+        x-show="modalOpen"
+        x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="ease-in duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
 
-          {% comment %} Overlay {% endcomment %}
-          <div
-            x-show="modalOpen"
-            x-transition:enter="ease-out duration-300"
-            x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100"
-            x-transition:leave="ease-in duration-300"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0"
-            class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
+      {% comment %} Modal content{% endcomment %}
+      <div
+        x-show="modalOpen"
+        x-trap.inert.noscroll="modalOpen"
+        x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-2 sm:scale-95"
+        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave="ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
+        class="relative w-full bg-white border shadow-lg border-neutral-200 sm:max-w-lg sm:rounded-lg flex flex-col gap-5 py-5 sm:max-h-[90vh]">
 
-          {% comment %} Modal content{% endcomment %}
-          <div
-            x-show="modalOpen"
-            x-trap.inert.noscroll="modalOpen"
-            x-transition:enter="ease-out duration-300"
-            x-transition:enter-start="opacity-0 -translate-y-2 sm:scale-95"
-            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-            x-transition:leave="ease-in duration-200"
-            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-            x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
-            class="relative w-full bg-white border shadow-lg border-neutral-200 sm:max-w-lg sm:rounded-lg flex flex-col gap-5 py-5 sm:max-h-[90vh]">
+        <div class="px-5 flex flex-col gap-5">
+          <h3 class="text-lg font-semibold uppercase sm:text-center">Wybór dostawy</h3>
 
-            <div class="px-5 flex flex-col gap-5">
-              <h3 class="text-lg font-semibold uppercase sm:text-center">Wybór dostawy</h3>
-
-              <div class="flex gap-5">
-                <button
-                  @click="method='Paczkomat'"
-                  type="button"
-                  :class="method === 'Paczkomat' ? 'border-shof-orange brightness-95' : ''"
-                  class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">PACZKOMAT<br>17zł</button>
-                <button
-                  @click="method='Kurier';modalOpen=false;points=[];selected='';input='';message=''"
-                  :class="method === 'Kurier' ? 'border-shof-orange brightness-95' : ''"
-                  type="button"
-                  class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">KURIER<br>20zł</button>
-              </div>
-            </div>
-
-
-            <div x-show="method === 'Paczkomat'" class="min-h-0 flex-1 flex flex-col rounded-xl gap-5">
-            
-              <div class="flex gap-5 justify-stretch px-5 pb-5">
-                <input
-                  @input.debounce="handleInput"
-                  type="text"
-                  x-model="input"
-                  placeholder="Kod pocztowy / paczkomatu"
-                  class="flex flex-1 h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
-                <button
-                  type="button"
-                  class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-neutral-500 hover:text-neutral-700 border-neutral-200/70 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline"
-                  @click.debounce="handleLocalization">
-                  {% render 'icon-pin' %}
-                </button>
-              </div>
-
-              <div x-show="points.length > 0" class="overflow-y-scroll flex flex-col gap-3 px-5">
-                <template x-for="(option, index) in points" :key="index">
-                  <label @click="selected=option.name" class="flex items-start p-5 space-x-3 bg-white border rounded-md shadow-sm hover:bg-gray-50 border-neutral-200/70">
-                    <input
-                      type="radio"
-                      name="radio-group"
-                      :value="option.name"
-                      class="text-gray-900 translate-y-px focus:ring-gray-700" />
-                    <span class="relative flex flex-col text-left space-y-1.5 leading-none">
-                      <span x-text="option.name" class="font-semibold"></span>
-                      <div class="text-sm opacity-50">
-                        <span x-text="option.description"></span>
-                      </div>
-                    </span>
-                  </label>
-                </template>
-              </div>
-            
-              <div x-text="message" class="flex justify-center text-shof-orange"></div>
-              <div class="px-5 flex justify-center">
-                <button
-                  class="button uppercase"
-                  @click="handleSubmitPoint">Wybierz</button>
-              </div>
-            </div>
-
+          <div class="flex gap-5">
+            <button
+              @click="method='Paczkomat'"
+              type="button"
+              :class="method === 'Paczkomat' ? 'border-shof-orange brightness-95' : ''"
+              class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">PACZKOMAT<br>17zł</button>
+            <button
+              @click="method='Kurier';modalOpen=false;points=[];selected='';input='';message=''"
+              :class="method === 'Kurier' ? 'border-shof-orange brightness-95' : ''"
+              type="button"
+              class="border rounded-lg flex flex-1 py-4 font-medium text-lg justify-center items-center bg-white hover:brightness-95 active:brightness-90">KURIER<br>20zł</button>
           </div>
         </div>
-      </template>
+
+
+        <div x-show="method === 'Paczkomat'" class="min-h-0 flex-1 flex flex-col rounded-xl gap-5">
+        
+          <div class="flex gap-5 justify-stretch px-5 pb-5">
+            <input
+              @input.debounce="handleInput"
+              type="text"
+              x-model="input"
+              placeholder="Kod pocztowy / paczkomatu"
+              class="flex flex-1 h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
+            <button
+              type="button"
+              class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-neutral-500 hover:text-neutral-700 border-neutral-200/70 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline"
+              @click.debounce="handleLocalization">
+              {% render 'icon-pin' %}
+            </button>
+          </div>
+
+          <div x-show="points.length > 0" class="overflow-y-scroll flex flex-col gap-3 px-5">
+            <template x-for="(option, index) in points" :key="index">
+              <label @click="selected=option.name" class="flex items-start p-5 space-x-3 bg-white border rounded-md shadow-sm hover:bg-gray-50 border-neutral-200/70">
+                <input
+                  type="radio"
+                  name="radio-group"
+                  :value="option.name"
+                  class="text-gray-900 translate-y-px focus:ring-gray-700" />
+                <span class="relative flex flex-col text-left space-y-1.5 leading-none">
+                  <span x-text="option.name" class="font-semibold"></span>
+                  <div class="text-sm opacity-50">
+                    <span x-text="option.description"></span>
+                  </div>
+                </span>
+              </label>
+            </template>
+          </div>
+        
+          <div x-text="message" class="flex justify-center text-shof-orange"></div>
+          <div class="px-5 flex justify-center">
+            <button
+              class="button uppercase"
+              @click="handleSubmitPoint">Wybierz</button>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </template>
+
+  </div>
+{%endif %}
+
+    
 
 
     <div class="flex flex-col gap-4">

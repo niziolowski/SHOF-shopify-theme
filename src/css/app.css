@@ -5,6 +5,7 @@
 @import './ios-fixes.css';
 @import './color-swatch.css';
 @import './cookies.css';
+@import './text-radio-picker.css';
 
 @tailwind base;
 @tailwind components;

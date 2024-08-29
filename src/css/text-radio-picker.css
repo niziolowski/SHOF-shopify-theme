@@ -1,0 +1,6 @@
+.text-radio {
+  @apply whitespace-nowrap hover:scale-110 hover:underline hover:brightness-110 active:scale-100 transition;
+}
+.text-radio.selected {
+  @apply font-medium underline;
+}
