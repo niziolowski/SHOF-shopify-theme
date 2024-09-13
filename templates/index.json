@@ -12,8 +12,8 @@
     "kolarz": {
       "type": "kolarz",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/shoper_baner.jpg",
-        "first_image_link": "shopify:\/\/collections\/shoperki",
+        "first_image": "shopify:\/\/shop_images\/baner_jesien_zima_2024.jpg",
+        "first_image_link": "shopify:\/\/collections\/jesien-zima-23",
         "first_image_zoom": false,
         "image_2": "shopify:\/\/shop_images\/SHOF_Banner_Preorder_pomaranczy_e371cfa7-3136-4791-a0ca-c612b263df17.png",
         "image_2_link": "shopify:\/\/products\/midi-cyckotorebka-pomaranczowa",
@@ -310,7 +310,7 @@
       "type": "apps",
       "blocks": {
         "84952beb-e016-4c6f-880c-6a2b74c8f6db": {
-          "type": "shopify:\/\/apps\/easy-instagram-feed\/blocks\/ig_feed\/195a0b78-59e2-42af-8b17-5bd53518cf45",
+          "type": "shopify:\/\/apps\/tizzy-instagram-feed\/blocks\/ig_feed\/195a0b78-59e2-42af-8b17-5bd53518cf45",
           "settings": {
             "feed_id": "1"
           }
@@ -326,7 +326,8 @@
       "type": "newsletter",
       "settings": {
         "title": "Newsletter",
-        "subtitle": "<p>Zapraszam do domku na drzewie!<\/p>"
+        "subtitle": "<p>Zapraszam do domku na drzewie!<\/p>",
+        "consent_text": "Wyrażam zgodę na otrzymywanie newslettera"
       }
     }
   },
