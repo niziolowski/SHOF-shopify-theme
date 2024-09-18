@@ -65,6 +65,20 @@
             "title": "Skąd się wzięła nazwa i jak ją wymawiać?",
             "content": "<p>SHOF wymawia się po polsku, tak jak się pisze. Nazwa wzięła się od \"weź to shof\", śląskiego określenia na \"schowaj\" ;) Często słyszałam to od mojego brata kiedy wciskał mi do noszenia w torebce różne przydasie<\/p>"
           }
+        },
+        "accordion_item_VrNeJr": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "Czy da się zmienić kolor wykończenia np. ze srebrnego na złoty?",
+            "content": "<p>Niestety nie ma takiej możliwości. Z pominięciem preorderów, nasze modele odszywamy z wyprzedzeniem, więc zmiana zamków, nap i innych metalowych elementów wiązałaby się z pruciem wszystkiego i szyciem od nowa.<\/p>"
+          }
+        },
+        "accordion_item_wQDLwr": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "Na czym polega preorder?",
+            "content": "<p>Preorder pomaga nam w zaplanowaniu produkcji dokładnie pod Wasze potrzeby bez ryzyka szycia zbędnego nadmiaru.<br\/><br\/>W praktyce wygląda to tak:<br\/>- ogłaszamy preorder danych modeli i zbieramy od Was zamówienia<br\/>- preorder może trwac określony czas lub do wyczerpania zapasów <br\/>- Wasze zamówienia trafiają do szwalni i tam zaczyna się szycie <br\/>- odszyte modele trafiają prosto do Waszych rąk <br\/><br\/>Preorder wiąże się z nieco dłuższym czasem oczekiwania na swoje zamówienie, ale za to jest większa szansa na upolowanie modelu, na który czekasz ze względu na większą ilość dostępnych SHOFków ;)<\/p>"
+          }
         }
       },
       "block_order": [
@@ -74,7 +88,9 @@
         "63d80da0-415d-4cae-b35f-344e045fd9d8",
         "accordion_item_xTDVn6",
         "accordion_item_N3ULJy",
-        "accordion_item_iG8WhB"
+        "accordion_item_iG8WhB",
+        "accordion_item_VrNeJr",
+        "accordion_item_wQDLwr"
       ],
       "settings": {
       }
