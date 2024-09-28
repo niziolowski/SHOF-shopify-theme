@@ -12,20 +12,20 @@
     "kolarz": {
       "type": "kolarz",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/baner_jesien_zima_2024.jpg",
-        "first_image_link": "shopify:\/\/collections\/jesien-zima-23",
+        "first_image": "shopify://shop_images/baner_jesien_zima_2024.jpg",
+        "first_image_link": "shopify://collections/jesien-zima-23",
         "first_image_zoom": false,
-        "image_2": "shopify:\/\/shop_images\/SHOF_Banner_Preorder_pomaranczy_e371cfa7-3136-4791-a0ca-c612b263df17.png",
-        "image_2_link": "shopify:\/\/products\/midi-cyckotorebka-pomaranczowa",
+        "image_2": "shopify://shop_images/SHOF_Banner_Preorder_pomaranczy_e371cfa7-3136-4791-a0ca-c612b263df17.png",
+        "image_2_link": "shopify://products/midi-cyckotorebka-pomaranczowa",
         "image_2_zoom": false,
-        "image_3": "shopify:\/\/shop_images\/baner-biust-napis.jpg",
+        "image_3": "shopify://shop_images/baner-biust-napis.jpg",
         "image_3_link": "",
         "image_3_zoom": false,
-        "image_4": "shopify:\/\/shop_images\/20210219_121924.jpg",
-        "image_4_link": "shopify:\/\/collections\/mini-portfele",
-        "image_4_zoom": true,
-        "image_5": "shopify:\/\/shop_images\/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
-        "image_5_link": "shopify:\/\/collections\/torebki",
+        "image_4": "shopify://shop_images/20210219_121924.jpg",
+        "image_4_link": "shopify://collections/mini-portfele",
+        "image_4_zoom": false,
+        "image_5": "shopify://shop_images/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
+        "image_5_link": "shopify://collections/torebki",
         "image_5_zoom": false
       }
     },
@@ -42,22 +42,22 @@
         "5ffd149e-d4c2-4261-8405-143d92682be1": {
           "type": "feature",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Warstwa-20.png",
-            "text": "<p>WYSYŁKI<\/p><p>W TEN SAM DZIEŃ<\/p><p>DO GODZINY 15:00<\/p>"
+            "image": "shopify://shop_images/Warstwa-20.png",
+            "text": "<p>WYSYŁKI</p><p>W TEN SAM DZIEŃ</p><p>DO GODZINY 15:00</p>"
           }
         },
         "f0f8669f-014f-45ca-bc4d-08ff954ef4ce": {
           "type": "feature",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Warstwa-234.png",
-            "text": "<p>DARMOWA DOSTAWA OD 400zł<\/p>"
+            "image": "shopify://shop_images/Warstwa-234.png",
+            "text": "<p>DARMOWA DOSTAWA OD 400zł</p>"
           }
         },
         "91c9c047-3dcc-4706-bfb2-21c5605834c6": {
           "type": "feature",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Warstwa-214.png",
-            "text": "<p>30 DNI NA ZWROT<\/p>"
+            "image": "shopify://shop_images/Warstwa-214.png",
+            "text": "<p>30 DNI NA ZWROT</p>"
           }
         }
       },
@@ -79,43 +79,43 @@
         "f69f8340-fb75-4042-aff1-2706f7273428": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kat.-PORTFELE-1.png",
-            "url": "shopify:\/\/collections\/portfele"
+            "image": "shopify://shop_images/kat.-PORTFELE-1.png",
+            "url": "shopify://collections/portfele"
           }
         },
         "cf0f6514-9cae-4106-ba55-1a2cb7099af7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/baner-PLECAKI-1.png",
-            "url": "shopify:\/\/collections\/plecaki"
+            "image": "shopify://shop_images/baner-PLECAKI-1.png",
+            "url": "shopify://collections/plecaki"
           }
         },
         "564fb913-44ae-41dd-8f2b-942dbdd53c6c": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/KAT.-UNIKAT-OWE-1.png",
-            "url": "shopify:\/\/collections\/limitowane"
+            "image": "shopify://shop_images/KAT.-UNIKAT-OWE-1.png",
+            "url": "shopify://collections/limitowane"
           }
         },
         "608e54fc-2ca0-4149-b32e-2ceb8d82d2d0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/KAT.-AKCES-ORIA-1.png",
-            "url": "shopify:\/\/collections\/akcesoria"
+            "image": "shopify://shop_images/KAT.-AKCES-ORIA-1.png",
+            "url": "shopify://collections/akcesoria"
           }
         },
         "14ac0b07-6620-4fb6-bd87-3a99fcb99f8b": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kat.-NERKI-1.png",
-            "url": "shopify:\/\/collections\/nerki"
+            "image": "shopify://shop_images/kat.-NERKI-1.png",
+            "url": "shopify://collections/nerki"
           }
         },
         "c080ec14-ed5e-4bd4-967c-396e59cd73b0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kat.-TOREBKI-1.png",
-            "url": "shopify:\/\/collections\/torebki"
+            "image": "shopify://shop_images/kat.-TOREBKI-1.png",
+            "url": "shopify://collections/torebki"
           }
         }
       },
@@ -139,133 +139,133 @@
         "42ccfac9-84a3-4041-bfc6-040f34c4bf4e": {
           "type": "review",
           "settings": {
-            "content": "<p>Najlepsze, niezniszczalne, od 2 lat nie użyłam innej torebki. Miłością do cycportfeli zaraziłam nawet Mamę!<\/p>",
+            "content": "<p>Najlepsze, niezniszczalne, od 2 lat nie użyłam innej torebki. Miłością do cycportfeli zaraziłam nawet Mamę!</p>",
             "author": "Monia z Żelisławic"
           }
         },
         "39bfa9fb-3bb5-475a-b163-b42f1347888a": {
           "type": "review",
           "settings": {
-            "content": "<p>Zapakowane w super kartony<\/p>",
+            "content": "<p>Zapakowane w super kartony</p>",
             "author": "Grubek"
           }
         },
         "48570364-1291-4c82-bf2a-566290fb04e9": {
           "type": "review",
           "settings": {
-            "content": "<p>Po poważnym testowaniu nerki i 2 midi torebek muszę przyznać, że są nie do zdarcia! Zwiedziły ze mną pół świata i wszystkie wyglądają jak nowe! Kosmos trzyma się bez zarzutu zarówno złoty jak i srebrny ♥️ midi torebki całkiem pojemne - idealnie do codziennego użytku!<\/p>",
+            "content": "<p>Po poważnym testowaniu nerki i 2 midi torebek muszę przyznać, że są nie do zdarcia! Zwiedziły ze mną pół świata i wszystkie wyglądają jak nowe! Kosmos trzyma się bez zarzutu zarówno złoty jak i srebrny ♥️ midi torebki całkiem pojemne - idealnie do codziennego użytku!</p>",
             "author": "Jagoda z Górek Małych"
           }
         },
         "412ebe0f-dfa1-4e28-8150-aa5dfe0d783a": {
           "type": "review",
           "settings": {
-            "content": "<p>Cyckotorebka to idealny kompan podróży! Jest miękka, więc nie zajmuje dużo miejsca w plecaku\/walizce a przy tym jest super pojemna i mieści wszystko czego potrzebuję podczas zwiedzania 🌍♥️<\/p>",
+            "content": "<p>Cyckotorebka to idealny kompan podróży! Jest miękka, więc nie zajmuje dużo miejsca w plecaku/walizce a przy tym jest super pojemna i mieści wszystko czego potrzebuję podczas zwiedzania 🌍♥️</p>",
             "author": "Magda z Sopotu"
           }
         },
         "ea5e06d3-d604-4e1d-bdff-74cfa5788270": {
           "type": "review",
           "settings": {
-            "content": "<p>Odkąd kupiłam pierwszą cyckotorebkę, innych już nie noszę! Na mieście wszyscy pytają, gdzie można dostać takie cuda, a ja się chętnie dzielę tą tajemną wiedzą :) Piękne, ekologiczne, pojemne, niezniszczalne. Ale uwaga, uzależniające - szczególnie, gdy wjeżdżają nowe kolory ♥️<\/p>",
+            "content": "<p>Odkąd kupiłam pierwszą cyckotorebkę, innych już nie noszę! Na mieście wszyscy pytają, gdzie można dostać takie cuda, a ja się chętnie dzielę tą tajemną wiedzą :) Piękne, ekologiczne, pojemne, niezniszczalne. Ale uwaga, uzależniające - szczególnie, gdy wjeżdżają nowe kolory ♥️</p>",
             "author": "Kinga z Gdańska"
           }
         },
         "966e07f7-c716-46df-a089-f48c6390b814": {
           "type": "review",
           "settings": {
-            "content": "<p>Shof to nie tylko piękne dodatki, ale też wspaniała idea zero waste. Wszystko uszyte z zaangażowaniem, te produkty są niezniszczalne :) Ogromną zaletą jest też przemiła obsługa, zawsze można liczyć na wsparcie i szybką reakcję. Kocham całym sercem i bardzo polecam<\/p>",
+            "content": "<p>Shof to nie tylko piękne dodatki, ale też wspaniała idea zero waste. Wszystko uszyte z zaangażowaniem, te produkty są niezniszczalne :) Ogromną zaletą jest też przemiła obsługa, zawsze można liczyć na wsparcie i szybką reakcję. Kocham całym sercem i bardzo polecam</p>",
             "author": "Paula z Gdańska"
           }
         },
         "bb744775-8271-4154-a1ba-ae53beef0032": {
           "type": "review",
           "settings": {
-            "content": "<p>Mam torebki tylko ze Shofa, bardzo trwałe, były ze mną na niejednym wyjeździe. Mini portfel również ♥️<\/p>",
+            "content": "<p>Mam torebki tylko ze Shofa, bardzo trwałe, były ze mną na niejednym wyjeździe. Mini portfel również ♥️</p>",
             "author": "Aneta z Krakowa"
           }
         },
         "61363cc8-4889-4e78-a2f7-7f557aca70ec": {
           "type": "review",
           "settings": {
-            "content": "<p>Po prostu uwielbiam! Pierwszy był mini portfel, ostatnio dołączyła do mnie mini torebka i zachwytu nad jakością wykonania nie ma końca. Koncept wykorzystania skór z drugiego obiegu - sztos 👌 Niewątpliwie wrócę po kolejne<\/p>",
+            "content": "<p>Po prostu uwielbiam! Pierwszy był mini portfel, ostatnio dołączyła do mnie mini torebka i zachwytu nad jakością wykonania nie ma końca. Koncept wykorzystania skór z drugiego obiegu - sztos 👌 Niewątpliwie wrócę po kolejne</p>",
             "author": "Paulina z Wrocławia"
           }
         },
         "3b336c63-1607-4896-a35e-53a3771cc1b4": {
           "type": "review",
           "settings": {
-            "content": "<p>Wczoraj odebrałam czarne mini cycki. Pięknie wykonane, na żywo istne cudo. Zachwyt! ♥️<\/p>",
+            "content": "<p>Wczoraj odebrałam czarne mini cycki. Pięknie wykonane, na żywo istne cudo. Zachwyt! ♥️</p>",
             "author": "Ania z Bytomia"
           }
         },
         "c66bdd1f-f854-41af-8fe2-9fc616838016": {
           "type": "review",
           "settings": {
-            "content": "<p>Białe w czarne kropki są najlepsze<\/p>",
+            "content": "<p>Białe w czarne kropki są najlepsze</p>",
             "author": "Frelka"
           }
         },
         "86543b75-3959-4ecc-90bb-c1d8f2fc768b": {
           "type": "review",
           "settings": {
-            "content": "<p>Jedyna torebka, której kiedykolwiek używałam!<\/p>",
+            "content": "<p>Jedyna torebka, której kiedykolwiek używałam!</p>",
             "author": "Margot z Gdańska"
           }
         },
         "f2e2ada9-05bf-4491-a499-066c4dc62fd8": {
           "type": "review",
           "settings": {
-            "content": "<p>Najlepsze na świecie torebki, wielkościowo niepozorne, a mieszczą wszystko czego na co dzień potrzebuję, czyli dużo 🤣<\/p><p>Jakość wykonania 💯💯💯<\/p><p>Kocham miłością nieskończoną ja i moja mama, którą też ma swoje cycki<\/p>",
+            "content": "<p>Najlepsze na świecie torebki, wielkościowo niepozorne, a mieszczą wszystko czego na co dzień potrzebuję, czyli dużo 🤣</p><p>Jakość wykonania 💯💯💯</p><p>Kocham miłością nieskończoną ja i moja mama, którą też ma swoje cycki</p>",
             "author": "Patrycja z Warszawy"
           }
         },
         "b6717cbc-668c-478b-b18a-40682ca4aa23": {
           "type": "review",
           "settings": {
-            "content": "<p>Obsługa klienta na medal (ekspresowa wysyłka tuż przed moim ślubem!) jakość na medal<\/p>",
+            "content": "<p>Obsługa klienta na medal (ekspresowa wysyłka tuż przed moim ślubem!) jakość na medal</p>",
             "author": "Olga z Warszawy"
           }
         },
         "f4961f43-d2b1-4ba2-8d54-0a9270ae2193": {
           "type": "review",
           "settings": {
-            "content": "<p>Przepięknie skrojone małe arcydzieła. Trudno wybrać jedną sztukę i nie chcieć więcej<\/p>",
+            "content": "<p>Przepięknie skrojone małe arcydzieła. Trudno wybrać jedną sztukę i nie chcieć więcej</p>",
             "author": "Sylwia z Łodzi"
           }
         },
         "515375ec-ab9d-4896-aec9-4f0e9af0420d": {
           "type": "review",
           "settings": {
-            "content": "<p>Torebka mini jest cudowna, bardzo pakowna i mała. Mógłby być trochę dłuższy pasek, ale ogólnie super!<\/p>",
+            "content": "<p>Torebka mini jest cudowna, bardzo pakowna i mała. Mógłby być trochę dłuższy pasek, ale ogólnie super!</p>",
             "author": "Gosia z Krakowa"
           }
         },
         "8b7d95fd-60f9-4f3c-85e9-530398425d15": {
           "type": "review",
           "settings": {
-            "content": "<p>Najbardziej pojemne i trwałe minitorebki! Przeżyły wszystkie możliwe upadki i dalej jak nowe<\/p>",
+            "content": "<p>Najbardziej pojemne i trwałe minitorebki! Przeżyły wszystkie możliwe upadki i dalej jak nowe</p>",
             "author": "Joanna z Krakowa"
           }
         },
         "20d672c0-ecce-474f-bae9-ad7b326fec03": {
           "type": "review",
           "settings": {
-            "content": "<p>Najlepsza obsługa jaką do tej pory spotkałam. Marzyła mi się torebka wyjątkowa, niebieska z różowym paskiem. Właścicielka zaproponowała nietypowy kolor szwu: zdecydowałam się na różowy, pasujący do paska. Dzięki temu dostałam prezent od siebie dla siebie na urodziny, w pełni spersonalizowany. Z torebką praktycznie się nie rozstaję: wersja MIDI mieści kubek termiczny i inne przydatne rzeczy. Dzięki kilku przegródkom zawsze wiem gdzie szybko znajdę klucze i słuchawki. No i ten kształt! Istne cudo 💙💗 na pewno wrócę jeszcze po więcej cycków 🥰<\/p>",
+            "content": "<p>Najlepsza obsługa jaką do tej pory spotkałam. Marzyła mi się torebka wyjątkowa, niebieska z różowym paskiem. Właścicielka zaproponowała nietypowy kolor szwu: zdecydowałam się na różowy, pasujący do paska. Dzięki temu dostałam prezent od siebie dla siebie na urodziny, w pełni spersonalizowany. Z torebką praktycznie się nie rozstaję: wersja MIDI mieści kubek termiczny i inne przydatne rzeczy. Dzięki kilku przegródkom zawsze wiem gdzie szybko znajdę klucze i słuchawki. No i ten kształt! Istne cudo 💙💗 na pewno wrócę jeszcze po więcej cycków 🥰</p>",
             "author": "Agata z Warszawy"
           }
         },
         "1ed2639e-f2ec-459f-bf33-9b9bd80d6672": {
           "type": "review",
           "settings": {
-            "content": "<p>Kto nie lubi cycków? Nie ma takich ludzi. Cycki ze Shof są bezkonkurencyjne 🫶<\/p>",
+            "content": "<p>Kto nie lubi cycków? Nie ma takich ludzi. Cycki ze Shof są bezkonkurencyjne 🫶</p>",
             "author": "Karolina z Kielc"
           }
         },
         "403a0d01-3440-47fd-b704-c2eae3cdec74": {
           "type": "review",
           "settings": {
-            "content": "<p>Obserwuje od 3 lat i podziwiam i od tygodnia jestem w posiadaniu pięknej cyckonerki! Wykonanie sztos<\/p>",
+            "content": "<p>Obserwuje od 3 lat i podziwiam i od tygodnia jestem w posiadaniu pięknej cyckonerki! Wykonanie sztos</p>",
             "author": "Natalia z Wrocławia"
           }
         }
@@ -297,10 +297,10 @@
     "image-with-title": {
       "type": "image-with-title",
       "settings": {
-        "image": "shopify:\/\/shop_images\/o-nas.png",
-        "url": "shopify:\/\/pages\/o-nas",
+        "image": "shopify://shop_images/o-nas.png",
+        "url": "shopify://pages/o-nas",
         "container_size": 1240,
-        "title": "<p>O<\/p><p>NAS<\/p>",
+        "title": "<p>O</p><p>NAS</p>",
         "title_size": 35,
         "color": "text-shof-violet",
         "title_x": -15
@@ -310,7 +310,7 @@
       "type": "apps",
       "blocks": {
         "84952beb-e016-4c6f-880c-6a2b74c8f6db": {
-          "type": "shopify:\/\/apps\/tizzy-instagram-feed\/blocks\/ig_feed\/195a0b78-59e2-42af-8b17-5bd53518cf45",
+          "type": "shopify://apps/tizzy-instagram-feed/blocks/ig_feed/195a0b78-59e2-42af-8b17-5bd53518cf45",
           "settings": {
             "feed_id": "1"
           }
@@ -326,7 +326,7 @@
       "type": "newsletter",
       "settings": {
         "title": "Newsletter",
-        "subtitle": "<p>Zapraszam do domku na drzewie!<\/p>",
+        "subtitle": "<p>Zapraszam do domku na drzewie!</p>",
         "consent_text": "Wyrażam zgodę na otrzymywanie newslettera"
       }
     }
