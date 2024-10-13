@@ -84,35 +84,37 @@
   </template>
 
 
-
   <!-- Slider / 1st column -->
   <div class="md:w-1/2">
 
-  <div
-  class="slider relative overflow-hidden"
-  x-data="slider"
-  x-init="initialize">
-  <div x-ref="sliderContainer">
-    {% for block in section.blocks %}
-      <img
-       x-init="slideInit"
-        x-ref="slide-{{ forloop.index }}"
-        class="absolute w-full h-auto aspect-[1/1] object-cover"
-        src="{{ block.settings.slider_image |  image_url: width: 1000 }}"
-        alt="Image 1" />
-      
-    {% endfor %}
-  </div>
 
-  {% comment %} Arrows {% endcomment %}
-  <div class="arrows absolute w-full flex justify-between top-1/2 -translate-y-1/2">
-    <div @click="previousSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-left' size: 80 %}</div>
-    <div @click="nextSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-right' size: 80 %}</div>
-  </div>
+    <div
+      class="slider relative overflow-hidden"
+      x-data="slider"
+      x-init="initialize">
+      <div x-ref="sliderContainer">
+        {% for block in section.blocks %}
 
-</div>
 
-  
+          <img
+            x-init="slideInit"
+            x-ref="slide-{{ forloop.index }}"
+            class="absolute w-full h-auto aspect-[1/1] object-cover"
+            src="{{ block.settings.slider_image |  image_url: width: 1000 }}"
+            alt="Image 1" />
+
+
+        {% endfor %}
+      </div>
+
+      {% comment %} Arrows {% endcomment %}
+      <div class="arrows absolute w-full flex justify-between top-1/2 -translate-y-1/2">
+        <div @click="previousSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-left' size: 40 %}</div>
+        <div @click="nextSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-right' size: 40 %}</div>
+      </div>
+
+    </div>
+
 
   </div>
 
@@ -151,11 +153,13 @@
         "type": "image_picker",
         "label": "Image 2",
         "id": "image_2"
-      }, {
+      },
+      {
         "type": "url",
         "label": "Image 2 Link",
         "id": "image_2_link"
-      }, {
+      },
+      {
         "type": "checkbox",
         "label": "Podgląd zdjęcia po kliknięciu",
         "id": "image_2_zoom",
@@ -210,6 +214,10 @@
             "type": "image_picker",
             "id": "slider_image",
             "label": "Zdjęcie"
+          }, {
+            "type": "url",
+            "label": "Link",
+            "id": "slider_image_link"
           }
         ]
       }
