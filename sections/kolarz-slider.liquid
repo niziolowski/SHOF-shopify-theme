@@ -1,0 +1,223 @@
+<div
+  @keydown.escape.window="showModal = false"
+  :class="{ 'z-40': showModal }"
+  class=" container flex flex-col md:flex-row gap-4 my-10"
+  x-data="{
+    show: false,
+    showModal: false,
+    imageSrc: '',
+
+    // This function is setting up the animation and it's properties
+    init() {
+      this.setupAlpineAnimations();
+    },
+
+    setupAlpineAnimations() {
+      // Get all images DOM elements
+      const firstColumn = this.$el.children[1];
+      const secondColumn = this.$el.children[2].children[0].children;
+      const allImages = [firstColumn, ...secondColumn];
+
+      // Apply attributes to elements with respective delay
+      allImages.forEach((image, index) => {
+        // add attributes to image
+          image.setAttribute('x-show', 'show');
+          image.setAttribute(`x-transition:enter.duration.500ms.delay.${index}50ms`, '');
+      });
+    },
+
+    openModal(imageSrc) {
+      this.imageSrc = imageSrc;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+    }
+  }"
+  x-intersect.once="show = true">
+  <!-- Modal overlay (click to close) -->
+  <template x-teleport="body">
+    <div
+      x-show="showModal"
+      class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+      x-cloak>
+      <div
+        x-show="showModal"
+        x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="ease-in duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click="showModal=false"
+        class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
+      <div
+        x-show="showModal"
+        x-trap.inert.noscroll="showModal"
+        x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-2 sm:scale-95"
+        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave="ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
+        class="relative w-[100vmin] py-6 bg-white border shadow-l px-7 border-neutral-200 sm:max-w-2xl sm:rounded-lg">
+        <div class="flex items-center justify-between pb-3">
+          <button @click="showModal=false" class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50">
+            <svg
+              class="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+        </div>
+        <img
+          :src="imageSrc"
+          class="w-full h-auto"
+          alt="Image" />
+      </div>
+    </div>
+  </template>
+
+
+
+  <!-- Slider / 1st column -->
+  <div class="md:w-1/2">
+
+  <div
+  class="slider relative overflow-hidden"
+  x-data="slider"
+  x-init="initialize">
+  <div x-ref="sliderContainer">
+    {% for block in section.blocks %}
+      <img
+       x-init="slideInit"
+        x-ref="slide-{{ forloop.index }}"
+        class="absolute w-full h-auto aspect-[1/1] object-cover"
+        src="{{ block.settings.slider_image |  image_url: width: 1000 }}"
+        alt="Image 1" />
+      
+    {% endfor %}
+  </div>
+
+  {% comment %} Arrows {% endcomment %}
+  <div class="arrows absolute w-full flex justify-between top-1/2 -translate-y-1/2">
+    <div @click="previousSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-left' size: 80 %}</div>
+    <div @click="nextSlide()" class="transition text-shof-pink hover:scale-[1.2] active:scale-[1]">{% render 'icon-chevron-right' size: 80 %}</div>
+  </div>
+
+</div>
+
+  
+
+  </div>
+
+  <!-- Second column with four pictures -->
+  <div class="md:w-1/2">
+    <div class="grid grid-cols-2 gap-4">
+      {% for i in (2..5) %}
+        {% capture image_var %}image_{{ i }}{% endcapture %}
+        {% capture link_var %}image_{{ i }}_link{% endcapture %}
+        {% capture zoom_var %}image_{{ i }}_zoom{% endcapture %}
+        <a
+          href="{{ section.settings[link_var] }}"
+          {% if section.settings[zoom_var] %}
+          @click.prevent="openModal('{{ section.settings[image_var] |  image_url: width: 1000}}')"
+          {% endif %}>
+
+          <img
+            class="w-full aspect-[1/1] object-cover"
+            src="{% if section.settings[image_var] == blank %}https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg{% else %}{{ section.settings[image_var] | image_url: width: 500 }}{% endif %}"
+            alt="Image {{ i }}" />
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Kolarz + Slicer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Kolumna prawa (4 zdjęcia)"
+      },
+      {
+        "type": "image_picker",
+        "label": "Image 2",
+        "id": "image_2"
+      }, {
+        "type": "url",
+        "label": "Image 2 Link",
+        "id": "image_2_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_2_zoom",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "label": "Image 3",
+        "id": "image_3"
+      }, {
+        "type": "url",
+        "label": "Image 3 Link",
+        "id": "image_3_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_3_zoom",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "label": "Image 4",
+        "id": "image_4"
+      }, {
+        "type": "url",
+        "label": "Image 4 Link",
+        "id": "image_4_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_4_zoom",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "label": "Image 5",
+        "id": "image_5"
+      }, {
+        "type": "url",
+        "label": "Image 5 Link",
+        "id": "image_5_link"
+      }, {
+        "type": "checkbox",
+        "label": "Podgląd zdjęcia po kliknięciu",
+        "id": "image_5_zoom",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slajd",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slider_image",
+            "label": "Zdjęcie"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Kolarz + Slider"
+      }
+    ]
+  }
+{% endschema %}
