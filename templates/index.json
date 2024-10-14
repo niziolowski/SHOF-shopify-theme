@@ -1,34 +1,14 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "kolarz": {
-      "type": "kolarz",
-      "settings": {
-        "first_image": "shopify://shop_images/baner_jesien_zima_2024.jpg",
-        "first_image_link": "shopify://collections/jesien-zima-23",
-        "first_image_zoom": false,
-        "image_2": "shopify://shop_images/SHOF_Banner_Preorder_pomaranczy_e371cfa7-3136-4791-a0ca-c612b263df17.png",
-        "image_2_link": "shopify://products/midi-cyckotorebka-pomaranczowa",
-        "image_2_zoom": false,
-        "image_3": "shopify://shop_images/baner-biust-napis.jpg",
-        "image_3_link": "",
-        "image_3_zoom": false,
-        "image_4": "shopify://shop_images/20210219_121924.jpg",
-        "image_4_link": "shopify://collections/mini-portfele",
-        "image_4_zoom": false,
-        "image_5": "shopify://shop_images/cycko-torebki-sesja-11-of-21-2048x2048.jpg",
-        "image_5_link": "shopify://collections/torebki",
-        "image_5_zoom": false
-      }
-    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -332,7 +312,6 @@
     }
   },
   "order": [
-    "kolarz",
     "featured-collection",
     "5c479d6b-a9c5-40af-be14-1c10df222738",
     "53d2633c-5674-4688-acea-488250809690",
