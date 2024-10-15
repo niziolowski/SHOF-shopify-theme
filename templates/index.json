@@ -9,6 +9,43 @@
  */
 {
   "sections": {
+    "kolarz_slider_WtAdTC": {
+      "type": "kolarz-slider",
+      "blocks": {
+        "slide_m4Vejf": {
+          "type": "slide",
+          "settings": {
+            "slider_image": "shopify://shop_images/baner_wysylka_zagraniczna.jpg",
+            "slider_image_link": ""
+          }
+        },
+        "slide_YGrxwx": {
+          "type": "slide",
+          "settings": {
+            "slider_image": "shopify://shop_images/baner_targi_rzeczy_ladnych.png",
+            "slider_image_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_m4Vejf",
+        "slide_YGrxwx"
+      ],
+      "settings": {
+        "image_2": "shopify://shop_images/baner_jesien_zima_2024.jpg",
+        "image_2_link": "shopify://collections/jesien-zima-23",
+        "image_2_zoom": false,
+        "image_3": "shopify://shop_images/SHOF-Bonpodarunkowymockupreka_3598dc85-3ffa-4612-ba09-c86f92494d2f.png",
+        "image_3_link": "shopify://products/bon-podarunkowy",
+        "image_3_zoom": false,
+        "image_4": "shopify://shop_images/baner-biust-napis.jpg",
+        "image_4_link": "",
+        "image_4_zoom": false,
+        "image_5": "shopify://shop_images/20210219_121924_1828c5bc-746a-4a2c-9cdc-5a7647382488.jpg",
+        "image_5_link": "shopify://collections/mini-portfele",
+        "image_5_zoom": false
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -312,6 +349,7 @@
     }
   },
   "order": [
+    "kolarz_slider_WtAdTC",
     "featured-collection",
     "5c479d6b-a9c5-40af-be14-1c10df222738",
     "53d2633c-5674-4688-acea-488250809690",
